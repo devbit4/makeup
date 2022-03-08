@@ -1,16 +1,14 @@
-import Link from "next/link";
-import {useRouter} from "next/router";
-import clsx from "clsx";
+import { useRouter } from "next/router";
 
 export default function Sidebar({menus}) {
     const router = useRouter();
-    console.log(menus);
+    const handleClick=(menu)=>{
+        router.push(`/brands/${menu}`)
+    }
 
     return (
-        <>
-        {
-            menus.map((menu,index)=>(<div></div>))
-        }
-        </>
+        <ul className="menus">
+            {menus && menus.map((menu,index)=><li key={index} onClick={()=>{handleClick(menu)}}>{menu}</li>)}
+        </ul>
     );
   }

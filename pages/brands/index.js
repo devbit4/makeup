@@ -1,22 +1,32 @@
+import { useEffect, useState } from "react";
+import List from "../../components/List";
+import Sidebar from "../../components/Sidebar";
+
 export default function Brands(){
     const brands=["clinique", "misa", "stila"];
+    const [products,setProducts]=useState();
+    
+    const url= "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
+    
+    const getData=()=>{
+        fetch(url)
+        .then(data=>data.json())
+        .then(json=>setProducts(json))
+    }
+
+    useEffect(()=>{
+        getData();
+    },[])
 
     return(
         <div className="wrapper">
             <div className="sidebar">
-                <ul className="brands">
-                    <h1>Brands</h1>
-                {
-                    brands.map((brand,index)=>{
-                        return(
-                            <li key={index} className="brand">{brand}</li>
-                        )
-                    })
-                }
-                </ul>
+                <h1>All brands</h1>
+                <Sidebar menus={brands}></Sidebar>
             </div>
             <div className="main">
                 <h1>All Brands Items</h1>    
+                <List products={products}></List>
             </div>
             <style jsx>{
             `
