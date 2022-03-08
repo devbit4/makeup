@@ -5,10 +5,9 @@ import Sidebar from "../../components/Sidebar";
 
 export default function Brands(){
     const router=useRouter();
-    const brands=["clinique", "misa", "stila"];
+    const brands=["maybelline", "clinique", "misa", "stila"];
     const [products,setProducts]=useState([]);
     const brand= router.query.brand;
-
     const url= `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;    
     const getData=()=>{
         fetch(url)

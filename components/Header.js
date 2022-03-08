@@ -23,7 +23,7 @@ export default function Header() {
                 <Link href="/about">
                     <a className={clsx("header-menu-item", router.pathname === "/about"? "active":"")} >About</a>            
                 </Link>
-                <Link href="/brands">
+                <Link href="/brands/maybelline">
                     <a className={clsx("header-menu-item", router.pathname === "/brands"? "active":"")} >Brands</a>   
                 </Link>
                 <Link href="/makeup">
