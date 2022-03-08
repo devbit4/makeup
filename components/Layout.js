@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
@@ -11,6 +12,8 @@ export default function Layout({ children }) {
         </div>
         <div className="main">{children}</div>
       </div>
+      <Footer></Footer>
+    
       <style jsx>{
         `
         .contents{
@@ -42,5 +45,6 @@ export default function Layout({ children }) {
       </style>
       
     </>
+    
   );
 }
