@@ -1,4 +1,10 @@
+import Link from "next/link";
+import clsx from "clsx";
+import { useRouter } from "next/router";
+
 export default function Footer() {
+
+    const router=useRouter();
     return (
 
       <> 
@@ -9,10 +15,18 @@ export default function Footer() {
             <span>Makeup</span>
           </div>
           <div className="foooter-menu">
-            <a className="footer-menu-item">About</a> 
-            <a className="footer-menu-item">Catalog</a> 
-            <a className="footer-menu-item">Location</a> 
-            <a className="footer-menu-item">Community</a> 
+                <Link href="/about">
+                    <a className={clsx("footer-menu-item", router.pathname === "/about"? "active":"")} >About</a>            
+                </Link>
+                <Link href="/brands">
+                    <a className={clsx("footer-menu-item", router.pathname === "/brands"? "active":"")} >Brands</a>   
+                </Link>
+                <Link href="/makeup">
+                    <a className={clsx("footer-menu-item", router.pathname === "/makeup"? "active":"")}>Makeup</a>
+                </Link>
+                <Link href="/community">
+                    <a className={clsx("footer-menu-item", router.pathname === "/community"? "active":"")} >Community</a>
+                </Link>
           </div>
         </div>
         <div className="footer-lower">
@@ -57,6 +71,9 @@ export default function Footer() {
         }
         .footer-menu-item{
           margin: 0 10px;
+        }
+        .footer-menu-item.active{
+          color:red;
         }
         .footer-details{
           display:flex;

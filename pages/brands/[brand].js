@@ -1,7 +1,7 @@
 export default function Brand(){
     return(
         <>
-            <h1>brandpage</h1>
+            <h1>brandspage</h1>
         </>
     )
 }
