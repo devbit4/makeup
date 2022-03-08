@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../styles/fonts.css'
 import Layout from '../components/Layout'
 
 import { config } from '@fortawesome/fontawesome-svg-core'
