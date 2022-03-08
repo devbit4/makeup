@@ -1,41 +1,20 @@
-export default function Makeup(){
-    const types=["blush", "eyebrow", "foundation"];
+import ListTest from "../../components/ListTest"
+
+export default function Makeup({products}){
+    console.log(products)
     return(
         <>
-            <div className="wrapper">
-            <div className="sidebar">
-                <ul className="brands">
-                    <h1>Types</h1>
-                {
-                    types.map((type,index)=>{
-                        return(
-                            <li key={index} className="brand">{type}</li>
-                        )
-                    })
-                }
-                </ul>
-            </div>
-            <div className="main">
-                <h1>All Items</h1>    
-            </div>
-            <style jsx>{
-            `
-            .wrapper{
-                display:flex;
-            }
-            .sidebar{
-                width:20%;
-                border:1px solid #000;
-            }
-            .main{
-                width:80%;
-                border:1px solid #000;
-            }
-            
-            `
-            }
-            </style>            
-        </div>
+            <ListTest products={products} ></ListTest>
         </>
     )
+}
+
+export async function getStaticProps(){
+    const res = await fetch("http://makeup-api.herokuapp.com/api/v1/products.json?brand=clinique")
+    const products = await res.json()
+    return{
+        props:{
+            products,
+        }
+    }
 }
