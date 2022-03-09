@@ -4,14 +4,20 @@ import Sidebar from "./Sidebar";
 
 export default function Layout({ children }) {
   return (
-    <>
+    <div className="layout">
       <Header></Header>
         <div className="main">{children}</div>
       <Footer></Footer>
     
     {/* Layout 스타일링 */}
-      
-    </>
+     <style jsx>{
+       `
+        .main{
+          padding: 0 12vw;
+        }
+       `
+     }</style>
+    </div>
     
   );
 }

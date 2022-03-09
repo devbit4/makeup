@@ -68,6 +68,7 @@ export default function Footer() {
       <style jsx>{
         `
         .footer{
+          padding: 0 12vw;
           background-color:yellow;
         }
         .footer-upper{

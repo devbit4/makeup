@@ -58,7 +58,7 @@ export default function Header() {
         justify-content: space-between;
         align-items: center;
         color: #000;
-        padding: 10px 20px;
+        padding: 0 12vw;
       }
       .header-logo{
         display:flex;
@@ -83,6 +83,7 @@ export default function Header() {
         display:flex;
         justify-content:end;
         margin:10px;
+        padding: 0 12vw;
       }
 
       // <tablet 구간>
