@@ -16,80 +16,89 @@ export default function Header() {
   return (
     <>
       <header className="header">
-        <Link href="/">
-          <a>
-            <div className="header-logo">
-              <FontAwesomeIcon icon={faFan} size={"2xl"} />
-              <span className="header-logo-title">Sephora</span>
-            </div>
-          </a>
-        </Link>
-        <nav className="header-menu">
-          <Link href="/about">
-            <a
-              className={clsx(
-                "header-menu-item",
-                router.pathname === "/about" ? "active" : ""
-              )}
-            >
-              About
+        <div className="inner">
+          <Link href="/">
+            <a>
+              <div className="header-logo">
+                <FontAwesomeIcon icon={faFan} size={"2xl"} />
+                <span className="header-logo-title">Sephora</span>
+              </div>
             </a>
           </Link>
-          <Link href="/brands/clinique">
-            <a
-              className={clsx(
-                "header-menu-item",
-                router.pathname === "/brands/[brand]" ? "active" : ""
-              )}
-            >
-              Brands
-            </a>
-          </Link>
-          <Link href="/makeup">
-            <a
-              className={clsx(
-                "header-menu-item",
-                router.pathname === "/makeup" ? "active" : ""
-              )}
-            >
-              Makeup
-            </a>
-          </Link>
-          <Link href="/community/faq">
-            <a
-              className={clsx(
-                "header-menu-item",
-                router.pathname === "/community/[section]" ? "active" : ""
-              )}
-            >
-              Community
-            </a>
-          </Link>
-        </nav>
-        <div className="header-toggle-button" onClick={handleToggle}>
-          <FontAwesomeIcon icon={faBars} />
+          <nav className="header-menu">
+            <Link href="/about">
+              <a
+                className={clsx(
+                  "header-menu-item",
+                  router.pathname === "/about" ? "active" : ""
+                )}
+              >
+                About
+              </a>
+            </Link>
+            <Link href="/brands/clinique">
+              <a
+                className={clsx(
+                  "header-menu-item",
+                  router.pathname === "/brands/[brand]" ? "active" : ""
+                )}
+              >
+                Brands
+              </a>
+            </Link>
+            <Link href="/makeup">
+              <a
+                className={clsx(
+                  "header-menu-item",
+                  router.pathname === "/makeup" ? "active" : ""
+                )}
+              >
+                Makeup
+              </a>
+            </Link>
+            <Link href="/community/faq">
+              <a
+                className={clsx(
+                  "header-menu-item",
+                  router.pathname === "/community/[section]" ? "active" : ""
+                )}
+              >
+                Community
+              </a>
+            </Link>
+          </nav>
+          <div className="header-toggle-button" onClick={handleToggle}>
+            <FontAwesomeIcon icon={faBars} />
+          </div>
         </div>
       </header>
       <div className="header-search-box">
-        <input
-          type="text"
-          className="search-box-input"
-          placeholder="화장품을 입력하세요"
-        ></input>
-        <button className="search-box-button">Search!</button>
+        <div className="header-search-inner">
+          <input
+            type="text"
+            className="search-box-input"
+            placeholder="화장품을 입력하세요"
+          ></input>
+          <button className="search-box-button">Search!</button>
+        </div>
       </div>
 
       {/* Header 스타일 */}
       <style jsx>{`
         .header {
           width: 100%;
-          height: 10vh;
+          height: 80px;
           background-color: #f5f2ee;
+          color: #000;
+        }
+        .inner {
+          width: 1180px;
+          height: 100%;
+          margin: 0 auto;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          color: #000;
-          padding: 0 12vw;
+          padding: 0 20px;
         }
         .header-logo {
           display: flex;
@@ -116,10 +125,14 @@ export default function Header() {
           display: none;
         }
         .header-search-box {
+          background-color: #f5f2ee;
+        }
+        .header-search-inner {
+          width: 1180px;
+          margin: 0 auto;
           display: flex;
           justify-content: end;
-          background-color: #f5f2ee;
-          padding: 0 12vw 2vh 12vw;
+          padding: 0 20px 20px 20px;
         }
         .search-box-input {
           width: 250ox;
@@ -138,7 +151,18 @@ export default function Header() {
         }
 
         // <tablet 구간>
+        @media screen and (max-width: 1180px) {
+          .inner {
+            width: 100%;
+          }
+          .header-search-inner {
+            width: 100%;
+          }
+        }
         @media screen and (max-width: 768px) {
+          .inner {
+            width: 100%;
+          }
           .header-menu {
             display: none;
           }

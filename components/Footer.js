@@ -10,83 +10,85 @@ export default function Footer() {
   return (
     <>
       <footer className="footer">
-        <div className="footer-upper">
-          <Link href="/">
-            <a>
-              <div className="logo" className="footer-logo">
-                <FontAwesomeIcon icon={faFan} size={"xl"} />
-                <span className="footer-logo-title">Sephora</span>
-              </div>
-            </a>
-          </Link>
-          <div className="foooter-menu">
-            <Link href="/about">
-              <a
-                className={clsx(
-                  "footer-menu-item",
-                  router.pathname === "/about" ? "active" : ""
-                )}
-              >
-                About
+        <div className="inner">
+          <div className="footer-upper">
+            <Link href="/">
+              <a>
+                <div className="logo" className="footer-logo">
+                  <FontAwesomeIcon icon={faFan} size={"xl"} />
+                  <span className="footer-logo-title">Sephora</span>
+                </div>
               </a>
             </Link>
-            <Link href="/brands/maybelline">
-              <a
-                className={clsx(
-                  "footer-menu-item",
-                  router.pathname === "/brands/[brand]" ? "active" : ""
-                )}
-              >
-                Brands
-              </a>
-            </Link>
-            <Link href="/makeup">
-              <a
-                className={clsx(
-                  "footer-menu-item",
-                  router.pathname === "/makeup" ? "active" : ""
-                )}
-              >
-                Makeup
-              </a>
-            </Link>
-            <Link href="/community/faq">
-              <a
-                className={clsx(
-                  "footer-menu-item",
-                  router.pathname === "/community/[section]" ? "active" : ""
-                )}
-              >
-                Community
-              </a>
-            </Link>
+            <div className="footer-menu">
+              <Link href="/about">
+                <a
+                  className={clsx(
+                    "footer-menu-item",
+                    router.pathname === "/about" ? "active" : ""
+                  )}
+                >
+                  About
+                </a>
+              </Link>
+              <Link href="/brands/maybelline">
+                <a
+                  className={clsx(
+                    "footer-menu-item",
+                    router.pathname === "/brands/[brand]" ? "active" : ""
+                  )}
+                >
+                  Brands
+                </a>
+              </Link>
+              <Link href="/makeup">
+                <a
+                  className={clsx(
+                    "footer-menu-item",
+                    router.pathname === "/makeup" ? "active" : ""
+                  )}
+                >
+                  Makeup
+                </a>
+              </Link>
+              <Link href="/community/faq">
+                <a
+                  className={clsx(
+                    "footer-menu-item",
+                    router.pathname === "/community/[section]" ? "active" : ""
+                  )}
+                >
+                  Community
+                </a>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="footer-lower">
-          <ul className="footer-details">
-            <li className="footer-detail">
-              <span>Working Time</span>
-              <p>Monday-Saturday</p>
-              <p>09:00-18:00</p>
-            </li>
-            <li className="footer-detail">
-              <span>Address</span>
-              <p>198 West 21th street Suite 721</p>
-              <p>New York,NY 10010</p>
-            </li>
-            <li className="footer-detail">
-              <span>Website policies</span>
-              <p>Terms&Conditions</p>
-              <p>Privacy policy</p>
-              <p>Accessibility</p>
-            </li>
-            <li className="footer-detail">
-              <span>Social</span>
-              <p>Instagram</p>
-              <p>Pinterest</p>
-              <p>Twitter</p>
-            </li>
-          </ul>
+          <div className="footer-lower">
+            <ul className="footer-details">
+              <li className="footer-detail">
+                <span>Working Time</span>
+                <p>Monday-Saturday</p>
+                <p>09:00-18:00</p>
+              </li>
+              <li className="footer-detail">
+                <span>Address</span>
+                <p>198 West 21th street Suite 721</p>
+                <p>New York,NY 10010</p>
+              </li>
+              <li className="footer-detail">
+                <span>Website policies</span>
+                <p>Terms&Conditions</p>
+                <p>Privacy policy</p>
+                <p>Accessibility</p>
+              </li>
+              <li className="footer-detail">
+                <span>Social</span>
+                <p>Instagram</p>
+                <p>Pinterest</p>
+                <p>Twitter</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </footer>
       <div className="footer-copyright">&copy; All Rights Are Reserved.</div>
@@ -94,8 +96,13 @@ export default function Footer() {
       <style jsx>
         {`
           .footer {
-            padding: 10vh 12vw;
+            width: 100%;
             background-color: #e5e0e0;
+          }
+          .inner {
+            width: 1180px;
+            margin: 0 auto;
+            padding: 20px;
           }
           .footer-upper {
             display: flex;
@@ -103,6 +110,9 @@ export default function Footer() {
             padding: 30px 10px;
             border-bottom: 1px solid #000;
             padding-bottom: 30px;
+          }
+          .footer-lower {
+            padding-bottom: 20px;
           }
           .footer-logo {
             display: flex;
@@ -143,14 +153,24 @@ export default function Footer() {
             margin-bottom: 10px;
           }
           .footer-copyright {
+            width: 100%;
+            margin: 0 auto;
             text-align: center;
             background-color: #000;
             padding: 10px 0;
             color: #fff;
             font: 400 8px/1.4 "roboto";
           }
-          // <tablet 구간>
+          // 반응형 구간
+          @media screen and (max-width: 1180px) {
+            .inner {
+              width: 100%;
+            }
+          }
           @media screen and (max-width: 768px) {
+            .footer-menu {
+              display: none;
+            }
             .footer-details {
               flex-wrap: wrap;
             }
