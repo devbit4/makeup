@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faCircle } from '@fortawesome/free-solid-svg-icons';
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 export default function Faq(){
     const router = useRouter ();
@@ -28,6 +29,8 @@ export default function Faq(){
                 <Sidebar menus={comminity} title={"community"}></Sidebar>
             </div>
             <div className="main">
+                <h1>{section.toUpperCase()}</h1>
+                <Breadcrumbs></Breadcrumbs>
                 {
                     problems.map((problem,index)=>{
                         return(

@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Breadcrumbs from "../../components/Breadcrumbs";
 import List from "../../components/List";
 import Sidebar from "../../components/Sidebar";
 
@@ -15,8 +16,9 @@ export default function Brands(){
         .then(json=>setProducts(json))
     }
     useEffect(()=>{
-        brand&& getData();
+        brand && getData();
     },[brand])
+
       return(
         <div className="wrapper">
             <div className="sidebar">
@@ -25,6 +27,7 @@ export default function Brands(){
             </div>
             <div className="main">
                 <h1>All Brands Items</h1>    
+                <Breadcrumbs></Breadcrumbs>
                 <List products={products}></List>
             </div>
             <style jsx>{
