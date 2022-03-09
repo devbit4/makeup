@@ -69,6 +69,7 @@ export default function Faq() {
           }
           .main {
             width: 80%;
+            min-height: 1000px;
             padding: 40px;
           }
           .main-title {

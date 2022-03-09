@@ -71,7 +71,11 @@ export default function Header() {
         </div>
       </header>
       <div className="header-search-box">
-        <input type="text" className="search-box-input"></input>
+        <input
+          type="text"
+          className="search-box-input"
+          placeholder="화장품을 입력하세요"
+        ></input>
         <button className="search-box-button">Search!</button>
       </div>
 

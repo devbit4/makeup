@@ -6,22 +6,27 @@ export default function ListTest({ products }) {
     router.push(`/view/${id}`);
   };
   return (
-    <ul className="list">
-      {products &&
-        products.map((product) => {
-          return (
-            <li
-              className="item"
-              key={product.id}
-              onClick={() => handleItemClick(product.id)}
-            >
-              <img src={product.image_link}></img>
-              <strong>{product.name}</strong>
-              <span>{product.product_type}</span>
-              <strong>${product.price}</strong>
-            </li>
-          );
-        })}
-    </ul>
+    <>
+      <input type="checkbox"></input>
+      <input type="checkbox"></input>
+      <ul className="items">
+        {products &&
+          products.map((product) => {
+            return (
+              <li
+                className="item"
+                key={product.id}
+                onClick={() => handleItemClick(product.id)}
+              >
+                <img src={product.image_link}></img>
+                <strong>{product.name}</strong>
+                <span>{product.product_type}</span>
+                <strong>${product.price}</strong>
+              </li>
+            );
+          })}
+        <style jsx>{``}</style>
+      </ul>
+    </>
   );
 }
