@@ -31,33 +31,39 @@ export default function Home() {
           </div>
           <div className="home-info-pics">
             <article className="home-info-pic">
-              <img
-                src="/img/1.jpg"
-                alt="home-info-pic"
-                className="home-info-pic-img"
-              ></img>
+              <div className="img-wrapper">
+                <img
+                  src="/img/main2.jpg"
+                  alt="home-info-pic1"
+                  className="home-info-pic-img"
+                ></img>
+              </div>
               <div className="home-info-textbox">
                 <strong>001</strong>
                 <span>SKIN CARE</span>
               </div>
             </article>
             <article className="home-info-pic">
-              <img
-                src="/img/2.jpg"
-                alt="home-info-pic2"
-                className="home-info-pic-img"
-              ></img>
+              <div className="img-wrapper">
+                <img
+                  src="/img/main3.jpg"
+                  alt="home-info-pic3"
+                  className="home-info-pic-img"
+                ></img>
+              </div>
               <div className="home-info-textbox">
                 <strong>002</strong>
                 <span>Body CARE</span>
               </div>
             </article>
             <article className="home-info-pic">
-              <img
-                src="/img/3.jpg"
-                alt="home-info-pic3"
-                className="home-info-pic-img"
-              ></img>
+              <div className="img-wrapper">
+                <img
+                  src="/img/main4.jpg"
+                  alt="home-info-pic4"
+                  className="home-info-pic-img"
+                ></img>
+              </div>
               <div className="home-info-textbox">
                 <strong>003</strong>
                 <span>Hair CARE</span>
@@ -85,7 +91,7 @@ export default function Home() {
         <section className="home-promotions">
           <div className="home-promotion">
             <img
-              src="/img/4.jpg"
+              src="/img/main5.jpg"
               alt="promotion1"
               className="home-promotion-img"
             ></img>
@@ -93,22 +99,22 @@ export default function Home() {
           <div className="home-promotion">
             <div className="home-promotion-wrapper">
               <img
-                src="/img/0.jpg"
+                src="/img/main6.jpg"
                 alt="promotion1"
                 className="home-promotion-sm-img"
               ></img>
               <img
-                src="/img/0.jpg"
+                src="/img/main7.jpg"
                 alt="promotion1"
                 className="home-promotion-sm-img"
               ></img>
               <img
-                src="/img/0.jpg"
+                src="/img/1.jpg"
                 alt="promotion1"
                 className="home-promotion-sm-img"
               ></img>
               <img
-                src="/img/0.jpg"
+                src="/img/6.jpg"
                 alt="promotion1"
                 className="home-promotion-sm-img"
               ></img>
@@ -116,7 +122,7 @@ export default function Home() {
           </div>
           <div className="home-promotion">
             <img
-              src="/img/1.jpg"
+              src="/img/3.jpg"
               alt="promotion1"
               className="home-promotion-img"
             ></img>
@@ -127,7 +133,7 @@ export default function Home() {
         .home-visual {
           width: 100%;
           height: 80vh;
-          background-image: url("/img/0.jpg");
+          background-image: url("/img/main1.jpg");
           background-repeat: no-repeat;
           background-position: center;
           background-size: cover;
@@ -165,13 +171,13 @@ export default function Home() {
         .home-info {
           width: 100%;
           background-color: #e5e0e0;
-          padding: 10vh 10vw;
+          padding: 15vh 10vw;
         }
         .home-info-intro {
           width: 90%;
           display: flex;
           margin: o auto;
-          padding-bottom: 20px;
+          padding-bottom: 50px;
           margin-bottom: 100px;
           border-bottom: 1px solid #333;
         }
@@ -189,11 +195,20 @@ export default function Home() {
         }
         .home-info-pic {
           width: 30%;
-          height: 20vh;
+        }
+        .img-wrapper {
+          width: 100%;
+          height: 200px;
+          overflow: hidden;
         }
         .home-info-pic-img {
           width: 100%;
           height: 100%;
+          transition: all 0.5s;
+          object-fit: cover;
+        }
+        .home-info-pic-img:hover {
+          transform: scale(1.2);
         }
         .home-info-textbox {
           margin-top: 10px;
@@ -205,7 +220,7 @@ export default function Home() {
         }
         .home-info-textbox span {
           margin-left: 10px;
-          font: 400 16px/1 "roboto";
+          font: 400 1px/1 "roboto";
         }
         .home-news {
           background-color: #b46927;
@@ -220,6 +235,8 @@ export default function Home() {
           display: block;
           font: 400 16px/1 "roboto";
           margin-bottom: 20px;
+          padding-bottom: 20px;
+          border-bottom: 1px solid #000;
         }
         .home-news-article {
           font: 400 16px/1.4 "roboto";
@@ -238,10 +255,12 @@ export default function Home() {
         .home-promotion-img {
           width: 100%;
           height: 100%;
+          object-fit: cover;
         }
         .home-promotion-sm-img {
           width: 50%;
           height: 50%;
+          object-fit: cover;
         }
       `}</style>
     </>
