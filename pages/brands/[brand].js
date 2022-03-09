@@ -8,15 +8,25 @@ export default function Brands(){
     const router=useRouter();
     const brands=["maybelline", "clinique", "misa", "stila"];
     const [products,setProducts]=useState([]);
+    const [loading,setLoading] =useState(false);
     const brand= router.query.brand;
     const url= `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;    
     const getData=()=>{
+        setProducts();
         fetch(url)
         .then(data=>data.json())
-        .then(json=>setProducts(json))
+        .then(json=>{
+            setLoading(false)
+            setProducts(json)})   
     }
     useEffect(()=>{
-        brand && getData();
+        // brand && getData();
+if(brand){
+    setLoading(true);
+    getData();
+    
+}
+
     },[brand])
 
       return(
@@ -28,7 +38,8 @@ export default function Brands(){
             <div className="main">
                 <h1>All Brands Items</h1>    
                 <Breadcrumbs></Breadcrumbs>
-                <List products={products}></List>
+                {loading? "loading": <List products={products}></List>}
+                
             </div>
             <style jsx>{
             `

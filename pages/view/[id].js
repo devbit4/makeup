@@ -1,4 +1,11 @@
+import { useRouter } from "next/router"
+
 export default function Detail({item}){
+    const router =useRouter();
+    if(router.isFallback){
+        return <h1>loading</h1>
+    }
+    
     return(
         <>
             {
@@ -22,10 +29,6 @@ export async function getStaticPaths(){
     const res = await fetch("http://makeup-api.herokuapp.com/api/v1/products.json?brand=clinique")
     const data = await res.json()
 return{
-    // paths:[
-    //     {params:{id:"846"}},
-        
-    // ], 
     paths: data.slice(0,9).map(item=>(
         {
             params: {
