@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import Breadcrumbs from "../../components/Breadcrumbs";
 import List from "../../components/List";
 import Sidebar from "../../components/Sidebar";
 
 export default function Brands(){
-    const brands=["clinique", "misa", "stila"];
+    const brands=["maybelline","clinique", "misa", "stila"];
     const [products,setProducts]=useState();
     
     const url= "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
@@ -22,10 +23,11 @@ export default function Brands(){
         <div className="wrapper">
             <div className="sidebar">
                 <h1>All brands</h1>
-                <Sidebar menus={brands}></Sidebar>
+                <Sidebar menus={brands} title={"brands"}></Sidebar>
             </div>
             <div className="main">
-                <h1>All Brands Items</h1>    
+                <h1>All Brands Items</h1>
+                <Breadcrumbs></Breadcrumbs>    
                 <List products={products}></List>
             </div>
             <style jsx>{

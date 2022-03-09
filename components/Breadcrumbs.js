@@ -35,9 +35,6 @@ export default function Breadcrumbs(){
   return (
     <nav aria-label="breadcrumbs">
       <ol className="breadcrumb">
-        <li>
-          <a href="/">HOME</a>
-        </li>
         {breadcrumbs.map((breadcrumb, i) => {
           return (
             <li key={breadcrumb.href}>
