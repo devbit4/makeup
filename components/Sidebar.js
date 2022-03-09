@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 
-export default function Sidebar({menus}) {
+export default function Sidebar({menus,title}) {
     const router = useRouter();
     const handleClick=(menu)=>{
-        router.push(`/brands/${menu}`)
+        router.push(`/${title}/${menu}`)
     }
 
     return (

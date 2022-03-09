@@ -21,7 +21,7 @@ export default function Brands(){
         <div className="wrapper">
             <div className="sidebar">
                 <h1>All brands</h1>
-                <Sidebar menus={brands}></Sidebar>
+                <Sidebar menus={brands} title={"brands"}></Sidebar>
             </div>
             <div className="main">
                 <h1>All Brands Items</h1>    

@@ -24,13 +24,13 @@ export default function Header() {
                     <a className={clsx("header-menu-item", router.pathname === "/about"? "active":"")} >About</a>            
                 </Link>
                 <Link href="/brands/maybelline">
-                    <a className={clsx("header-menu-item", router.pathname === "/brands"? "active":"")} >Brands</a>   
+                    <a className={clsx("header-menu-item", router.pathname === "/brands/[brand]"? "active":"")} >Brands</a>   
                 </Link>
                 <Link href="/makeup">
                     <a className={clsx("header-menu-item", router.pathname === "/makeup"? "active":"")}>Makeup</a>
                 </Link>
-                <Link href="/community">
-                    <a className={clsx("header-menu-item", router.pathname === "/community"? "active":"")} >Community</a>
+                <Link href="/community/faq">
+                    <a className={clsx("header-menu-item", router.pathname === "/community/[section]"? "active":"")} >Community</a>
                 </Link>
         </nav>
         <div className="header-toggle-button" onClick={handleToggle}>
