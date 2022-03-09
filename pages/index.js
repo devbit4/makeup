@@ -4,7 +4,7 @@ export default function Home() {
       <div className="home">
         <section className="home-visual">
           {/* <h1 className="home-title">Show Your Beauty</h1> */}
-          <div className="wrapper">
+          <div className="inner">
             <p className="home-visual-text1">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam,
               veritatis ea corrupti voluptatibus ad ut vitae suscipit assumenda?
@@ -19,134 +19,98 @@ export default function Home() {
           </div>
         </section>
         <section className="home-info">
-          <div className="home-info-intro">
-            <span className="home-info-intro-title">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </span>
-            <p className="home-info-intro-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-              laboriosam harum beatae cum explicabo quia saepe quae officia, sed
-              veniam, voluptate sit tempore! Doloremque, odio.
-            </p>
-          </div>
-          <div className="home-info-pics">
-            <article className="home-info-pic">
-              <div className="img-wrapper">
-                <img
-                  src="/img/main2.jpg"
-                  alt="home-info-pic1"
-                  className="home-info-pic-img"
-                ></img>
-              </div>
-              <div className="home-info-textbox">
-                <strong>001</strong>
-                <span>SKIN CARE</span>
-              </div>
-            </article>
-            <article className="home-info-pic">
-              <div className="img-wrapper">
-                <img
-                  src="/img/main3.jpg"
-                  alt="home-info-pic3"
-                  className="home-info-pic-img"
-                ></img>
-              </div>
-              <div className="home-info-textbox">
-                <strong>002</strong>
-                <span>Body CARE</span>
-              </div>
-            </article>
-            <article className="home-info-pic">
-              <div className="img-wrapper">
-                <img
-                  src="/img/main4.jpg"
-                  alt="home-info-pic4"
-                  className="home-info-pic-img"
-                ></img>
-              </div>
-              <div className="home-info-textbox">
-                <strong>003</strong>
-                <span>Hair CARE</span>
-              </div>
-            </article>
+          <div className="inner">
+            <div className="home-info-intro">
+              <span className="home-info-intro-title">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              </span>
+              <p className="home-info-intro-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                laboriosam harum beatae cum explicabo quia saepe quae officia,
+                sed veniam, voluptate sit tempore! Doloremque, odio.
+              </p>
+            </div>
+            <div className="home-info-pics">
+              <article className="home-info-pic">
+                <div className="img-wrapper">
+                  <img
+                    src="/img/main2.jpg"
+                    alt="home-info-pic1"
+                    className="home-info-pic-img"
+                  ></img>
+                </div>
+                <div className="home-info-textbox">
+                  <strong>001</strong>
+                  <span>SKIN CARE</span>
+                </div>
+              </article>
+              <article className="home-info-pic">
+                <div className="img-wrapper">
+                  <img
+                    src="/img/main3.jpg"
+                    alt="home-info-pic3"
+                    className="home-info-pic-img"
+                  ></img>
+                </div>
+                <div className="home-info-textbox">
+                  <strong>002</strong>
+                  <span>BODY CARE</span>
+                </div>
+              </article>
+              <article className="home-info-pic">
+                <div className="img-wrapper">
+                  <img
+                    src="/img/main4.jpg"
+                    alt="home-info-pic4"
+                    className="home-info-pic-img"
+                  ></img>
+                </div>
+                <div className="home-info-textbox">
+                  <strong>003</strong>
+                  <span>HAIR CARE</span>
+                </div>
+              </article>
+            </div>
           </div>
         </section>
         <section className="home-news">
-          <h2 className="home-news-title">THE LATEST</h2>
-          <span className="home-news-subtitle">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
-            unde?
-          </span>
-          <p className="home-news-article">
-            1Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            porro error tempora a, ea ab aliquid blanditiis veniam quam
-            earum.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Similique porro error tempora a, ea ab aliquid blanditiis veniam
-            quam earum.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Similique porro error tempora a, ea ab aliquid blanditiis veniam
-            quam earum.
-          </p>
-          <span className="more-btn">READ MORE</span>
-        </section>
-        <section className="home-promotions">
-          <div className="home-promotion">
-            <img
-              src="/img/main5.jpg"
-              alt="promotion1"
-              className="home-promotion-img"
-            ></img>
-          </div>
-          <div className="home-promotion">
-            <div className="home-promotion-wrapper">
-              <img
-                src="/img/main6.jpg"
-                alt="promotion1"
-                className="home-promotion-sm-img"
-              ></img>
-              <img
-                src="/img/main7.jpg"
-                alt="promotion1"
-                className="home-promotion-sm-img"
-              ></img>
-              <img
-                src="/img/1.jpg"
-                alt="promotion1"
-                className="home-promotion-sm-img"
-              ></img>
-              <img
-                src="/img/6.jpg"
-                alt="promotion1"
-                className="home-promotion-sm-img"
-              ></img>
-            </div>
-          </div>
-          <div className="home-promotion">
-            <img
-              src="/img/3.jpg"
-              alt="promotion1"
-              className="home-promotion-img"
-            ></img>
+          <div className="inner">
+            <h2 className="home-news-title">THE LATEST</h2>
+            <span className="home-news-subtitle">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatum, unde?
+            </span>
+            <p className="home-news-article">
+              1Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Similique porro error tempora a, ea ab aliquid blanditiis veniam
+              quam earum.Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Similique porro error tempora a, ea ab aliquid blanditiis
+              veniam quam earum.Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Similique porro error tempora a, ea ab aliquid
+              blanditiis veniam quam earum.
+            </p>
+            <span className="home-more-btn">READ MORE</span>
           </div>
         </section>
       </div>
       <style jsx>{`
+        .home {
+          width: 100%;
+        }
         .home-visual {
           width: 100%;
-          height: 80vh;
+          height: 600px;
           background-image: url("/img/main1.jpg");
           background-repeat: no-repeat;
           background-position: center;
           background-size: cover;
           opacity: 0.9;
         }
-        .home-title {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          font: 500 64px/1 "fredoka";
-          -webkit-text-stroke: 4px #333;
-          -webkit-text-fill-color: transparent;
+        .inner {
+          width: 1180px;
+          height: 100%;
+          margin: 0 auto;
+          position: relative;
         }
         .home-visual-text1 {
           width: 30%;
@@ -171,12 +135,12 @@ export default function Home() {
         .home-info {
           width: 100%;
           background-color: #e5e0e0;
-          padding: 15vh 10vw;
+          padding: 100px 0;
         }
         .home-info-intro {
           width: 90%;
           display: flex;
-          margin: o auto;
+          margin: 0 auto;
           padding-bottom: 50px;
           margin-bottom: 100px;
           border-bottom: 1px solid #333;
@@ -187,9 +151,11 @@ export default function Home() {
           color: #b46927;
         }
         .home-info-intro-description {
-          font: 400 16px/1.2 "Roboto";
+          font: 100 16px/1.2 "Roboto";
         }
         .home-info-pics {
+          width: 90%;
+          margin: 0 auto;
           display: flex;
           justify-content: space-between;
         }
@@ -223,8 +189,10 @@ export default function Home() {
           font: 400 1px/1 "roboto";
         }
         .home-news {
-          background-color: #b46927;
-          padding: 10vh 20vw;
+          width: 100%;
+          background-color: #2f4858;
+          padding: 100px 0vw;
+          color: #fff;
         }
         .home-news-title {
           font: 500 24px/1 "fredoka";
@@ -232,35 +200,42 @@ export default function Home() {
           margin-bottom: 100px;
         }
         .home-news-subtitle {
+          width: 80%;
+          margin: 0 auto;
           display: block;
           font: 400 16px/1 "roboto";
           margin-bottom: 20px;
           padding-bottom: 20px;
-          border-bottom: 1px solid #000;
+          border-bottom: 1px solid #fff;
         }
         .home-news-article {
-          font: 400 16px/1.4 "roboto";
+          width: 80%;
+          margin: 0 auto;
+          font: 100 16px/1.4 "roboto";
           margin-bottom: 40px;
         }
-        .home-promotions {
-          display: flex;
-          background-color: #f5f2ee;
-          justify-content: space-between;
-          padding: 10vh 10vw;
+        .home-more-btn {
+          width: 80%;
+          margin: 0 auto;
+          display: block;
         }
-        .home-promotion {
-          width: 32%;
-          height: 200px;
+        // 반응형
+        @media screen and (max-width: 1180px) {
+          .inner {
+            width: 100%;
+          }
         }
-        .home-promotion-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .home-promotion-sm-img {
-          width: 50%;
-          height: 50%;
-          object-fit: cover;
+        @media screen and (max-width: 500px) {
+          .home-visual-text2 {
+            top: 20%;
+          }
+          .home-info-pics {
+            flex-direction: column;
+          }
+          .home-info-pic {
+            width: 100%;
+            margin-bottom: 10px;
+          }
         }
       `}</style>
     </>

@@ -29,25 +29,28 @@ export default function Brands() {
   }, [brand]);
 
   return (
-    <div className="brands wrapper">
-      <div className="sidebar">
-        <Link href={"/brands"}>
-          <a>
-            <h1 className="sidebar-title">All brands</h1>
-          </a>
-        </Link>
-        <Sidebar menus={brands} title={"brands"}></Sidebar>
-      </div>
-      <div className="main">
-        <h1 className="main-title">All Brands Items</h1>
-        <Breadcrumbs></Breadcrumbs>
-        {loading ? "loading" : <List products={products}></List>}
+    <div className="brands">
+      <div className="inner">
+        <div className="sidebar">
+          <Link href={"/brands"}>
+            <a>
+              <h1 className="sidebar-title">All brands</h1>
+            </a>
+          </Link>
+          <Sidebar menus={brands} title={"brands"}></Sidebar>
+        </div>
+        <div className="main">
+          <h1 className="main-title">All Brands Items</h1>
+          <Breadcrumbs></Breadcrumbs>
+          {loading ? "loading" : <List products={products}></List>}
+        </div>
       </div>
       <style jsx>
         {`
-          .wrapper {
+          .inner {
+            width: 1180px;
+            margin: 0 auto;
             display: flex;
-            padding: 0 10vw;
           }
           .sidebar {
             width: 20%;
@@ -70,8 +73,13 @@ export default function Brands() {
             border-bottom: 1px solid #333;
           }
           // <tablet 구간>
+          @media screen and (max-width: 1180px) {
+            .inner {
+              width: 100%;
+            }
+          }
           @media screen and (max-width: 768px) {
-            .wrapper {
+            .inner {
               flex-direction: column;
             }
             .sidebar {

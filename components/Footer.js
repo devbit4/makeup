@@ -76,7 +76,7 @@ export default function Footer() {
                 <p>New York,NY 10010</p>
               </li>
               <li className="footer-detail">
-                <span>Website policies</span>
+                <span>Website Policies</span>
                 <p>Terms&Conditions</p>
                 <p>Privacy policy</p>
                 <p>Accessibility</p>
@@ -102,7 +102,7 @@ export default function Footer() {
           .inner {
             width: 1180px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px;
           }
           .footer-upper {
             display: flex;

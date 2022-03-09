@@ -17,10 +17,10 @@ export default function Detail() {
     id && getData();
   }, [id]);
   return (
-    <div className="wrapper">
+    <>
       {item && (
-        <>
-          <div className="detail">
+        <div className="detail">
+          <div className="inner">
             <div className="detail-pic">
               <img src={item.image_link} className="detail-img"></img>
             </div>
@@ -36,14 +36,16 @@ export default function Detail() {
               </div>
             </div>
           </div>
-          <p>{item.description}</p>
-        </>
+        </div>
       )}
       <style jsx>{`
-        .wrapper {
-          padding: 10vh 12vw;
-        }
         .detail {
+          width: 100%;
+        }
+        .inner {
+          width: 1180px;
+          margin: 0 auto;
+          padding: 40px;
           display: flex;
           align-items: center;
           border-bottom: 1px solid #333;
@@ -51,11 +53,9 @@ export default function Detail() {
         }
         .detail-pic {
           width: 200px;
-          heigth: 200px;
         }
         .detail-img {
           width: 100%;
-          height: 100%;
         }
         .detail-text {
           display: flex;
@@ -87,7 +87,18 @@ export default function Detail() {
           background: #333;
           color: #fff;
         }
+        // 빈응형
+        @media screen and (max-width: 1180px) {
+          .inner {
+            width: 100%;
+          }
+        }
+        @media screen and (max-width: 768px) {
+          .btn {
+            width: 80px;
+          }
+        }
       `}</style>
-    </div>
+    </>
   );
 }

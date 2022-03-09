@@ -25,38 +25,41 @@ export default function Faq() {
   }, [section]);
 
   return (
-    <section className="community wrapper">
-      <div className="sidebar">
-        <h1 className="sidebar-title">All sections</h1>
-        <Sidebar menus={comminity} title={"community"}></Sidebar>
-      </div>
-      <div className="main">
-        <h1 className="main-title">{section}</h1>
-        {problems.map((problem, index) => {
-          return (
-            <article key={index} className="problem">
-              <div className="question" onClick={handleClick}>
-                <div className="question-front">
-                  <FontAwesomeIcon icon={faCircle} />
-                  <h2>{problem.question}</h2>
+    <section className="community">
+      <div className="inner">
+        <div className="sidebar">
+          <h1 className="sidebar-title">All sections</h1>
+          <Sidebar menus={comminity} title={"community"}></Sidebar>
+        </div>
+        <div className="main">
+          <h1 className="main-title">{section}</h1>
+          {problems.map((problem, index) => {
+            return (
+              <article key={index} className="problem">
+                <div className="question" onClick={handleClick}>
+                  <div className="question-front">
+                    <FontAwesomeIcon icon={faCircle} />
+                    <h2>{problem.question}</h2>
+                  </div>
+                  <div className="question-underbar">
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </div>
                 </div>
-                <div className="question-underbar">
-                  <FontAwesomeIcon icon={faChevronDown} />
+                <div className="answer">
+                  <p>{problem.answer}</p>
                 </div>
-              </div>
-              <div className="answer">
-                <p>{problem.answer}</p>
-              </div>
-            </article>
-          );
-        })}
+              </article>
+            );
+          })}
+        </div>
       </div>
       {/* community section 스타일링 */}
       <style jsx>
         {`
-          .wrapper {
+          .inner {
+            width: 1180px;
+            margin: 0 auto;
             display: flex;
-            padding: 0 10vw;
           }
           .sidebar {
             width: 20%;
@@ -114,9 +117,14 @@ export default function Faq() {
           .problem.off .question-underbar {
             transform: rotate(0deg);
           }
-          // <tablet 구간>
+          // 반응형 구간
+          @media screen and (max-width: 1180px) {
+            .inner {
+              width: 100%;
+            }
+          }
           @media screen and (max-width: 768px) {
-            .wrapper {
+            .inner {
               flex-direction: column;
             }
             .sidebar {
