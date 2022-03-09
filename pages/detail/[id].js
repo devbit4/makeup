@@ -19,22 +19,25 @@ export default function Detail() {
   return (
     <div className="wrapper">
       {item && (
-        <div className="detail">
-          <div className="detail-pic">
-            <img src={item.image_link} className="detail-img"></img>
-          </div>
-          <div className="detail-text">
-            <strong className="detail-name">{item.name}</strong>
-            <span className="detail-sub">
-              {item.category || "all"} / {item.product_type}
-            </span>
-            <strong className="detail-price">${item.price}</strong>
-            <div className="btns">
-              <button className="put-button btn">장바구니</button>
-              <button className="buy-button btn">구매하기</button>
+        <>
+          <div className="detail">
+            <div className="detail-pic">
+              <img src={item.image_link} className="detail-img"></img>
+            </div>
+            <div className="detail-text">
+              <strong className="detail-name">{item.name}</strong>
+              <span className="detail-sub">
+                {item.category || "all"} / {item.product_type}
+              </span>
+              <strong className="detail-price">${item.price}</strong>
+              <div className="btns">
+                <button className="put-button btn">장바구니</button>
+                <button className="buy-button btn">구매하기</button>
+              </div>
             </div>
           </div>
-        </div>
+          <p>{item.description}</p>
+        </>
       )}
       <style jsx>{`
         .wrapper {
@@ -43,6 +46,8 @@ export default function Detail() {
         .detail {
           display: flex;
           align-items: center;
+          border-bottom: 1px solid #333;
+          margin-bottom: 40px;
         }
         .detail-pic {
           width: 200px;
@@ -61,17 +66,26 @@ export default function Detail() {
           font: 700 16px/1 "roboto";
         }
         .detail-sub {
-          margin-bottom: 10px;
+          margin-bottom: 20px;
           font: 400 16px/1 "roboto";
         }
         .detail-price {
-          margin-bottom: 10px;
+          margin-bottom: 40px;
           font: 400 24px/1 "roboto";
           color: red;
         }
         .btn {
           width: 200px;
           display: inline-block;
+          border: none;
+          border-radius: 4px;
+          padding: 10px;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+        .btn:hover {
+          background: #333;
+          color: #fff;
         }
       `}</style>
     </div>

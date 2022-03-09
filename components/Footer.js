@@ -14,7 +14,7 @@ export default function Footer() {
           <Link href="/">
             <a>
               <div className="logo" className="footer-logo">
-                <FontAwesomeIcon icon={faFan} />
+                <FontAwesomeIcon icon={faFan} size={"xl"} />
                 <span className="footer-logo-title">Sephora</span>
               </div>
             </a>
@@ -115,7 +115,7 @@ export default function Footer() {
           .footer-menu-item {
             margin: 0 10px;
             cursor: pointer;
-            font: 400 12px/1 "fredoka";
+            font: 400 14px/1 "fredoka";
           }
           .footer-menu-item.active {
             color: #b46927;
@@ -135,11 +135,11 @@ export default function Footer() {
           .footer-detail p,
           a {
             cursor: pointer;
-            font: 400 12px/1.4 "roboto";
+            font: 400 14px/1.4 "roboto";
           }
           .footer-detail span {
             display: block;
-            font: 700 12px/1.4 "roboto";
+            font: 700 14px/1.4 "roboto";
             margin-bottom: 10px;
           }
           .footer-copyright {
