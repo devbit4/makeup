@@ -27,7 +27,7 @@ export default function Faq() {
   return (
     <section className="section wrapper">
       <div className="sidebar">
-        <h1>All sections</h1>
+        <h1 className="sidebar-title">All sections</h1>
         <Sidebar menus={comminity} title={"community"}></Sidebar>
       </div>
       <div className="main">
@@ -60,8 +60,10 @@ export default function Faq() {
           }
           .sidebar {
             width: 20%;
-            background-color: #777;
-            padding: 40px 10px;
+            background-color: #999;
+            padding: 40px 20px;
+          }
+          .sidebar-title {
             color: #fff;
           }
           .main {
@@ -107,6 +109,21 @@ export default function Faq() {
           }
           .problem.off .question-underbar {
             transform: rotate(0deg);
+          }
+          // <tablet 구간>
+          @media screen and (max-width: 768px) {
+            .wrapper {
+              flex-direction: column;
+            }
+            .sidebar {
+              width: 100%;
+              padding: 20px;
+            }
+            .main {
+              width: 100%;
+              border-left: 1px solid #999;
+              border-right: 1px solid #999;
+            }
           }
         `}
       </style>
