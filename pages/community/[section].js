@@ -25,7 +25,7 @@ export default function Faq() {
   }, [section]);
 
   return (
-    <section className="section wrapper">
+    <section className="community wrapper">
       <div className="sidebar">
         <h1 className="sidebar-title">All sections</h1>
         <Sidebar menus={comminity} title={"community"}></Sidebar>
@@ -65,16 +65,17 @@ export default function Faq() {
           }
           .sidebar-title {
             color: #fff;
+            font: 500 24px "fredoka";
           }
           .main {
             width: 80%;
             padding: 40px;
           }
           .main-title {
-            font: 500 24px "fredoka";
             margin-bottom: 50px;
             padding-bottom: 10px;
             border-bottom: 1px solid #333;
+            font: 500 24px "fredoka";
           }
           .problem {
             margin-bottom: 20px;

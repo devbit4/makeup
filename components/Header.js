@@ -35,7 +35,7 @@ export default function Header() {
               About
             </a>
           </Link>
-          <Link href="/brands/misa">
+          <Link href="/brands/clinique">
             <a
               className={clsx(
                 "header-menu-item",

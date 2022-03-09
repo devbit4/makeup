@@ -4,60 +4,82 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import List from "../../components/List";
 import Sidebar from "../../components/Sidebar";
 
-export default function Brands(){
-    const router=useRouter();
-    const brands=["maybelline", "clinique", "misa", "stila"];
-    const [products,setProducts]=useState([]);
-    const [loading,setLoading] =useState(false);
-    const brand= router.query.brand;
-    const url= `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;    
-    const getData=()=>{
-        setProducts();
-        fetch(url)
-        .then(data=>data.json())
-        .then(json=>{
-            setLoading(false)
-            setProducts(json)})   
+export default function Brands() {
+  const router = useRouter();
+  const brands = ["clinique", "benefit", "misa", "stila"];
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const brand = router.query.brand;
+  const url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;
+  const getData = () => {
+    setProducts();
+    fetch(url)
+      .then((data) => data.json())
+      .then((json) => {
+        setLoading(false);
+        setProducts(json);
+      });
+  };
+  useEffect(() => {
+    if (brand) {
+      setLoading(true);
+      getData();
     }
-    useEffect(()=>{
-        // brand && getData();
-if(brand){
-    setLoading(true);
-    getData();
-    
-}
+  }, [brand]);
 
-    },[brand])
-
-      return(
-        <div className="wrapper">
-            <div className="sidebar">
-                <h1>All brands</h1>
-                <Sidebar menus={brands} title={"brands"}></Sidebar>
-            </div>
-            <div className="main">
-                <h1>All Brands Items</h1>    
-                <Breadcrumbs></Breadcrumbs>
-                {loading? "loading": <List products={products}></List>}
-                
-            </div>
-            <style jsx>{
-            `
-            .wrapper{
-                display:flex;
+  return (
+    <div className="brands wrapper">
+      <div className="sidebar">
+        <h1 className="sidebar-title">All brands</h1>
+        <Sidebar menus={brands} title={"brands"}></Sidebar>
+      </div>
+      <div className="main">
+        <h1 className="main-title">All Brands Items</h1>
+        <Breadcrumbs></Breadcrumbs>
+        {loading ? "loading" : <List products={products}></List>}
+      </div>
+      <style jsx>
+        {`
+          .wrapper {
+            display: flex;
+            padding: 0 10vw;
+          }
+          .sidebar {
+            width: 20%;
+            background-color: #999;
+            padding: 40px 20px;
+          }
+          .sidebar-title {
+            color: #fff;
+            font: 500 24px "fredoka";
+          }
+          .main {
+            width: 80%;
+            padding: 40px;
+          }
+          .main-title {
+            font: 500 24px "fredoka";
+            margin-bottom: 50px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+          }
+          // <tablet 구간>
+          @media screen and (max-width: 768px) {
+            .wrapper {
+              flex-direction: column;
             }
-            .sidebar{
-                width:20%;
-                border:1px solid #000;
+            .sidebar {
+              width: 100%;
+              padding: 20px;
             }
-            .main{
-                width:80%;
-                border:1px solid #000;
+            .main {
+              width: 100%;
+              border-left: 1px solid #999;
+              border-right: 1px solid #999;
             }
-            
-            `
-            }
-            </style>            
-        </div>
-    )
+          }
+        `}
+      </style>
+    </div>
+  );
 }

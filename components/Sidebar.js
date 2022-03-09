@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 
 export default function Sidebar({ menus, title }) {
   const router = useRouter();
-  const section = router.query.section;
-  console.log(section);
+  const query = router.query.section || router.query.brand || "all";
+
   const handleClick = (menu) => {
     router.push(`/${title}/${menu}`);
   };
@@ -12,11 +12,11 @@ export default function Sidebar({ menus, title }) {
   return (
     <ul className="menus">
       {menus &&
-        section &&
+        query &&
         menus.map((menu, index) => (
           <li
             key={index}
-            className={clsx("menu", section === menu ? "active" : "")}
+            className={clsx("menu", menu === query ? "active" : "")}
             onClick={() => {
               handleClick(menu);
             }}
@@ -26,11 +26,12 @@ export default function Sidebar({ menus, title }) {
         ))}
       <style jsx>{`
         .menus {
-          margin-top: 20px;
+          margin-top: 40px;
         }
         .menu {
           margin-bottom: 10px;
           cursor: pointer;
+          font: 400 14px/1 "roboto";
         }
         .menu.active {
           color: #fff;
