@@ -2,6 +2,9 @@ import Link from "next/link";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFan } from '@fortawesome/free-solid-svg-icons';
+
 export default function Footer() {
 
     const router=useRouter();
@@ -10,10 +13,14 @@ export default function Footer() {
       <> 
       <footer className="footer">
         <div className="footer-upper">
-          <div className="logo">
-            <img src="#" alt="logo"></img>
-            <span>Makeup</span>
-          </div>
+          <Link href="/">
+            <a>
+              <div className="logo">
+                <FontAwesomeIcon icon={faFan} />
+                <span>Sephora</span>
+              </div>
+            </a>
+          </Link>
           <div className="foooter-menu">
                 <Link href="/about">
                     <a className={clsx("footer-menu-item", router.pathname === "/about"? "active":"")} >About</a>            

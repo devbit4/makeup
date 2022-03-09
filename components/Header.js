@@ -4,7 +4,7 @@ import {useRouter} from "next/router";
 import clsx from "clsx";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faFan, faBars, } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header() {
   const router = useRouter();
@@ -16,9 +16,14 @@ export default function Header() {
   return (
     <>
     <header className="header">
-        <div className="header-logo">
-          <img src="" alt="logo"></img>
-        </div>
+        <Link href="/">
+            <a>
+              <div className="logo">
+                <FontAwesomeIcon icon={faFan} />
+                <span>Sephora</span>
+              </div>
+            </a>
+        </Link>
         <nav className="header-menu">                
                 <Link href="/about">
                     <a className={clsx("header-menu-item", router.pathname === "/about"? "active":"")} >About</a>            
