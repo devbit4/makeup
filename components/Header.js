@@ -18,9 +18,9 @@ export default function Header() {
     <header className="header">
         <Link href="/">
             <a>
-              <div className="logo">
-                <FontAwesomeIcon icon={faFan} />
-                <span>Sephora</span>
+              <div className="header-logo">
+                <FontAwesomeIcon icon={faFan} size={"2xl"}/>
+                <span className='header-logo-title'>Sephora</span>
               </div>
             </a>
         </Link>
@@ -53,7 +53,7 @@ export default function Header() {
       .header{
         width: 100%; 
         height: 10vh;
-        background-color: yellow;
+        background-color: #f5f2ee;
         display:flex;
         justify-content: space-between;
         align-items: center;
@@ -64,6 +64,10 @@ export default function Header() {
         display:flex;
         align-items: center;
       }
+      .header-logo-title{
+        font: 500 28px/1 "fredoka";
+        margin-left: 10px;
+      }
       .header-menu{
         display:flex;
       }
@@ -71,9 +75,10 @@ export default function Header() {
         padding: 8px;
         margin: 0 10px;
         cursor: pointer;
+        font: 400 16px/1 "fredoka";
       }
       .header-menu-item.active{
-        color:red;
+        color:#b46927;
       }
       .header-toggle-button{
         cursor:pointer;
@@ -82,8 +87,23 @@ export default function Header() {
       .header-search-box{
         display:flex;
         justify-content:end;
-        margin:10px;
-        padding: 0 12vw;
+        background-color: #f5f2ee;
+        padding: 1vh 12vw;
+      }
+      .search-box-input{
+        width: 200ox;
+        outline:none;
+        border:none;
+      }
+      .search-box-button{
+        width: 80px;
+        height: 20px;
+        margin-left: 10px;
+        border:none;
+        cursor:pointer;
+        background-color:#aaa;
+        font: 400 12px/1 "fredoka";
+        color:#fff;
       }
 
       // <tablet 구간>
