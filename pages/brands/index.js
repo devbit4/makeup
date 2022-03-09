@@ -27,7 +27,7 @@ export default function Brands() {
         <Sidebar menus={brands} title={"brands"}></Sidebar>
       </div>
       <div className="main">
-        <h1>All Brands Items</h1>
+        <h1 className="main-title">All Brands Items</h1>
         <Breadcrumbs></Breadcrumbs>
         <List products={products}></List>
       </div>
@@ -55,6 +55,21 @@ export default function Brands() {
             margin-bottom: 50px;
             padding-bottom: 10px;
             border-bottom: 1px solid #333;
+          }
+          // <tablet 구간>
+          @media screen and (max-width: 768px) {
+            .wrapper {
+              flex-direction: column;
+            }
+            .sidebar {
+              width: 100%;
+              padding: 20px;
+            }
+            .main {
+              width: 100%;
+              border-left: 1px solid #999;
+              border-right: 1px solid #999;
+            }
           }
         `}
       </style>

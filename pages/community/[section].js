@@ -78,7 +78,9 @@ export default function Faq() {
             font: 500 24px "fredoka";
           }
           .problem {
-            margin-bottom: 20px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
           }
           .question {
             display: flex;

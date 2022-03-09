@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Breadcrumbs from "../../components/Breadcrumbs";
@@ -30,7 +31,11 @@ export default function Brands() {
   return (
     <div className="brands wrapper">
       <div className="sidebar">
-        <h1 className="sidebar-title">All brands</h1>
+        <Link href={"/brands"}>
+          <a>
+            <h1 className="sidebar-title">All brands</h1>
+          </a>
+        </Link>
         <Sidebar menus={brands} title={"brands"}></Sidebar>
       </div>
       <div className="main">
