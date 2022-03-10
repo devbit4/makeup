@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "id": "01",
+      "pic": "/img/member2.jpg",
+      "name": "Mak Wang",
+      "job": "Director",
+      "email": "wang1234@gmail.com",
+      "say": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum debitis neque facilis eius impedit non mollitia. Architecto qui tempora, mollitia non corrupti cumque, nisi unde ipsam repudiandae minima adipisci totam reiciendis! Laudantium aliquid repellendus iure!"
+    },
+    {
+      "id": "02",
+      "pic": "/img/member3.jpg",
+      "name": "Mak Wang",
+      "job": "Director",
+      "email": "wang1234@gmail.com",
+      "say": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum debitis neque facilis eius impedit non mollitia. Architecto qui tempora, mollitia non corrupti cumque, nisi unde ipsam repudiandae minima adipisci totam reiciendis! Laudantium aliquid repellendus iure!"
+    },
+    {
+      "id": "03",
+      "pic": "/img/member4.jpg",
+      "name": "Mak Wang",
+      "job": "Director",
+      "email": "wang1234@gmail.com",
+      "say": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum debitis neque facilis eius impedit non mollitia. Architecto qui tempora, mollitia non corrupti cumque, nisi unde ipsam repudiandae minima adipisci totam reiciendis! Laudantium aliquid repellendus iure!"
+    }
+  ]
+}
