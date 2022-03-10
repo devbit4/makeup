@@ -89,6 +89,15 @@ export default function Home() {
               adipisicing elit. Similique porro error tempora a, ea ab aliquid
               blanditiis veniam quam earum.
             </p>
+            <p className="home-news-article">
+              1Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Similique porro error tempora a, ea ab aliquid blanditiis veniam
+              quam earum.Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Similique porro error tempora a, ea ab aliquid blanditiis
+              veniam quam earum.Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Similique porro error tempora a, ea ab aliquid
+              blanditiis veniam quam earum.
+            </p>
             <span className="home-more-btn">READ MORE</span>
           </div>
         </section>
@@ -120,7 +129,7 @@ export default function Home() {
           border-top: 2px solid #fff;
           padding-top: 5px;
           color: #fff;
-          font: 400 16px "Roboto";
+          font: 400 16px "questrial";
         }
         .home-visual-text2 {
           width: 30%;
@@ -130,7 +139,7 @@ export default function Home() {
           border-top: 2px solid #fff;
           padding-top: 5px;
           color: #fff;
-          font: 400 16px "Roboto";
+          font: 400 16px "questrial";
         }
         .home-info {
           width: 100%;
@@ -151,7 +160,7 @@ export default function Home() {
           color: #b46927;
         }
         .home-info-intro-description {
-          font: 100 16px/1.2 "Roboto";
+          font: 400 16px/1.2 "questrial";
         }
         .home-info-pics {
           width: 90%;
@@ -203,7 +212,7 @@ export default function Home() {
           width: 80%;
           margin: 0 auto;
           display: block;
-          font: 400 16px/1 "roboto";
+          font: 400 16px "questrial";
           margin-bottom: 20px;
           padding-bottom: 20px;
           border-bottom: 1px solid #fff;
@@ -211,7 +220,7 @@ export default function Home() {
         .home-news-article {
           width: 80%;
           margin: 0 auto;
-          font: 100 16px/1.4 "roboto";
+          font: 400 12px/1.4 "questrial";
           margin-bottom: 40px;
         }
         .home-more-btn {
