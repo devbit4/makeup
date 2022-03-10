@@ -109,7 +109,7 @@ export default function Members() {
           margin-bottom: 40px;
         }
         .member-text p {
-          font: 400 12px/1.4 "questrial";
+          font: 400 14px/1.4 "questrial";
         }
         .member-text h2 {
         }

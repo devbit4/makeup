@@ -69,7 +69,7 @@ export default function About() {
         }
         .about-ceo-text p {
           display: block;
-          font: 400 12px/1.4 "questrial";
+          font: 400 14px/1.4 "questrial";
           margin-bottom: 30px;
           text-align: left;
         }
