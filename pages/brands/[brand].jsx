@@ -13,6 +13,7 @@ export default function Brands() {
   const [loading, setLoading] = useState(false);
   const brand = router.query.brand;
   const url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;
+
   const getData = () => {
     setProducts();
     fetch(url)
