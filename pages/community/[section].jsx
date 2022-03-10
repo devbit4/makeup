@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faCircle } from "@fortawesome/free-solid-svg-icons";
+import Seo from "../../components/common/Seo";
 
 export default function Faq() {
   const router = useRouter();
@@ -25,34 +26,37 @@ export default function Faq() {
   }, [section]);
 
   return (
-    <section className="community">
-      <div className="inner">
-        <div className="sidebar">
-          <h1 className="sidebar-title">All sections</h1>
-          <Sidebar menus={comminity} title={"community"}></Sidebar>
-        </div>
-        <div className="main">
-          <h1 className="main-title">{section}</h1>
-          {problems.map((problem, index) => {
-            return (
-              <article key={index} className="problem">
-                <div className="question" onClick={handleClick}>
-                  <div className="question-front">
-                    <FontAwesomeIcon icon={faCircle} />
-                    <h2>{problem.question}</h2>
+    <>
+      <Seo title="Community"></Seo>
+      <section className="community">
+        <div className="inner">
+          <div className="sidebar">
+            <h1 className="sidebar-title">All sections</h1>
+            <Sidebar menus={comminity} title={"community"}></Sidebar>
+          </div>
+          <div className="main">
+            <h1 className="main-title">{section}</h1>
+            {problems.map((problem, index) => {
+              return (
+                <article key={index} className="problem">
+                  <div className="question" onClick={handleClick}>
+                    <div className="question-front">
+                      <FontAwesomeIcon icon={faCircle} />
+                      <h2>{problem.question}</h2>
+                    </div>
+                    <div className="question-underbar">
+                      <FontAwesomeIcon icon={faChevronDown} />
+                    </div>
                   </div>
-                  <div className="question-underbar">
-                    <FontAwesomeIcon icon={faChevronDown} />
+                  <div className="answer">
+                    <p>{problem.answer}</p>
                   </div>
-                </div>
-                <div className="answer">
-                  <p>{problem.answer}</p>
-                </div>
-              </article>
-            );
-          })}
+                </article>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </section>
       {/* community section 스타일링 */}
       <style jsx>
         {`
@@ -139,6 +143,6 @@ export default function Faq() {
           }
         `}
       </style>
-    </section>
+    </>
   );
 }

@@ -1,6 +1,9 @@
+import Seo from "../components/common/Seo";
+
 export default function Home() {
   return (
     <>
+      <Seo title="Home" />
       <div className="home">
         <section className="home-visual">
           {/* <h1 className="home-title">Show Your Beauty</h1> */}

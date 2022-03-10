@@ -1,16 +1,20 @@
+import Seo from "../../components/common/Seo";
 import ListTest from "../../components/sub/ListTest";
 
 export default function Makeup({ products }) {
   console.log(products);
   return (
-    <div className="list">
-      <ListTest products={products}></ListTest>
-      <style jsx>{`
-        .list {
-          padding: 0 12vw;
-        }
-      `}</style>
-    </div>
+    <>
+      <Seo title="Makeup"></Seo>
+      <div className="makeup">
+        <ListTest products={products}></ListTest>
+        <style jsx>{`
+          .list {
+            padding: 0 12vw;
+          }
+        `}</style>
+      </div>
+    </>
   );
 }
 
