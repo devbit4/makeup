@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Seo from "../../components/common/Seo";
 import ListTest from "../../components/sub/ListTest";
 
@@ -6,12 +6,41 @@ export default function Makeup({ products }) {
   const bestItems = products.slice(0, 9);
   const newItems = products.slice(10, 20);
   const [viewtype, setViewtype] = useState("two");
+  const [data, setData] = useState([...bestItems]);
+  const select = useRef();
+
+  const normalPrice = () => {
+    const newArray = [...bestItems];
+    setData(newArray);
+  };
+  const lowerPrice = () => {
+    const newArray = [...bestItems];
+    const setArray = newArray.sort((a, b) => a.price - b.price);
+    setData(setArray);
+  };
+  const upperPrice = () => {
+    const newArray = [...bestItems];
+    const setArray = newArray.sort((a, b) => b.price - a.price);
+    setData(setArray);
+  };
+
+  const handleChange = (e) => {
+    const selectedIndex = e.target.value;
+    selectedIndex === "0" ? normalPrice() : "";
+    selectedIndex === "1" ? lowerPrice() : "";
+    selectedIndex === "2" ? upperPrice() : "";
+  };
 
   return (
     <>
       <Seo title="Makeup"></Seo>
       <div className="makeup">
         <div className="inner">
+          <select ref={select} onChange={handleChange}>
+            <option value="0">선택</option>
+            <option value="1">낮은가격순</option>
+            <option value="2">높은가격순</option>
+          </select>
           <ul className="list-type-btns">
             <li className="list-type-btn">
               <input
@@ -21,7 +50,6 @@ export default function Makeup({ products }) {
                 type="radio"
                 name="gen"
                 id="one"
-                defaultChecked
               />
               <label htmlFor="one"></label>
             </li>
@@ -31,6 +59,7 @@ export default function Makeup({ products }) {
                 name="gen"
                 type="radio"
                 id="two"
+                defaultChecked
               />
               <label htmlFor="two"></label>
             </li>
@@ -38,11 +67,11 @@ export default function Makeup({ products }) {
           <div className="makeup-subtitle">
             <h2>Best Items</h2>
           </div>
-          <ListTest products={bestItems} viewtype={viewtype}></ListTest>
+          <ListTest products={data} viewtype={viewtype}></ListTest>
           <div className="makeup-subtitle">
             <h2>New Items</h2>
           </div>
-          <ListTest products={bestItems} viewtype={viewtype}></ListTest>
+          <ListTest products={newItems} viewtype={viewtype}></ListTest>
         </div>
       </div>
       <style jsx>{`
