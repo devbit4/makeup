@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Sidebar from "../../components/Sidebar";
+import Sidebar from "../../components/common/Sidebar";
 import { useRouter } from "next/router";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

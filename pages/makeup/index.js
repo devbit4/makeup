@@ -1,4 +1,4 @@
-import ListTest from "../../components/ListTest";
+import ListTest from "../../components/sub/ListTest";
 
 export default function Makeup({ products }) {
   console.log(products);

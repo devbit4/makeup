@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Breadcrumbs from "../../components/Breadcrumbs";
-import List from "../../components/List";
-import Sidebar from "../../components/Sidebar";
+import Breadcrumbs from "../../components/sub/Breadcrumbs";
+import List from "../../components/sub/List";
+import Sidebar from "../../components/common/Sidebar";
 
 export default function Brands() {
   const brands = ["clinique", "benefit", "misa", "stila"];

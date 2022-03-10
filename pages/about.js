@@ -1,9 +1,9 @@
-import Members from "../components/Members";
+import Members from "../components/sub/Members";
 
 export default function About() {
   return (
     <>
-      <h1 className="subtitle">About</h1>
+      <h1 className="sub">About</h1>
       <div className="about">
         <div className="inner">
           <div className="about-ceo">
