@@ -5,6 +5,7 @@ import clsx from "clsx";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFan, faBars } from "@fortawesome/free-solid-svg-icons";
+import SearchBox from "../sub/SearchBox";
 
 export default function Header() {
   const router = useRouter();
@@ -72,16 +73,7 @@ export default function Header() {
           </div>
         </div>
       </header>
-      <div className="header-search-box">
-        <div className="header-search-inner">
-          <input
-            type="text"
-            className="search-box-input"
-            placeholder="화장품을 입력하세요"
-          ></input>
-          <button className="search-box-button">Search!</button>
-        </div>
-      </div>
+      <SearchBox></SearchBox>
 
       {/* Header 스타일 */}
       <style jsx>{`
@@ -123,31 +115,6 @@ export default function Header() {
         .header-toggle-button {
           cursor: pointer;
           display: none;
-        }
-        .header-search-box {
-          background-color: #f5f2ee;
-        }
-        .header-search-inner {
-          width: 1180px;
-          margin: 0 auto;
-          display: flex;
-          justify-content: end;
-          padding: 0 20px 20px 20px;
-        }
-        .search-box-input {
-          width: 250ox;
-          outline: none;
-          border: none;
-        }
-        .search-box-button {
-          width: 80px;
-          height: 20px;
-          margin-left: 10px;
-          border: none;
-          cursor: pointer;
-          background-color: #aaa;
-          font: 400 12px/1 "fredoka";
-          color: #fff;
         }
 
         // <tablet 구간>
