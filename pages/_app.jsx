@@ -21,6 +21,7 @@ export default MyApp;
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import Router from "next/router";
+import ArrowBtn from "../components/common/ArrowBtn";
 
 NProgress.configure({
   minimum: 0.3,
