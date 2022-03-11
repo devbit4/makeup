@@ -12,8 +12,8 @@ export default function About() {
             <div className="about-ceo-text">
               <h2>WE ARE SEPHORA</h2>
               <span>
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                cum fugit tempore magnam in natus beatae!"
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+                cum fugit tempore magnam in natus beatae!
               </span>
               <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -23,7 +23,7 @@ export default function About() {
                 Praesentium, distinctio iste vero rem doloribus blanditiis amet
                 alias consectetur.
               </p>
-              <span>"Lorem ipsum dolor sit amet."</span>
+              <span>Lorem ipsum dolor sit amet.</span>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi
                 accusamus dicta, veritatis iste animi eligendi qui enim nisi.

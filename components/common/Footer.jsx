@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="footer-upper">
             <Link href="/">
               <a>
-                <div className="logo" className="footer-logo">
+                <div className="footer-logo">
                   <FontAwesomeIcon icon={faFan} size={"xl"} />
                   <span className="footer-logo-title">Sephora</span>
                 </div>
