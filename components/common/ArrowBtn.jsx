@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 
 export default function ArrowBtn() {
   const btn = useRef();
+  const height = 200;
 
   const handleClick = () => {
     const header = document.querySelector(".header");
@@ -12,7 +13,7 @@ export default function ArrowBtn() {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
+      if (window.scrollY > height) {
         btn.current.classList.add("visible");
       } else {
         btn.current.classList.remove("visible");
