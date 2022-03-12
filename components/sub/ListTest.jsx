@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 export default function ListTest({ products, viewtype }) {
   const router = useRouter();
@@ -11,7 +10,7 @@ export default function ListTest({ products, viewtype }) {
 
   return (
     <>
-      <ul className={clsx('items', viewtype === 'one' ? 'one' : '')}>
+      <ul className={clsx('items', viewtype === 'one' && 'one')}>
         {products &&
           products.map((product) => {
             return (

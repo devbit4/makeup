@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { useEffect, useState } from 'react';
+import clsx from 'clsx';
 
 export default function Members() {
   const [members, setMembers] = useState();
@@ -12,18 +12,6 @@ export default function Members() {
 
   return (
     <>
-      <div className='members-intro'>
-        <div className='members-intro-title'>
-          <h2>The Sephora</h2>
-        </div>
-        <div className='members-intro-description'>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
-            voluptatibus magnam culpa voluptas soluta, accusamus at vel illum
-            corporis accusantium.
-          </p>
-        </div>
-      </div>
       <ul className='members'>
         {members &&
           members.map((member) => {
@@ -31,7 +19,7 @@ export default function Members() {
               <div
                 className={clsx(
                   'member',
-                  parseInt(member.id) / 2 === 1 ? 'active' : ''
+                  parseInt(member.id) / 2 === 1 && 'active'
                 )}
                 key={member.id}
               >
@@ -49,26 +37,6 @@ export default function Members() {
           })}
       </ul>
       <style jsx>{`
-        .members-intro {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          padding: 40px;
-          border-bottom: 1px solid #333;
-        }
-        .members-intro-title {
-          width: 30%;
-          text-align: center;
-        }
-        .members-intro-title h2 {
-          font: 700 24px/1 'roboto';
-        }
-        .members-intro-description {
-          width: 70%;
-        }
-        .members-intro-description p {
-          font: 400 16px/1.4 'questrial';
-        }
         .members {
           width: 90%;
           margin: 0 auto;
@@ -88,8 +56,8 @@ export default function Members() {
           text-align: center;
         }
         .member-pic img {
-          width: 250px;
-          height: 250px;
+          width: 280px;
+          height: 280px;
           border-radius: 50%;
         }
         .member-text {
@@ -115,10 +83,6 @@ export default function Members() {
         }
         // 반응형
         @media screen and (max-width: 650px) {
-          .members-intro-title {
-            text-align: left;
-            margin-right: 10px;
-          }
           .member {
             flex-direction: column;
             padding: 50px 0;

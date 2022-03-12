@@ -69,7 +69,7 @@ export default function List({ products }) {
           font: 700 16px/1 'roboto';
           color: red;
         }
-        // <tablet 구간>
+        // 반응형 구간
         @media screen and (max-width: 1000px) {
           .item {
             width: 50%;

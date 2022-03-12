@@ -25,7 +25,7 @@ export default function Breadcrumbs() {
   }
 
   return (
-    <nav>
+    <>
       <ol className='breadcrumb'>
         {breadcrumbs.map((breadcrumb) => {
           return (
@@ -52,6 +52,6 @@ export default function Breadcrumbs() {
           content: ' >';
         }
       `}</style>
-    </nav>
+    </>
   );
 }
