@@ -19,7 +19,7 @@ export default function Members() {
               <div
                 className={clsx(
                   'member',
-                  parseInt(member.id) / 2 === 1 && 'active'
+                  parseInt(member.id) / 2 === 1 && 'reverse'
                 )}
                 key={member.id}
               >
@@ -48,7 +48,7 @@ export default function Members() {
           padding: 30px 0;
           border-bottom: 1px solid #ccc;
         }
-        .member.active {
+        .member.reverse {
           flex-direction: row-reverse;
         }
         .member-pic {

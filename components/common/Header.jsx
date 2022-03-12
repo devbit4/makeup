@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFan, faBars } from '@fortawesome/free-solid-svg-icons';
-import { Menus } from '../../constatns';
+import { MENUS } from '../../constatns';
 import Link from 'next/link';
 import clsx from 'clsx';
 
 export default function Header() {
   const router = useRouter();
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
 
   const handleClick = () => {
     setToggle(!toggle);
@@ -26,8 +26,8 @@ export default function Header() {
               </div>
             </a>
           </Link>
-          <nav className='header-menu'>
-            {Menus.map((menu, index) => {
+          <nav className={clsx('header-menu', !toggle && 'invisible')}>
+            {MENUS.map((menu, index) => {
               return (
                 <Link href={menu.link} key={index}>
                   <a
@@ -51,18 +51,16 @@ export default function Header() {
       <style jsx>{`
         .header {
           width: 100%;
-          height: 80px;
           background-color: #f5f2ee;
           color: #000;
         }
         .header-inner {
           width: 1180px;
-          height: 100%;
           margin: 0 auto;
+          padding: 40px 20px 20px 20px;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 0 20px;
         }
         .header-logo {
           display: flex;
@@ -88,6 +86,9 @@ export default function Header() {
           color: #b46927;
         }
         .header-toggle-button {
+          position: absolute;
+          top: 45px;
+          right: 50px;
           cursor: pointer;
           display: none;
         }
@@ -98,7 +99,22 @@ export default function Header() {
           }
         }
         @media screen and (max-width: 768px) {
+          .header-inner {
+            flex-direction: column;
+          }
+          .header-logo {
+            margin-bottom: 20px;
+          }
           .header-menu {
+            width: 100%;
+            flex-direction: column;
+            text-align: center;
+          }
+          .header-menu-item {
+            width: 100%;
+            border-top: 1px dashed #ccc;
+          }
+          .header-menu.invisible {
             display: none;
           }
           .header-toggle-button {

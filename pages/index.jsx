@@ -1,19 +1,20 @@
-import Seo from "../components/common/Seo";
+import Seo from '../components/common/Seo';
+import Reviews from '../components/sub/Reviews';
+import { HOMEPICS } from '../constatns';
 
 export default function Home() {
   return (
     <>
-      <Seo title="Home" />
-      <div className="home">
-        <section className="home-visual">
-          {/* <h1 className="home-title">Show Your Beauty</h1> */}
-          <div className="inner">
-            <p className="home-visual-text1">
+      <Seo title='Home' />
+      <div className='home'>
+        <section className='home-visual'>
+          <div className='inner'>
+            <p className='home-visual-text1'>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam,
               veritatis ea corrupti voluptatibus ad ut vitae suscipit assumenda?
               Quaerat, incidunt.
             </p>
-            <p className="home-visual-text2">
+            <p className='home-visual-text2'>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Cupiditate natus pariatur aperiam!<br></br>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -21,87 +22,73 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <section className="home-info">
-          <div className="inner">
-            <div className="home-info-intro">
-              <span className="home-info-intro-title">
+        <section className='home-info'>
+          <div className='inner'>
+            <div className='home-info-intro'>
+              <span className='home-info-intro-title'>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               </span>
-              <p className="home-info-intro-description">
+              <p className='home-info-intro-description'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
                 laboriosam harum beatae cum explicabo quia saepe quae officia,
                 sed veniam, voluptate sit tempore! Doloremque, odio.
               </p>
             </div>
-            <div className="home-info-pics">
-              <article className="home-info-pic">
-                <div className="img-wrapper">
-                  <img
-                    src="/img/main2.jpg"
-                    alt="home-info-pic1"
-                    className="home-info-pic-img"
-                  ></img>
-                </div>
-                <div className="home-info-textbox">
-                  <strong>001</strong>
-                  <span>SKIN CARE</span>
-                </div>
-              </article>
-              <article className="home-info-pic">
-                <div className="img-wrapper">
-                  <img
-                    src="/img/main3.jpg"
-                    alt="home-info-pic3"
-                    className="home-info-pic-img"
-                  ></img>
-                </div>
-                <div className="home-info-textbox">
-                  <strong>002</strong>
-                  <span>BODY CARE</span>
-                </div>
-              </article>
-              <article className="home-info-pic">
-                <div className="img-wrapper">
-                  <img
-                    src="/img/main4.jpg"
-                    alt="home-info-pic4"
-                    className="home-info-pic-img"
-                  ></img>
-                </div>
-                <div className="home-info-textbox">
-                  <strong>003</strong>
-                  <span>HAIR CARE</span>
-                </div>
-              </article>
+            <div className='home-info-pics'>
+              {HOMEPICS.map((pic, index) => {
+                return (
+                  <article className='home-info-pic'>
+                    <div className='img-wrapper'>
+                      <img
+                        src={pic.src}
+                        alt='home-info-pic1'
+                        className='home-info-pic-img'
+                      ></img>
+                    </div>
+                    <div className='home-info-textbox'>
+                      <strong>00{index + 1}</strong>
+                      <span>{pic.name}</span>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
-        <section className="home-news">
-          <div className="inner">
-            <h2 className="home-news-title">THE LATEST</h2>
-            <span className="home-news-subtitle">
+        <section className='home-news'>
+          <div className='inner'>
+            <h2 className='home-news-title'>THE LATEST</h2>
+            <span className='home-news-subtitle'>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Voluptatum, unde?
             </span>
-            <p className="home-news-article">
-              1Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <p className='home-news-article'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+              porro error tempora a, ea ab aliquid blanditiis veniam quam
+              earum.Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Similique porro error tempora a, ea ab aliquid blanditiis veniam
               quam earum.Lorem ipsum dolor sit amet consectetur adipisicing
               elit. Similique porro error tempora a, ea ab aliquid blanditiis
-              veniam quam earum.Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Similique porro error tempora a, ea ab aliquid
-              blanditiis veniam quam earum.
+              veniam quam earum.
             </p>
-            <p className="home-news-article">
-              1Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <p className='home-news-article'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+              porro error tempora a, ea ab aliquid blanditiis veniam quam
+              earum.Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Similique porro error tempora a, ea ab aliquid blanditiis veniam
               quam earum.Lorem ipsum dolor sit amet consectetur adipisicing
               elit. Similique porro error tempora a, ea ab aliquid blanditiis
-              veniam quam earum.Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Similique porro error tempora a, ea ab aliquid
-              blanditiis veniam quam earum.
+              veniam quam earum.
             </p>
-            <span className="home-more-btn">READ MORE</span>
+            <span className='home-more-btn'>READ MORE</span>
+          </div>
+        </section>
+        <section className='home-reviews'>
+          <div className='inner'>
+            <div className='home-reviews-box'>
+              <h2 className='home-reviews-title'>Reviews</h2>
+              <Reviews></Reviews>
+            </div>
           </div>
         </section>
       </div>
@@ -112,7 +99,7 @@ export default function Home() {
         .home-visual {
           width: 100%;
           height: 600px;
-          background-image: url("/img/main1.jpg");
+          background-image: url('/img/main1.jpg');
           background-repeat: no-repeat;
           background-position: center;
           background-size: cover;
@@ -132,7 +119,7 @@ export default function Home() {
           border-top: 2px solid #fff;
           padding-top: 5px;
           color: #fff;
-          font: 400 16px "questrial";
+          font: 400 16px 'questrial';
         }
         .home-visual-text2 {
           width: 30%;
@@ -142,7 +129,7 @@ export default function Home() {
           border-top: 2px solid #fff;
           padding-top: 5px;
           color: #fff;
-          font: 400 16px "questrial";
+          font: 400 16px 'questrial';
         }
         .home-info {
           width: 100%;
@@ -159,11 +146,11 @@ export default function Home() {
         }
         .home-info-intro-title {
           margin: 0 30px;
-          font: 400 16px/1.4 "fredoka";
+          font: 400 16px/1.4 'fredoka';
           color: #b46927;
         }
         .home-info-intro-description {
-          font: 400 16px/1.2 "questrial";
+          font: 400 16px/1.2 'questrial';
         }
         .home-info-pics {
           width: 90%;
@@ -193,12 +180,12 @@ export default function Home() {
           cursor: pointer;
         }
         .home-info-textbox strong {
-          font: 400 16px/1 "fredoka";
+          font: 400 16px/1 'fredoka';
           color: #b46927;
         }
         .home-info-textbox span {
           margin-left: 10px;
-          font: 400 1px/1 "roboto";
+          font: 400 1px/1 'roboto';
         }
         .home-news {
           width: 100%;
@@ -207,7 +194,7 @@ export default function Home() {
           color: #fff;
         }
         .home-news-title {
-          font: 500 24px/1 "fredoka";
+          font: 500 24px/1 'fredoka';
           text-align: center;
           margin-bottom: 100px;
         }
@@ -215,7 +202,7 @@ export default function Home() {
           width: 80%;
           margin: 0 auto;
           display: block;
-          font: 400 16px "questrial";
+          font: 400 16px 'questrial';
           margin-bottom: 20px;
           padding-bottom: 20px;
           border-bottom: 1px solid #fff;
@@ -223,13 +210,21 @@ export default function Home() {
         .home-news-article {
           width: 80%;
           margin: 0 auto;
-          font: 400 12px/1.4 "questrial";
+          font: 400 12px/1.4 'questrial';
           margin-bottom: 40px;
         }
         .home-more-btn {
           width: 80%;
           margin: 0 auto;
           display: block;
+        }
+        .home-reviews-title {
+          font: 500 24px/1 'fredoka';
+          text-align: center;
+          margin-bottom: 100px;
+        }
+        .home-reviews-box {
+          padding: 100px 0;
         }
         // 반응형
         @media screen and (max-width: 1180px) {

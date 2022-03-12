@@ -31,7 +31,7 @@ export default function SearchBox() {
             onKeyPress={handleKeyPress}
           ></input>
           <button className='search-box-button' onClick={handleClick}>
-            Search!
+            <span>Search!</span>
           </button>
         </div>
       </div>
@@ -51,6 +51,15 @@ export default function SearchBox() {
             width: 250ox;
             outline: none;
             border: none;
+            padding: 0 10px;
+            background-color: #efefef;
+            border-bottom: 1px solid #ccc;
+          }
+          .search-box-input::placeholder {
+            font: 12px/1 'roboto';
+          }
+          .search-box-input:focus {
+            background-color: #fff;
           }
           .search-box-button {
             width: 80px;
@@ -61,6 +70,14 @@ export default function SearchBox() {
             background-color: #aaa;
             font: 400 12px/1 'fredoka';
             color: #fff;
+            border-radius: 4px;
+          }
+          .search-box-button:hover {
+            background-color: #333;
+            color: #fff;
+          }
+          .search-box-button span::hover {
+            color: red;
           }
           @media screen and (max-width: 1180px) {
             .search-box-inner {

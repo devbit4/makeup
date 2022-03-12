@@ -1,0 +1,52 @@
+{
+  "data": [
+    {
+      "src": "/img/member1.jpg",
+      "review": "Lorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elit",
+      "writer": "member1",
+      "job": "STUDENTS"
+    },
+    {
+      "src": "/img/member2.jpg",
+      "review": "Lorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elit",
+      "writer": "member2",
+      "job": "DIRECTOR"
+    },
+    {
+      "src": "/img/member3.jpg",
+      "review": "Lorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elit",
+      "writer": "member3",
+      "job": "TEACHER"
+    },
+    {
+      "src": "/img/member4.jpg",
+      "review": "Lorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elit",
+      "writer": "member4",
+      "job": "DEVELOPER"
+    },
+    {
+      "src": "/img/member5.jpg",
+      "review": "Lorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elit",
+      "writer": "member5",
+      "job": "FREELANCER"
+    },
+    {
+      "src": "/img/member6.jpg",
+      "review": "Lorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elit",
+      "writer": "member6",
+      "job": "DOCTOR"
+    },
+    {
+      "src": "/img/member7.jpg",
+      "review": "Lorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elit",
+      "writer": "member7",
+      "job": "STUDEMT"
+    },
+    {
+      "src": "/img/member8.jpg",
+      "review": "Lorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elit",
+      "writer": "member8",
+      "job": "NURSE"
+    }
+  ]
+}

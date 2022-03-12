@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { FooterDetail, Menus } from '../../constatns';
+import { FOOTERDETAIL, MENUS } from '../../constatns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFan } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
@@ -21,7 +21,7 @@ export default function Footer() {
               </Link>
             </div>
             <div className='footer-menu'>
-              {Menus.map((menu, index) => {
+              {MENUS.map((menu, index) => {
                 return (
                   <Link href={menu.link} key={index}>
                     <a
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
           <div className='footer-lower'>
             <ul className='footer-details'>
-              {FooterDetail.map((detail, index) => {
+              {FOOTERDETAIL.map((detail, index) => {
                 return (
                   <li className='footer-detail' key={index}>
                     <span>{detail.title}</span>

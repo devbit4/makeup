@@ -40,6 +40,7 @@ export default function ArrowBtn() {
           opacity: 0;
           transition: all 0.3s ease;
           pointer-events: none;
+          z-index: 2;
         }
         .arrow-up.active {
           opacity: 1;
