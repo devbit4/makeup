@@ -1,22 +1,22 @@
-import clsx from "clsx";
-import { useEffect, useState } from "react";
+import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 
 export default function Members() {
   const [members, setMembers] = useState();
 
   useEffect(() => {
-    fetch("/dbs/members.json")
+    fetch('/dbs/members.json')
       .then((data) => data.json())
       .then((json) => setMembers(json.data));
   }, []);
 
   return (
     <>
-      <div className="members-intro">
-        <div className="members-intro-title">
+      <div className='members-intro'>
+        <div className='members-intro-title'>
           <h2>The Sephora</h2>
         </div>
-        <div className="members-intro-description">
+        <div className='members-intro-description'>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
             voluptatibus magnam culpa voluptas soluta, accusamus at vel illum
@@ -24,21 +24,21 @@ export default function Members() {
           </p>
         </div>
       </div>
-      <ul className="members">
+      <ul className='members'>
         {members &&
           members.map((member) => {
             return (
               <div
                 className={clsx(
-                  "member",
-                  parseInt(member.id) / 2 === 1 ? "active" : ""
+                  'member',
+                  parseInt(member.id) / 2 === 1 ? 'active' : ''
                 )}
                 key={member.id}
               >
-                <div className="member-pic">
+                <div className='member-pic'>
                   <img src={member.pic}></img>
                 </div>
-                <div className="member-text">
+                <div className='member-text'>
                   <h3>{member.name}</h3>
                   <strong>{member.job}</strong>
                   <span>{member.email}</span>
@@ -61,13 +61,13 @@ export default function Members() {
           text-align: center;
         }
         .members-intro-title h2 {
-          font: 700 24px/1 "roboto";
+          font: 700 24px/1 'roboto';
         }
         .members-intro-description {
           width: 70%;
         }
         .members-intro-description p {
-          font: 400 16px/1.4 "questrial";
+          font: 400 16px/1.4 'questrial';
         }
         .members {
           width: 90%;
@@ -97,19 +97,19 @@ export default function Members() {
           padding: 10px;
         }
         .member-text h3 {
-          font: 700 16px/1 "roboto";
+          font: 700 16px/1 'roboto';
         }
         .member-text strong {
-          font: 400 16px/1 "questrial";
+          font: 400 16px/1 'questrial';
         }
         .member-text span {
           display: block;
-          font: 400 16px/1 "questrial";
+          font: 400 16px/1 'questrial';
           text-align: right;
           margin-bottom: 40px;
         }
         .member-text p {
-          font: 400 14px/1.4 "questrial";
+          font: 400 14px/1.4 'questrial';
         }
         .member-text h2 {
         }

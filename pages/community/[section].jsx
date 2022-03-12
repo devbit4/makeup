@@ -10,7 +10,7 @@ export default function Faq() {
   const router = useRouter();
   const section = router.query.section;
   const [problems, setProblems] = useState([]);
-  const comminity = ["faq", "qna"];
+  const comminity = ["faq", "qna", "form"];
 
   const getData = () => {
     fetch(`/dbs/${section}.json`)
@@ -27,28 +27,28 @@ export default function Faq() {
 
   return (
     <>
-      <Seo title="Community"></Seo>
-      <section className="community">
-        <div className="inner">
-          <div className="sidebar">
-            <h1 className="sidebar-title">All sections</h1>
+      <Seo title='Community'></Seo>
+      <section className='community'>
+        <div className='inner'>
+          <div className='sidebar'>
+            <h1 className='sidebar-title'>All sections</h1>
             <Sidebar menus={comminity} title={"community"}></Sidebar>
           </div>
-          <div className="main">
-            <h1 className="main-title">{section}</h1>
+          <div className='main'>
+            <h1 className='main-title'>{section}</h1>
             {problems.map((problem, index) => {
               return (
-                <article key={index} className="problem">
-                  <div className="question" onClick={handleClick}>
-                    <div className="question-front">
+                <article key={index} className='problem'>
+                  <div className='question' onClick={handleClick}>
+                    <div className='question-front'>
                       <FontAwesomeIcon icon={faCircle} />
                       <h2>{problem.question}</h2>
                     </div>
-                    <div className="question-underbar">
+                    <div className='question-underbar'>
                       <FontAwesomeIcon icon={faChevronDown} />
                     </div>
                   </div>
-                  <div className="answer">
+                  <div className='answer'>
                     <p>{problem.answer}</p>
                   </div>
                 </article>

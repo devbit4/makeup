@@ -1,12 +1,14 @@
-import ArrowBtn from "./ArrowBtn";
-import Footer from "./Footer";
-import Header from "./Header";
+import SearchBox from './SearchBox';
+import ArrowBtn from './ArrowBtn';
+import Footer from './Footer';
+import Header from './Header';
 
 export default function Layout({ children }) {
   return (
-    <div className="layout">
+    <div className='layout'>
       <Header></Header>
-      <div className="main">{children}</div>
+      <SearchBox></SearchBox>
+      <div className='content'>{children}</div>
       <Footer></Footer>
       <ArrowBtn></ArrowBtn>
     </div>

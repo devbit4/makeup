@@ -1,22 +1,22 @@
-import clsx from "clsx";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
+import clsx from 'clsx';
 
 export default function Sidebar({ menus, title }) {
   const router = useRouter();
-  const query = router.query.section || router.query.brand || "all";
+  const query = router.query.section || router.query.brand || 'all';
 
   const handleClick = (menu) => {
     router.push(`/${title}/${menu}`);
   };
 
   return (
-    <ul className="menus">
+    <ul className='menus'>
       {menus &&
         query &&
         menus.map((menu, index) => (
           <li
             key={index}
-            className={clsx("menu", menu === query ? "active" : "")}
+            className={clsx('menu', menu === query && 'active')}
             onClick={() => {
               handleClick(menu);
             }}
@@ -29,9 +29,11 @@ export default function Sidebar({ menus, title }) {
           margin-top: 40px;
         }
         .menu {
-          margin-bottom: 10px;
+          margin-bottom: 20px;
           cursor: pointer;
-          font: 400 14px/1 "roboto";
+          font: 400 14px/1 'roboto';
+          padding-bottom: 10px;
+          border-bottom: 1px solid #777;
         }
         .menu.active {
           color: #fff;

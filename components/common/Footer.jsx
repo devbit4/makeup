@@ -1,105 +1,67 @@
-import Link from "next/link";
-import clsx from "clsx";
-import { useRouter } from "next/router";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFan } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from 'next/router';
+import { FooterDetail, Menus } from '../../constatns';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFan } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
+import clsx from 'clsx';
 
 export default function Footer() {
   const router = useRouter();
   return (
     <>
-      <footer className="footer">
-        <div className="inner">
-          <div className="footer-upper">
-            <Link href="/">
-              <a>
-                <div className="footer-logo">
-                  <FontAwesomeIcon icon={faFan} size={"xl"} />
-                  <span className="footer-logo-title">Sephora</span>
-                </div>
-              </a>
-            </Link>
-            <div className="footer-menu">
-              <Link href="/about">
-                <a
-                  className={clsx(
-                    "footer-menu-item",
-                    router.pathname === "/about" ? "active" : ""
-                  )}
-                >
-                  About
-                </a>
-              </Link>
-              <Link href="/brands/maybelline">
-                <a
-                  className={clsx(
-                    "footer-menu-item",
-                    router.pathname === "/brands/[brand]" ? "active" : ""
-                  )}
-                >
-                  Brands
-                </a>
-              </Link>
-              <Link href="/makeup">
-                <a
-                  className={clsx(
-                    "footer-menu-item",
-                    router.pathname === "/makeup" ? "active" : ""
-                  )}
-                >
-                  Makeup
-                </a>
-              </Link>
-              <Link href="/community/faq">
-                <a
-                  className={clsx(
-                    "footer-menu-item",
-                    router.pathname === "/community/[section]" ? "active" : ""
-                  )}
-                >
-                  Community
+      <footer className='footer'>
+        <div className='footer-inner'>
+          <div className='footer-upper'>
+            <div className='footer-logo'>
+              <Link href='/'>
+                <a>
+                  <FontAwesomeIcon icon={faFan} size={'xl'} />
+                  <span className='footer-logo-title'>Sephora</span>
                 </a>
               </Link>
             </div>
+            <div className='footer-menu'>
+              {Menus.map((menu, index) => {
+                return (
+                  <Link href={menu.link} key={index}>
+                    <a
+                      className={clsx(
+                        'footer-menu-item',
+                        (router.pathname === menu.pathname && 'active') ||
+                          (router.pathname === menu.pathname2 && 'active')
+                      )}
+                    >
+                      {menu.name}
+                    </a>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-          <div className="footer-lower">
-            <ul className="footer-details">
-              <li className="footer-detail">
-                <span>Working Time</span>
-                <p>Monday-Saturday</p>
-                <p>09:00-18:00</p>
-              </li>
-              <li className="footer-detail">
-                <span>Address</span>
-                <p>198 West 21th street Suite 721</p>
-                <p>New York,NY 10010</p>
-              </li>
-              <li className="footer-detail">
-                <span>Website Policies</span>
-                <p>Terms&Conditions</p>
-                <p>Privacy policy</p>
-                <p>Accessibility</p>
-              </li>
-              <li className="footer-detail">
-                <span>Social</span>
-                <p>Instagram</p>
-                <p>Pinterest</p>
-                <p>Twitter</p>
-              </li>
+          <div className='footer-lower'>
+            <ul className='footer-details'>
+              {FooterDetail.map((detail, index) => {
+                return (
+                  <li className='footer-detail' key={index}>
+                    <span>{detail.title}</span>
+                    <p>{detail.sub1}</p>
+                    <p>{detail.sub2}</p>
+                    <p>{detail.sub3}</p>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
+        <div className='footer-copyright'>&copy; All Rights Are Reserved.</div>
       </footer>
-      <div className="footer-copyright">&copy; All Rights Are Reserved.</div>
-      {/* footer 스타일링 */}
       <style jsx>
         {`
           .footer {
             width: 100%;
             background-color: #e5e0e0;
           }
-          .inner {
+          .footer-inner {
             width: 1180px;
             margin: 0 auto;
             padding: 40px;
@@ -119,13 +81,16 @@ export default function Footer() {
             align-items: center;
           }
           .footer-logo-title {
-            font: 500 24px/1 "fredoka";
+            font: 500 24px/1 'fredoka';
             margin-left: 10px;
           }
           .footer-menu-item {
             margin: 0 10px;
             cursor: pointer;
-            font: 400 14px/1 "fredoka";
+            font: 400 14px/1 'fredoka';
+          }
+          .footer-menu-item:hover {
+            color: #b46927;
           }
           .footer-menu-item.active {
             color: #b46927;
@@ -145,11 +110,11 @@ export default function Footer() {
           .footer-detail p,
           a {
             cursor: pointer;
-            font: 400 14px/1.4 "roboto";
+            font: 400 14px/1.4 'roboto';
           }
           .footer-detail span {
             display: block;
-            font: 700 14px/1.4 "roboto";
+            font: 700 14px/1.4 'roboto';
             margin-bottom: 10px;
           }
           .footer-copyright {
@@ -159,11 +124,11 @@ export default function Footer() {
             background-color: #000;
             padding: 10px 0;
             color: #fff;
-            font: 400 8px/1.4 "roboto";
+            font: 400 8px/1.4 'roboto';
           }
           // 반응형 구간
           @media screen and (max-width: 1180px) {
-            .inner {
+            .footer-inner {
               width: 100%;
             }
           }

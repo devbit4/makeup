@@ -1,15 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
-
-const convertBreadcrumb = (string) => {
-  return string
-    .replace(/-/g, " ")
-    .replace(/oe/g, "ö")
-    .replace(/ae/g, "ä")
-    .replace(/ue/g, "ü")
-    .toUpperCase();
-};
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 export default function Breadcrumbs() {
   const router = useRouter();
@@ -17,16 +8,14 @@ export default function Breadcrumbs() {
 
   useEffect(() => {
     if (router) {
-      const linkPath = router.asPath.split("/");
+      const linkPath = router.asPath.split('/');
       linkPath.shift();
-
-      const pathArray = linkPath.map((path, i) => {
+      const pathArray = linkPath.map((path, index) => {
         return {
           breadcrumb: path,
-          href: "/" + linkPath.slice(0, i + 1).join("/"),
+          href: '/' + linkPath.slice(0, index + 1).join('/'),
         };
       });
-
       setBreadcrumbs(pathArray);
     }
   }, [router]);
@@ -36,13 +25,13 @@ export default function Breadcrumbs() {
   }
 
   return (
-    <nav aria-label="breadcrumbs">
-      <ol className="breadcrumb">
-        {breadcrumbs.map((breadcrumb, i) => {
+    <nav>
+      <ol className='breadcrumb'>
+        {breadcrumbs.map((breadcrumb) => {
           return (
-            <li key={breadcrumb.href} className="class">
+            <li key={breadcrumb.href} className='breadscrumb-text'>
               <Link href={breadcrumb.href}>
-                <a>{convertBreadcrumb(breadcrumb.breadcrumb)}</a>
+                <a>{breadcrumb.breadcrumb}</a>
               </Link>
             </li>
           );
@@ -52,15 +41,15 @@ export default function Breadcrumbs() {
         .breadcrumb {
           display: flex;
         }
-        .class {
+        .breadscrumb-text {
           margin-right: 5px;
           margin-bottom: 10px;
-          font: 400 16px/1 "roboto";
+          font: 400 16px/1 'roboto';
           color: #aaa;
         }
-        .class::after {
+        .breadscrumb-text::after {
           margin-right: 5px;
-          content: " >";
+          content: ' >';
         }
       `}</style>
     </nav>

@@ -1,14 +1,14 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import Breadcrumbs from "../../components/sub/Breadcrumbs";
-import List from "../../components/sub/List";
-import Sidebar from "../../components/common/Sidebar";
-import Seo from "../../components/common/Seo";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import Breadcrumbs from '../../components/sub/Breadcrumbs';
+import List from '../../components/sub/List';
+import Sidebar from '../../components/common/Sidebar';
+import Seo from '../../components/common/Seo';
 
 export default function Brands() {
   const router = useRouter();
-  const brands = ["clinique", "benefit", "misa", "stila"];
+  const brands = ['clinique', 'benefit', 'misa', 'stila'];
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const brand = router.query.brand;
@@ -32,21 +32,21 @@ export default function Brands() {
 
   return (
     <>
-      <Seo title="Brands"></Seo>
-      <div className="brands">
-        <div className="inner">
-          <div className="sidebar">
-            <Link href={"/brands"}>
+      <Seo title='Brands'></Seo>
+      <div className='brands'>
+        <div className='inner'>
+          <div className='sidebar'>
+            <Link href={'/brands'}>
               <a>
-                <h1 className="sidebar-title">All brands</h1>
+                <h1 className='sidebar-title'>All brands</h1>
               </a>
             </Link>
-            <Sidebar menus={brands} title={"brands"}></Sidebar>
+            <Sidebar menus={brands} title={'brands'}></Sidebar>
           </div>
-          <div className="main">
-            <h1 className="main-title">All Brands Items</h1>
+          <div className='main'>
+            <h1 className='main-title'>All Brands Items</h1>
             <Breadcrumbs></Breadcrumbs>
-            {loading ? "loading" : <List products={products}></List>}
+            {loading ? 'loading' : <List products={products}></List>}
           </div>
         </div>
         <style jsx>
@@ -63,7 +63,7 @@ export default function Brands() {
             }
             .sidebar-title {
               color: #fff;
-              font: 500 24px "fredoka";
+              font: 500 24px 'fredoka';
             }
             .main {
               width: 80%;
@@ -71,7 +71,7 @@ export default function Brands() {
               padding: 40px;
             }
             .main-title {
-              font: 500 24px "fredoka";
+              font: 500 24px 'fredoka';
               margin-bottom: 50px;
               padding-bottom: 10px;
               border-bottom: 1px solid #333;

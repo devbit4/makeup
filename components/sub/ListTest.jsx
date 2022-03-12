@@ -1,6 +1,6 @@
-import clsx from "clsx";
-import { useRouter } from "next/router";
-import { useState } from "react";
+import clsx from 'clsx';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 export default function ListTest({ products, viewtype }) {
   const router = useRouter();
@@ -11,28 +11,28 @@ export default function ListTest({ products, viewtype }) {
 
   return (
     <>
-      <ul className={clsx("items", viewtype === "one" ? "one" : "")}>
+      <ul className={clsx('items', viewtype === 'one' ? 'one' : '')}>
         {products &&
           products.map((product) => {
             return (
               <li
-                className="item"
+                className='item'
                 key={product.id}
                 onClick={() => handleItemClick(product.id)}
               >
-                <div className="item-pic">
-                  <img src={product.image_link} alt="item-img"></img>
+                <div className='item-pic'>
+                  <img src={product.image_link} alt='item-img'></img>
                 </div>
-                <div className="item-text">
-                  <strong className="item-name">
+                <div className='item-text'>
+                  <strong className='item-name'>
                     {product.name.slice(0, 50)}
                   </strong>
-                  <span className="item-type">{product.product_type}</span>
-                  <strong className="item-price">${product.price}</strong>
-                  <p className="item-description">
+                  <span className='item-type'>{product.product_type}</span>
+                  <strong className='item-price'>${product.price}</strong>
+                  <p className='item-description'>
                     {product.description.slice(0, 100)}...
                   </p>
-                  <button className="item-btn">상품 더 보기</button>
+                  <button className='item-btn'>상품 더 보기</button>
                 </div>
               </li>
             );
@@ -66,20 +66,20 @@ export default function ListTest({ products, viewtype }) {
           }
           .item-name {
             display: block;
-            font: 700 14px/1 "roboto";
+            font: 700 14px/1 'roboto';
             margin-bottom: 20px;
           }
           .item-type {
             display: block;
-            font: 400 12px/1 "questrial";
+            font: 400 12px/1 'questrial';
             margin-bottom: 10px;
           }
           .item-price {
-            font: 400 24px/1 "questrial";
+            font: 400 24px/1 'questrial';
             margin-bottom: 10px;
           }
           .item-description {
-            font: 400 12px/1 "questrial";
+            font: 400 12px/1 'questrial';
             margin-bottom: 10px;
           }
         `}</style>

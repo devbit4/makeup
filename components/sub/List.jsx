@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 
 export default function List({ products }) {
   const router = useRouter();
@@ -7,30 +7,30 @@ export default function List({ products }) {
     router.push(`/detail/${id}`);
   };
   const handlError = (e) => {
-    e.target.src = "/img/main1.jpg";
+    e.target.src = '/img/main1.jpg';
     e.target.onerror = null;
   };
 
   return (
-    <ul className="list">
+    <ul className='list'>
       {products &&
         products.slice(0, 10).map((product) => {
           return (
             <li
-              className="item"
+              className='item'
               key={product.id}
               onClick={() => handleItemClick(product.id)}
             >
               <img
                 src={product.image_link}
-                className="item-img"
+                className='item-img'
                 onError={handlError}
               ></img>
-              <strong className="item-name">{product.name}</strong>
-              <span className="item-type">
-                {product.product_type} / {product.category || "all"}
+              <strong className='item-name'>{product.name}</strong>
+              <span className='item-type'>
+                {product.product_type} / {product.category || 'all'}
               </span>
-              <strong className="item-price">${product.price}</strong>
+              <strong className='item-price'>${product.price}</strong>
             </li>
           );
         })}
@@ -59,14 +59,14 @@ export default function List({ products }) {
         }
         .item-name {
           margin: 10px 0;
-          font: 700 12px/1 "roboto";
+          font: 700 12px/1 'roboto';
         }
         .item-type {
           margin: 10px 0;
-          font: 400 12px/1 "roboto";
+          font: 400 12px/1 'roboto';
         }
         .item-price {
-          font: 700 16px/1 "roboto";
+          font: 700 16px/1 'roboto';
           color: red;
         }
         // <tablet 구간>

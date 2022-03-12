@@ -1,34 +1,36 @@
-import { useRouter } from "next/router";
-import { useRef } from "react";
+import { useRouter } from 'next/router';
+import { useRef } from 'react';
 
 export default function SearchBox() {
   const router = useRouter();
   const input = useRef();
 
-  const handleClick = () => {
-    if (input.current.value === "") return;
+  const searchInput = () => {
+    if (input.current.value === '') return;
     router.push(`/search/${input.current.value}`);
   };
+  const handleClick = () => {
+    searchInput();
+  };
   const handleKeyPress = (e) => {
-    if (e.code === "Enter") {
-      if (input.current.value === "") return;
-      router.push(`/search/${input.current.value}`);
-      input.current.value = "";
+    if (e.code === 'Enter') {
+      searchInput();
+      input.current.value = '';
     }
   };
 
   return (
     <>
-      <div className="search-box">
-        <div className="search-inner">
+      <div className='search-box'>
+        <div className='search-box-inner'>
           <input
             ref={input}
-            type="text"
-            className="search-box-input"
-            placeholder="화장품을 입력하세요"
+            type='text'
+            className='search-box-input'
+            placeholder='화장품을 입력하세요'
             onKeyPress={handleKeyPress}
           ></input>
-          <button className="search-box-button" onClick={handleClick}>
+          <button className='search-box-button' onClick={handleClick}>
             Search!
           </button>
         </div>
@@ -38,7 +40,7 @@ export default function SearchBox() {
           .search-box {
             background-color: #f5f2ee;
           }
-          .search-inner {
+          .search-box-inner {
             width: 1180px;
             margin: 0 auto;
             display: flex;
@@ -57,11 +59,11 @@ export default function SearchBox() {
             border: none;
             cursor: pointer;
             background-color: #aaa;
-            font: 400 12px/1 "fredoka";
+            font: 400 12px/1 'fredoka';
             color: #fff;
           }
           @media screen and (max-width: 1180px) {
-            .search-inner {
+            .search-box-inner {
               width: 100%;
             }
           }
