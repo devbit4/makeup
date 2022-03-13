@@ -87,7 +87,7 @@ export default function Members() {
             flex-direction: column;
             padding: 50px 0;
           }
-          .member.active {
+          .member.reverse {
             flex-direction: column;
           }
           .member-pic {

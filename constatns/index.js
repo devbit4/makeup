@@ -31,6 +31,9 @@ export const HOMEPICS = [
   { src: '/img/main4.jpg', name: 'HAIR CARE' },
 ];
 
+export const BRANDSNAMES = ['clinique', 'benefit', 'misa', 'stila'];
+
+
 export const FOOTERDETAIL = [
   {
     title: 'Working Time',

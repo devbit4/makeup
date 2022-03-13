@@ -37,7 +37,7 @@ export default function Home() {
             <div className='home-info-pics'>
               {HOMEPICS.map((pic, index) => {
                 return (
-                  <article className='home-info-pic'>
+                  <article className='home-info-pic' key={index}>
                     <div className='img-wrapper'>
                       <img
                         src={pic.src}

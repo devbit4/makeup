@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Seo from '../components/common/Seo';
 import Members from '../components/sub/Members';
 
@@ -64,6 +65,7 @@ export default function About() {
         .about-ceo {
           display: flex;
           padding: 40px;
+          margin-top: 20px;
           border-bottom: 1px solid #333;
         }
         .about-ceo-text {

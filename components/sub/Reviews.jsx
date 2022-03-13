@@ -26,13 +26,13 @@ export default function Reviews() {
         pagination={true}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
       >
-        {[reviews.slice(0, 4), reviews.slice(4, 8)].map((slide) => {
+        {[reviews.slice(0, 4), reviews.slice(4, 8)].map((slide, index) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <div className='reviews'>
-                {slide.map((review) => {
+                {slide.map((review, index) => {
                   return (
-                    <div className='review'>
+                    <div className='review' key={index}>
                       <p>{review.review}</p>
                       <div className='review-writer'>
                         <div className='review-writer-pic'>

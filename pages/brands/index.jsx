@@ -1,12 +1,13 @@
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { BRANDSNAMES } from '../../constatns';
 import Breadcrumbs from '../../components/sub/Breadcrumbs';
 import List from '../../components/sub/List';
 import Sidebar from '../../components/common/Sidebar';
 import Seo from '../../components/common/Seo';
+import Loading from '../../components/sub/Loading';
+import Link from 'next/link';
 
 export default function Brands() {
-  const brands = ['clinique', 'benefit', 'misa', 'stila'];
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -39,12 +40,12 @@ export default function Brands() {
                 <h1 className='sidebar-title'>All brands</h1>
               </a>
             </Link>
-            <Sidebar menus={brands} title={'brands'}></Sidebar>
+            <Sidebar menus={BRANDSNAMES} title={'brands'}></Sidebar>
           </div>
           <div className='main'>
             <h1 className='main-title'>All Brands Items</h1>
             <Breadcrumbs></Breadcrumbs>
-            {loading ? 'loading' : <List products={products}></List>}
+            {loading ? <Loading></Loading> : <List products={products}></List>}
           </div>
         </div>
         <style jsx>

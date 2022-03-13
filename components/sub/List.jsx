@@ -12,28 +12,30 @@ export default function List({ products }) {
   };
 
   return (
-    <ul className='list'>
-      {products &&
-        products.slice(0, 10).map((product) => {
-          return (
-            <li
-              className='item'
-              key={product.id}
-              onClick={() => handleItemClick(product.id)}
-            >
-              <img
-                src={product.image_link}
-                className='item-img'
-                onError={handlError}
-              ></img>
-              <strong className='item-name'>{product.name}</strong>
-              <span className='item-type'>
-                {product.product_type} / {product.category || 'all'}
-              </span>
-              <strong className='item-price'>${product.price}</strong>
-            </li>
-          );
-        })}
+    <>
+      <ul className='list'>
+        {products &&
+          products.slice(0, 10).map((product) => {
+            return (
+              <li
+                className='item'
+                key={product.id}
+                onClick={() => handleItemClick(product.id)}
+              >
+                <img
+                  src={product.image_link}
+                  className='item-img'
+                  onError={handlError}
+                ></img>
+                <strong className='item-name'>{product.name}</strong>
+                <span className='item-type'>
+                  {product.product_type} / {product.category || 'all'}
+                </span>
+                <strong className='item-price'>${product.price}</strong>
+              </li>
+            );
+          })}
+      </ul>
       <style jsx>{`
         .list {
           display: flex;
@@ -47,10 +49,19 @@ export default function List({ products }) {
           display: flex;
           flex-direction: column;
           border: 1px solid #ddd;
-          padding: 10px;
+          padding: 20px;
           text-align: center;
           overflow: hidden;
           cursor: pointer;
+          transition: all 0.3s;
+        }
+        .item:hover {
+          background-color: #333;
+          transform: scale(1.05);
+        }
+        .item:hover .item-name,
+        .item-type {
+          color: #fff;
         }
         .item-img {
           width: 150px;
@@ -81,6 +92,6 @@ export default function List({ products }) {
           }
         }
       `}</style>
-    </ul>
+    </>
   );
 }

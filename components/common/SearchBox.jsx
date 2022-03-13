@@ -8,6 +8,7 @@ export default function SearchBox() {
   const searchInput = () => {
     if (input.current.value === '') return;
     router.push(`/search/${input.current.value}`);
+    input.current.value = '';
   };
   const handleClick = () => {
     searchInput();
@@ -15,7 +16,6 @@ export default function SearchBox() {
   const handleKeyPress = (e) => {
     if (e.code === 'Enter') {
       searchInput();
-      input.current.value = '';
     }
   };
 
@@ -29,7 +29,16 @@ export default function SearchBox() {
             className='search-box-input'
             placeholder='화장품을 입력하세요'
             onKeyPress={handleKeyPress}
+            list='item-options'
           ></input>
+          <datalist id='item-options'>
+            <option value='blush'></option>
+            <option value='bronzer'></option>
+            <option value='eyeshadow'></option>
+            <option value='foundation'></option>
+            <option value='mascara'></option>
+            <option value='lipstick'></option>
+          </datalist>
           <button className='search-box-button' onClick={handleClick}>
             <span>Search!</span>
           </button>

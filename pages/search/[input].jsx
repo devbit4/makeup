@@ -1,6 +1,6 @@
-import { useRouter } from "next/router";
-import { useState } from "react";
-import List from "../../components/sub/List";
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import List from '../../components/sub/List';
 
 export default function Search({ products }) {
   const router = useRouter();
@@ -18,3 +18,4 @@ export async function getServerSideProps(context) {
 
   return { props: { products } };
 }
+// 전체검색기능 구현??

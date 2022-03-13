@@ -1,18 +1,40 @@
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { BRANDSNAMES } from '../../constatns';
 import Breadcrumbs from '../../components/sub/Breadcrumbs';
 import List from '../../components/sub/List';
 import Sidebar from '../../components/common/Sidebar';
 import Seo from '../../components/common/Seo';
+import Loading from '../../components/sub/Loading';
+import Link from 'next/link';
 
 export default function Brands() {
   const router = useRouter();
-  const brands = ['clinique', 'benefit', 'misa', 'stila'];
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const brand = router.query.brand;
   const url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;
+
+  const [value, setValue] = useState();
+  const handleClick = () => {
+    setProducts([...products].sort((a, b) => a.price - b.price));
+  };
+  const handleClick2 = () => {
+    setProducts([...products].sort((a, b) => b.price - a.price));
+  };
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  useEffect(() => {
+    if (value === '0')
+      setProducts([...products].sort((a, b) => a.price - b.price));
+    else if (value === '1')
+      setProducts([...products].sort((a, b) => b.price - a.price));
+    else if (value === '2')
+      setProducts([...products].filter((a) => a.price < 20));
+  }, [value]);
 
   const getData = () => {
     setProducts();
@@ -33,6 +55,14 @@ export default function Brands() {
   return (
     <>
       <Seo title='Brands'></Seo>
+      <select onChange={handleChange}>
+        <option value='0'>0</option>
+        <option value='1'>일번</option>
+        <option value='2'>일번</option>
+      </select>
+      <button onClick={handleClick}>버튼</button>
+      <button onClick={handleClick2}>버튼</button>
+
       <div className='brands'>
         <div className='inner'>
           <div className='sidebar'>
@@ -41,12 +71,17 @@ export default function Brands() {
                 <h1 className='sidebar-title'>All brands</h1>
               </a>
             </Link>
-            <Sidebar menus={brands} title={'brands'}></Sidebar>
+            <Sidebar menus={BRANDSNAMES} title={'brands'}></Sidebar>
           </div>
           <div className='main'>
             <h1 className='main-title'>All Brands Items</h1>
             <Breadcrumbs></Breadcrumbs>
-            {loading ? 'loading' : <List products={products}></List>}
+            {products && (
+              <p className='products-num'>
+                총 {products.length}개의 상품이 준비되어 있습니다.
+              </p>
+            )}
+            {loading ? <Loading></Loading> : <List products={products}></List>}
           </div>
         </div>
         <style jsx>
@@ -71,10 +106,14 @@ export default function Brands() {
               padding: 40px;
             }
             .main-title {
-              font: 500 24px 'fredoka';
+              font: 500 24px/1 'fredoka';
               margin-bottom: 50px;
               padding-bottom: 10px;
               border-bottom: 1px solid #333;
+            }
+            .products-num {
+              font: 400 16px/1 'roboto';
+              margin-bottom: 20px;
             }
             // <tablet 구간>
             @media screen and (max-width: 1180px) {
