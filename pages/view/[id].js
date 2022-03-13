@@ -13,14 +13,12 @@ export default function Detail({ item }) {
     return <Loading></Loading>;
   }
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAlarm(false);
-    }, 2000);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setAlarm(false);
+  //   }, 2000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
     <>
