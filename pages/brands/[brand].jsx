@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { BRANDSNAMES } from '../../constatns';
+import { BRANDS_PAGE } from '../../constatns';
 import Breadcrumbs from '../../components/sub/Breadcrumbs';
 import List from '../../components/sub/List';
 import Sidebar from '../../components/common/Sidebar';
@@ -12,42 +12,70 @@ export default function Brands() {
   const router = useRouter();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const brand = router.query.brand;
   const url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;
+  console.log(router);
 
-  const [value, setValue] = useState();
-  const handleClick = () => {
-    setProducts([...products].sort((a, b) => a.price - b.price));
-  };
-  const handleClick2 = () => {
-    setProducts([...products].sort((a, b) => b.price - a.price));
-  };
+  // const handleChange = React.useCallback((e) => {
+  //   setInput(e.target.value);
+  // }, []);
 
+  // const filteredList = React.useMemo(() => {
+  //   if (!isFilter) {
+  //     return products;
+  //   }
+
+  //   return products.filter((item) => item.price < 20);
+  // }, [products, isFilter]);
+
+  // const sortedList = React.useMemo(() => {
+  //   if (sortType === '') {
+  //     return filteredList;
+  //   }
+
+  //   if (sortType === 'asc') {
+  //     return [...filteredList].sort((a, b) => a.price - b.price);
+  //   } else {
+  //     return [...filteredList].sort((b, a) => a.price - b.price);
+  //   }
+  // }, [filteredList, sortType]);
+
+  // const [value, setValue] = useState();
+  // const handleClick = () => {
+  //   setProducts([...products].sort((a, b) => a.price - b.price));
+  // };
+  // const handleClick2 = () => {
+  //   setProducts([...products].sort((a, b) => b.price - a.price));
+  // };
+  //
   const handleChange = (e) => {
     setValue(e.target.value);
   };
 
-  useEffect(() => {
-    if (value === '0')
-      setProducts([...products].sort((a, b) => a.price - b.price));
-    else if (value === '1')
-      setProducts([...products].sort((a, b) => b.price - a.price));
-    else if (value === '2')
-      setProducts([...products].filter((a) => a.price < 20));
-  }, [value]);
+  // useEffect(() => {
+  //   if (value === '0')
+  //     setProducts([...products].sort((a, b) => a.price - b.price));
+  //   else if (value === '1')
+  //     setProducts([...products].sort((a, b) => b.price - a.price));
+  //   else if (value === '2')
+  //     setProducts([...products].filter((a) => a.price < 20));
+  // }, [value]);
 
   const getData = () => {
-    setProducts();
+    setLoading(true);
     fetch(url)
       .then((data) => data.json())
       .then((json) => {
-        setLoading(false);
         setProducts(json);
+      })
+      .catch(() => {})
+      .finally(() => {
+        setLoading(false);
       });
   };
   useEffect(() => {
     if (brand) {
-      setLoading(true);
       getData();
     }
   }, [brand]);
@@ -60,8 +88,8 @@ export default function Brands() {
         <option value='1'>일번</option>
         <option value='2'>일번</option>
       </select>
-      <button onClick={handleClick}>버튼</button>
-      <button onClick={handleClick2}>버튼</button>
+      {/* <button onClick={handleClick}>버튼</button>
+      <button onClick={handleClick2}>버튼</button> */}
 
       <div className='brands'>
         <div className='inner'>
@@ -71,7 +99,7 @@ export default function Brands() {
                 <h1 className='sidebar-title'>Brands</h1>
               </a>
             </Link>
-            <Sidebar menus={BRANDSNAMES} title={'brands'}></Sidebar>
+            <Sidebar menus={BRANDS_PAGE} title={'brands'}></Sidebar>
           </div>
           <div className='main'>
             <h1 className='main-title'>{brand}</h1>

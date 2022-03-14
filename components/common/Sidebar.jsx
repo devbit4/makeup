@@ -1,46 +1,77 @@
 import { useRouter } from 'next/router';
-import clsx from 'clsx';
+import Link from 'next/link';
 
-export default function Sidebar({ menus, title }) {
+export default function Sidebar({ menus }) {
   const router = useRouter();
-  const query = router.query.section || router.query.brand || 'form';
 
   const handleClick = (menu) => {
-    router.push(`/${title}/${menu}`);
+    router.push(menu.path);
   };
 
   return (
     <>
-      <ul className='subs'>
-        {menus &&
-          query &&
-          menus.map((menu, index) => (
-            <li
-              key={index}
-              className={clsx('sub', menu === query && 'active')}
-              onClick={() => {
-                handleClick(menu);
-              }}
-            >
-              - {menu}
-            </li>
-          ))}
-        <style jsx>{`
-          .subs {
-            margin-top: 40px;
-          }
-          .sub {
-            margin-bottom: 20px;
-            cursor: pointer;
-            font: 400 14px/1 'roboto';
-            padding-bottom: 10px;
-            border-bottom: 1px solid #777;
-          }
-          .sub.active {
-            color: #fff;
-          }
-        `}</style>
-      </ul>
+      <div className='sidebar'>
+        <ul className='depth1'>
+          {menus &&
+            menus.map((menu) => {
+              return (
+                <li
+                  key={menu.path}
+                  className='depth1-item'
+                  onClick={() => {
+                    handleClick(menu);
+                  }}
+                >
+                  <strong>{menu.name}</strong>
+                  <ul className='depth2'>
+                    {menu.children &&
+                      menu.children.map((child) => {
+                        return (
+                          <Link href={child.path}>
+                            <a>
+                              <li key={child.path} className='depth2-item'>
+                                <span>> {child.name}</span>
+                              </li>
+                            </a>
+                          </Link>
+                        );
+                      })}
+                  </ul>
+                </li>
+              );
+            })}
+        </ul>
+      </div>
+      <style jsx>{`
+        .sidebar {
+          padding: 30px 0 0 0;
+        }
+        .depth1-item {
+          border-bottom: 1px solid #777;
+          padding: 10px 0;
+          margin-bottom: 10px;
+          cursor: pointer;
+        }
+        .depth1-item strong {
+          font: 400 18px/1 'roboto';
+          transition: all 0.3s;
+        }
+        .depth1-item:hover strong {
+          color: #fff;
+        }
+        .depth2-item {
+          margin: 20px;
+          cursor: pointer;
+        }
+        .depth2-item span {
+          font: 400 16px/1 'roboto';
+          color: #444;
+          transition: all 0.3s;
+        }
+        .depth2-item:hover span {
+          color: #fff;
+        }
+      `}</style>
     </>
   );
 }

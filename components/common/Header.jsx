@@ -51,13 +51,16 @@ export default function Header() {
       <style jsx>{`
         .header {
           width: 100%;
+          position: sticky;
+          top: 0;
+          z-index: 2;
           background-color: #f5f2ee;
           color: #000;
         }
         .header-inner {
           width: 1180px;
           margin: 0 auto;
-          padding: 40px 20px 20px 20px;
+          padding: 30px 20px 20px 20px;
           display: flex;
           justify-content: space-between;
           align-items: center;

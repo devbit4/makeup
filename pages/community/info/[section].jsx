@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
-import Sidebar from '../../components/common/Sidebar';
 import { useRouter } from 'next/router';
+import { COMMUNITY_PAGE } from '../../../constatns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faCircle } from '@fortawesome/free-solid-svg-icons';
-import Seo from '../../components/common/Seo';
-import Pagination from '../../components/sub/Pagination';
+import Seo from '../../../components/common/Seo';
+import Pagination from '../../../components/sub/Pagination';
+import Sidebar from '../../../components/common/Sidebar';
 
 export default function Faq() {
   const router = useRouter();
   const section = router.query.section;
   const [problems, setProblems] = useState([]);
-  const comminity = ['faq', 'qna', 'form'];
   // 페이지네이션
   const [currentPage, setCurrentPage] = useState(1);
   const [problemsPerPage] = useState(4);
@@ -19,14 +19,15 @@ export default function Faq() {
   const currentProblems = problems.slice(indexOfFisrtPage, indexOfLastPage);
   const paginate = (pagenum) => setCurrentPage(pagenum);
 
+  const handleClick = (e) => {
+    e.target.closest('article').classList.toggle('off');
+  };
+
   // 데이터 불러오기
   const getData = () => {
     fetch(`/dbs/${section}.json`)
       .then((data) => data.json())
       .then((json) => setProblems(json.data));
-  };
-  const handleClick = (e) => {
-    e.target.closest('article').classList.toggle('off');
   };
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export default function Faq() {
         <div className='inner'>
           <div className='sidebar'>
             <h1 className='sidebar-title'>Community</h1>
-            <Sidebar menus={comminity} title={'community'}></Sidebar>
+            <Sidebar menus={COMMUNITY_PAGE}></Sidebar>
           </div>
           <div className='main'>
             <h1 className='main-title'>{section}</h1>
@@ -70,7 +71,6 @@ export default function Faq() {
           </div>
         </div>
       </section>
-      {/* community section 스타일링 */}
       <style jsx>
         {`
           .inner {

@@ -17,8 +17,39 @@ export const MENUS = [
   },
   {
     name: 'COMMUNITY',
-    link: '/community/faq',
-    pathname: '/community/[section]',
+    link: '/community/form',
+    pathname: '/community/info/[section]',
+    pathname2: '/community/form',
+  },
+];
+
+export const BRANDS_PAGE = [
+  { name: 'clinique', path: '/brands/clinique' },
+  { name: 'benefit', path: '/brands/benefit' },
+  { name: 'misa', path: '/brands/misa' },
+  { name: 'stila', path: '/brands/stila' },
+
+  ,
+];
+
+export const COMMUNITY_PAGE = [
+  {
+    name: 'form',
+    path: '/community/form',
+  },
+  {
+    name: 'info',
+    path: '/community/info/faq',
+    children: [
+      {
+        name: 'faq',
+        path: '/community/info/faq',
+      },
+      {
+        name: 'qna',
+        path: '/community/info/qna',
+      },
+    ],
   },
 ];
 
@@ -30,9 +61,6 @@ export const HOMEPICS = [
   { src: '/img/main3.jpg', name: 'BODY CARE' },
   { src: '/img/main4.jpg', name: 'HAIR CARE' },
 ];
-
-export const BRANDSNAMES = ['clinique', 'benefit', 'misa', 'stila'];
-
 
 export const FOOTERDETAIL = [
   {

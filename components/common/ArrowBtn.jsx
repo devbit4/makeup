@@ -3,8 +3,8 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function ArrowBtn() {
-  const btn = useRef();
-  const height = 200;
+  const arrowBtn = useRef();
+  const scrollHeight = 200;
 
   const handleClick = () => {
     document.documentElement.scrollTop = 0;
@@ -12,17 +12,21 @@ export default function ArrowBtn() {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (document.documentElement.scrollTop || window.pageYOffset > height) {
-        btn.current.classList.add('active');
+      const btn = arrowBtn.current;
+      if (
+        document.documentElement.scrollTop ||
+        window.pageYOffset > scrollHeight
+      ) {
+        btn.classList.add('active');
       } else {
-        btn.current.classList.remove('active');
+        btn.classList.remove('active');
       }
     });
   }, []);
 
   return (
     <>
-      <button ref={btn} className='arrow-up' onClick={handleClick}>
+      <button ref={arrowBtn} className='arrow-up' onClick={handleClick}>
         <FontAwesomeIcon icon={faArrowUp} size={'xl'} />
       </button>
       <style jsx>{`
