@@ -7,29 +7,16 @@ import TabContent from '../../components/sub/TabContent';
 export default function Detail({ item }) {
   const router = useRouter();
   const [tab, setTab] = useState('0');
-  const [alarm, setAlarm] = useState(true);
 
   if (router.isFallback) {
     return <Loading></Loading>;
   }
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setAlarm(false);
-  //   }, 2000);
-  //   return () => clearTimeout(timer);
-  // }, []);
 
   return (
     <>
       {item && (
         <div className='detail'>
           <div className='inner'>
-            {alarm && (
-              <span className='detail-alarm'>
-                구매 수량이 얼마 남지 않았습니다.
-              </span>
-            )}
             <div className='detail-upper'>
               <div className='detail-pic'>
                 <img src={item.image_link} className='detail-img'></img>

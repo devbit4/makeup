@@ -6,7 +6,27 @@ export default function Search({ products }) {
   const router = useRouter();
   console.log(products);
   if (products.length === 0) return <h1>조회된 결과가 없습니다</h1>;
-  return <List products={products}></List>;
+  return (
+    <>
+      <div className='searched-content'>
+        <div className='inner'>
+          <List products={products}></List>
+        </div>
+      </div>
+      <style jsx>{`
+        .inner {
+          width: 1180px;
+          margin: 20px auto;
+        }
+        // 반응형 구간
+        @media screen and (max-width: 1180px) {
+          .inner {
+            width: 100%;
+          }
+        }
+      `}</style>
+    </>
+  );
 }
 
 export async function getServerSideProps(context) {

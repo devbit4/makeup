@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 export default function Sidebar({ menus, title }) {
   const router = useRouter();
-  const query = router.query.section || router.query.brand || 'all';
+  const query = router.query.section || router.query.brand || 'form';
 
   const handleClick = (menu) => {
     router.push(`/${title}/${menu}`);

@@ -37,7 +37,7 @@ export default function Brands() {
           <div className='sidebar'>
             <Link href={'/brands'}>
               <a>
-                <h1 className='sidebar-title'>All brands</h1>
+                <h1 className='sidebar-title'>Brands</h1>
               </a>
             </Link>
             <Sidebar menus={BRANDSNAMES} title={'brands'}></Sidebar>

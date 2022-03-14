@@ -68,13 +68,13 @@ export default function Brands() {
           <div className='sidebar'>
             <Link href={'/brands'}>
               <a>
-                <h1 className='sidebar-title'>All brands</h1>
+                <h1 className='sidebar-title'>Brands</h1>
               </a>
             </Link>
             <Sidebar menus={BRANDSNAMES} title={'brands'}></Sidebar>
           </div>
           <div className='main'>
-            <h1 className='main-title'>All Brands Items</h1>
+            <h1 className='main-title'>{brand}</h1>
             <Breadcrumbs></Breadcrumbs>
             {products && (
               <p className='products-num'>
