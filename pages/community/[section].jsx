@@ -1,17 +1,25 @@
 import { useEffect, useState } from 'react';
 import Sidebar from '../../components/common/Sidebar';
 import { useRouter } from 'next/router';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faCircle } from '@fortawesome/free-solid-svg-icons';
 import Seo from '../../components/common/Seo';
+import Pagination from '../../components/sub/Pagination';
 
 export default function Faq() {
   const router = useRouter();
   const section = router.query.section;
   const [problems, setProblems] = useState([]);
   const comminity = ['faq', 'qna', 'form'];
+  // 페이지네이션
+  const [currentPage, setCurrentPage] = useState(1);
+  const [problemsPerPage] = useState(4);
+  const indexOfLastPage = currentPage * problemsPerPage;
+  const indexOfFisrtPage = indexOfLastPage - problemsPerPage;
+  const currentProblems = problems.slice(indexOfFisrtPage, indexOfLastPage);
+  const paginate = (pagenum) => setCurrentPage(pagenum);
 
+  // 데이터 불러오기
   const getData = () => {
     fetch(`/dbs/${section}.json`)
       .then((data) => data.json())
@@ -36,7 +44,7 @@ export default function Faq() {
           </div>
           <div className='main'>
             <h1 className='main-title'>{section}</h1>
-            {problems.map((problem, index) => {
+            {currentProblems.map((problem, index) => {
               return (
                 <article key={index} className='problem'>
                   <div className='question' onClick={handleClick}>
@@ -54,6 +62,11 @@ export default function Faq() {
                 </article>
               );
             })}
+            <Pagination
+              paginate={paginate}
+              problemsPerPage={problemsPerPage}
+              totalProblems={problems.length}
+            ></Pagination>
           </div>
         </div>
       </section>

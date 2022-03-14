@@ -8,10 +8,10 @@ import clsx from 'clsx';
 
 export default function Header() {
   const router = useRouter();
-  const [toggle, setToggle] = useState(false);
+  const [folded, setFolded] = useState(true);
 
   const handleClick = () => {
-    setToggle(!toggle);
+    setFolded(!folded);
   };
 
   return (
@@ -26,7 +26,7 @@ export default function Header() {
               </div>
             </a>
           </Link>
-          <nav className={clsx('header-menu', !toggle && 'invisible')}>
+          <nav className={clsx('header-menu', folded && 'invisible')}>
             {MENUS.map((menu, index) => {
               return (
                 <Link href={menu.link} key={index}>
