@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
-export default function Contact({ onClick }) {
+export default function ContactForm({ onClick }) {
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -29,12 +29,26 @@ export default function Contact({ onClick }) {
         <div className='form-container'>
           <form ref={form} onSubmit={sendEmail} className='form-content'>
             <label htmlFor='name'>Name</label>
-            <input type='text' name='name' className='name' />
+            <input
+              type='text'
+              name='name'
+              className='name'
+              placeholder='이름을 입력하세요'
+            />
             <label htmlFor='email'>Email</label>
-            <input type='email' name='email' className='email' />
+            <input
+              type='email'
+              name='email'
+              className='email'
+              placeholder='이메일을 입력하세요'
+            />
             <label htmlFor='message'>Message</label>
-            <textarea name='message' className='message' />
-            <input type='submit' value='Send' className='submit' />
+            <textarea
+              name='message'
+              className='message'
+              placeholder='문의내용을 입력하세요'
+            />
+            <input type='submit' value='Send' className='submit-btn' />
           </form>
         </div>
         <span
@@ -54,8 +68,7 @@ export default function Contact({ onClick }) {
           position: fixed;
           top: 0;
           left: 0;
-          background-color: #999;
-          opacity: 0.9;
+          background-color: #333;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -69,9 +82,28 @@ export default function Contact({ onClick }) {
           border-radius: 10px;
         }
         .form-content {
+          width: 100%;
+          height: 100%;
           display: flex;
           flex-direction: column;
+          justify-content: center;
           padding: 20px;
+        }
+        .form-content input {
+          margin-top: 10px;
+          margin-bottom: 30px;
+          padding: 5px;
+        }
+        .form-content textarea {
+          height: 100px;
+          resize: none;
+          margin-top: 10px;
+          margin-bottom: 30px;
+          padding: 5px;
+        }
+        .submit-btn {
+          padding: 5px;
+          cursor: pointer;
         }
         .close {
           position: absolute;
@@ -79,6 +111,7 @@ export default function Contact({ onClick }) {
           right: 10%;
           font: 700 16px/1 'roboto';
           cursor: pointer;
+          color: #fff;
         }
       `}</style>
     </>

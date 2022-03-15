@@ -23,7 +23,6 @@ export default function InfoPage() {
     e.target.closest('article').classList.toggle('off');
   };
 
-  // 데이터 불러오기
   const getData = () => {
     fetch(`/dbs/${section}.json`)
       .then((data) => data.json())
@@ -45,24 +44,26 @@ export default function InfoPage() {
           </div>
           <div className='main'>
             <h1 className='main-title'>{section}</h1>
-            {currentProblems.map((problem, index) => {
-              return (
-                <article key={index} className='problem'>
-                  <div className='question' onClick={handleClick}>
-                    <div className='question-front'>
-                      <FontAwesomeIcon icon={faCircle} />
-                      <h2>{problem.question}</h2>
+            <div className='problems'>
+              {currentProblems.map((problem, index) => {
+                return (
+                  <article key={index} className='problem'>
+                    <div className='question' onClick={handleClick}>
+                      <div className='question-front'>
+                        <FontAwesomeIcon icon={faCircle} />
+                        <h2>{problem.question}</h2>
+                      </div>
+                      <div className='question-underbar'>
+                        <FontAwesomeIcon icon={faChevronDown} />
+                      </div>
                     </div>
-                    <div className='question-underbar'>
-                      <FontAwesomeIcon icon={faChevronDown} />
+                    <div className='answer'>
+                      <p>{problem.answer}</p>
                     </div>
-                  </div>
-                  <div className='answer'>
-                    <p>{problem.answer}</p>
-                  </div>
-                </article>
-              );
-            })}
+                  </article>
+                );
+              })}
+            </div>
             <Pagination
               paginate={paginate}
               problemsPerPage={problemsPerPage}
@@ -97,6 +98,9 @@ export default function InfoPage() {
             padding-bottom: 10px;
             border-bottom: 1px solid #333;
             font: 500 24px 'fredoka';
+          }
+          .problems {
+            min-height: 450px;
           }
           .problem {
             padding-bottom: 10px;

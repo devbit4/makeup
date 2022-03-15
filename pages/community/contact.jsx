@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import Seo from '../../components/common/Seo';
 import Sidebar from '../../components/common/Sidebar';
-import Contact from '../../components/sub/Contact';
+import ContactForm from '../../components/sub/ContactForm';
 import { COMMUNITY_PAGE } from '../../constatns';
 
 export default function ContactPage() {
-  // const comminity = ['faq', 'qna', 'form'];
   const [isPopup, setIsPopup] = useState(false);
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     setIsPopup(!isPopup);
   };
 
@@ -18,7 +17,7 @@ export default function ContactPage() {
       <section className='community-contact'>
         <div className='inner'>
           <div className='sidebar'>
-            <h1 className='sidebar-title'>All sections</h1>
+            <h1 className='sidebar-title'>Community</h1>
             <Sidebar menus={COMMUNITY_PAGE}></Sidebar>
           </div>
           <div className='main'>
@@ -32,7 +31,7 @@ export default function ContactPage() {
             >
               고객센터에 메일보내기
             </button>
-            {isPopup && <Contact onClick={handleClick}></Contact>}
+            {isPopup && <ContactForm onClick={handleClick}></ContactForm>}
           </div>
         </div>
       </section>
@@ -64,7 +63,18 @@ export default function ContactPage() {
           font: 500 24px 'fredoka';
         }
         .community-contact-btn {
+          width: 200px;
+          height: 40px;
+          outline: none;
+          border: none;
+          border-radius: 10px;
           cursor: pointer;
+          background-color: #efefef;
+          font: 400 16px/1 'roboto';
+        }
+        .community-contact-btn:hover {
+          background-color: #333;
+          color: #fff;
         }
         // 반응형 구간
         @media screen and (max-width: 1180px) {

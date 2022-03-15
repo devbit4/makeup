@@ -90,7 +90,7 @@ export default function Header() {
         }
         .header-toggle-button {
           position: absolute;
-          top: 45px;
+          top: 40px;
           right: 50px;
           cursor: pointer;
           display: none;

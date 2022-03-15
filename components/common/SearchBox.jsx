@@ -4,6 +4,26 @@ import { useRef } from 'react';
 export default function SearchBox() {
   const router = useRouter();
   const input = useRef();
+  const options = [
+    {
+      keyword: 'blush',
+    },
+    {
+      keyword: 'bronzer',
+    },
+    {
+      keyword: 'eyeshadow',
+    },
+    {
+      keyword: 'foundation',
+    },
+    {
+      keyword: 'mascara',
+    },
+    {
+      keyword: 'lipstick',
+    },
+  ];
 
   const searchInput = () => {
     if (input.current.value === '') return;
@@ -32,12 +52,9 @@ export default function SearchBox() {
             list='item-options'
           ></input>
           <datalist id='item-options'>
-            <option value='blush'></option>
-            <option value='bronzer'></option>
-            <option value='eyeshadow'></option>
-            <option value='foundation'></option>
-            <option value='mascara'></option>
-            <option value='lipstick'></option>
+            {options.map((option) => (
+              <option value={option.keyword}></option>
+            ))}
           </datalist>
           <button className='search-box-button' onClick={handleClick}>
             <span>Search!</span>

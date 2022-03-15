@@ -1,22 +1,36 @@
+import clsx from 'clsx';
+import { useRef } from 'react';
+
 export default function Pagination({
   totalProblems,
   problemsPerPage,
   paginate,
 }) {
   const pageNums = [];
+  const pageBoxNumbers = useRef();
+
   for (let i = 1; i <= Math.ceil(totalProblems / problemsPerPage); i++) {
     pageNums.push(i);
   }
 
+  const handleClick = (e) => {
+    for (let i = 0; i < pageBoxNumbers.current.children.length; i++) {
+      pageBoxNumbers.current.children[i].classList.remove('active');
+    }
+    e.target.classList.add('active');
+  };
   return (
     <>
-      <ul className='page-nums'>
+      <ul className='page-nums' ref={pageBoxNumbers}>
         {pageNums.map((pageNum) => {
           return (
             <li
               key={pageNum}
-              onClick={() => paginate(pageNum)}
-              className='page-num'
+              onClick={(e) => {
+                paginate(pageNum);
+                handleClick(e);
+              }}
+              className={clsx('page-num', pageNum === 1 && 'active')}
             >
               {pageNum}
             </li>
@@ -35,6 +49,10 @@ export default function Pagination({
           border-radius: 4px;
           padding: 4px;
           cursor: pointer;
+        }
+        .page-num.active {
+          background-color: #777;
+          color: #fff;
         }
         .page-num:hover {
           background-color: #777;

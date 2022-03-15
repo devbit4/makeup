@@ -99,7 +99,7 @@ export default function BrandPage() {
                 <h1 className='sidebar-title'>Brands</h1>
               </a>
             </Link>
-            <Sidebar menus={BRANDS_PAGE} title={'brands'}></Sidebar>
+            <Sidebar menus={BRANDS_PAGE}></Sidebar>
           </div>
           <div className='main'>
             <h1 className='main-title'>{brand}</h1>

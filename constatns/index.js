@@ -40,7 +40,7 @@ export const BRANDS_PAGE = [
 
 export const COMMUNITY_PAGE = [
   {
-    name: 'form',
+    name: 'contact',
     path: '/community/contact',
   },
   {
