@@ -21,6 +21,12 @@ export const MENUS = [
     pathname: '/community/info/[section]',
     pathname2: '/community/form',
   },
+  {
+    name: 'ADMIN',
+    link: '/admin',
+    pathname: '/admin',
+    pathname2: '/login',
+  },
 ];
 
 export const BRANDS_PAGE = [

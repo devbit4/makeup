@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function ArrowBtn() {
   const arrowBtn = useRef();
-  const scrollHeight = 200;
+  const scrollHeight = 400;
 
   const handleClick = () => {
     document.documentElement.scrollTop = 0;
