@@ -48,6 +48,12 @@ export default function ListTest({ products, viewtype }) {
             align-items: center;
             margin-bottom: 20px;
             border: 1px solid #ddd;
+            transition:all 0.3s;
+            cursor:pointer;
+          }
+          .item:hover{
+            background-color:#efefef;
+            transform:scale(1.05);
           }
           .items.one .item {
             width: 100%;
@@ -80,6 +86,21 @@ export default function ListTest({ products, viewtype }) {
           .item-description {
             font: 400 12px/1 'questrial';
             margin-bottom: 10px;
+          }
+          .item-btn{
+            padding:5px;
+            background-color:#ccc;
+            border:none;
+            border-radius:4px;
+            cursor:pointer;
+          }
+          // 반응형구간 
+          @media screen and (max-width:768px){
+            .item {
+              width: 100%;
+             
+            }
+          }
           }
         `}</style>
       </ul>

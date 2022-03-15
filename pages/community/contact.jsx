@@ -29,7 +29,7 @@ export default function ContactPage() {
                 document.body.style.overflow = 'hidden';
               }}
             >
-              고객센터에 메일보내기
+              고객센터에 메일보내기 +
             </button>
             {isPopup && <ContactForm onClick={handleClick}></ContactForm>}
           </div>

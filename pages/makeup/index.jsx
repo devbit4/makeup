@@ -1,21 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Seo from '../../components/common/Seo';
 import ListTest from '../../components/sub/ListTest';
 
 export default function MakeupPage({ products }) {
-  const bestItems = products.slice(0, 9);
-  const newItems = products.slice(10, 20);
+  const bestItems = products.slice(0, 15);
   const [viewtype, setViewtype] = useState('two');
   const [data, setData] = useState(bestItems);
-  const [value, setValue] = useState('0');
-  const input = useRef();
 
-  const handleSelectChange = (e) => {
-    setValue(e.target.value);
-  };
-
-  const handleInputChange = (e) => {
-    console.log(e.target.value);
+  const handleInputChange = useCallback((e) => {
     let data = [];
     bestItems.forEach((item) => {
       if (
@@ -25,94 +17,49 @@ export default function MakeupPage({ products }) {
       }
       data.push(item);
     });
-    data && setData(data);
-  };
-
-  // 가격순/이름순 정렬
-
-  // useEffect(() => {
-  //   if (value === '0') setData(bestItems);
-  //   if (value === '1') setData(bestItems.sort((a, b) => a.price - b.price));
-  //   else if (value === '2')
-  //     setData([...data].sort((a, b) => b.price - a.price));
-  //   else if (value === '3')
-  //     setData(
-  //       [...data].sort((a, b) => {
-  //         if (a.name < b.name) return -1;
-  //         else return 1;
-  //       })
-  //     );
-  //   else if (value === '4') {
-  //     const newArray = [...data].filter((a) => a.price > 25);
-  //     setData(newArray);
-  //   }
-  //   // setData(bestItems.filter((a) => a.price > 25));
-  //   // else if (value === '4') setData([...data].filter((a) => a.price > 20));
-  // }, [value]);
-
-  // const [value, setValue] = useState('0');
-
-  const sortedData = React.useMemo(() => {
-    const newArray = [...bestItems];
-    if (value === '1') {
-      newArray.sort((a, b) => a.price - b.price);
-    } else if (value === '2') {
-      newArray.sort((a, b) => b.price - a.price);
-    } else if (value === '3') {
-      let love = newArray.filter((a) => a.price < 20);
-      return love;
-    } else if (value === '4') {
-      newArray.sort((a, b) => b.price - a.price);
-    }
-
-    return newArray;
-  }, [value]);
+    setData(data);
+  }, []);
 
   return (
     <>
       <Seo title='Makeup'></Seo>
       <div className='makeup'>
         <div className='inner'>
-          <input onChange={handleInputChange}></input>
-          <button>버튼</button>
-          <select onChange={handleSelectChange}>
-            <option value='0'>선택</option>
-            <option value='1'>낮은가격순</option>
-            <option value='2'>높은가격순</option>
-            <option value='3'>이름순</option>
-            <option value='4'>25불 이상</option>
-          </select>
-          <ul className='list-type-btns'>
-            <li className='list-type-btn'>
-              <input
-                onClick={(e) => {
-                  setViewtype('one');
-                }}
-                type='radio'
-                name='gen'
-                id='one'
-              />
-              <label htmlFor='one'></label>
-            </li>
-            <li className='list-type-btn'>
-              <input
-                onClick={() => setViewtype('two')}
-                name='gen'
-                type='radio'
-                id='two'
-                defaultChecked
-              />
-              <label htmlFor='two'></label>
-            </li>
-          </ul>
-          <div className='makeup-subtitle'>
-            <h2>Best Items</h2>
+          <div className='makeup-upper'>
+            <input
+              type='text'
+              placeholder='베스트상품명을 입력하세요'
+              onChange={handleInputChange}
+              className='makeup-searchbox'
+            ></input>
+            <ul className='list-type-btns'>
+              <li className='list-type-btn'>
+                <input
+                  onClick={(e) => {
+                    setViewtype('one');
+                  }}
+                  type='radio'
+                  name='gen'
+                  id='one'
+                />
+                <label htmlFor='one'>한줄보기</label>
+              </li>
+              <li className='list-type-btn'>
+                <input
+                  onClick={() => setViewtype('two')}
+                  name='gen'
+                  type='radio'
+                  id='two'
+                  defaultChecked
+                />
+                <label htmlFor='two'>두줄보기</label>
+              </li>
+            </ul>
           </div>
-          <ListTest products={data} viewtype={viewtype}></ListTest>
-          <div className='makeup-subtitle'>
-            <h2>New Items</h2>
+          <div className='makeup-lower'>
+            <h2 className='makeup-title'>Best Items</h2>
+            <ListTest products={data} viewtype={viewtype}></ListTest>
           </div>
-          <ListTest products={newItems} viewtype={viewtype}></ListTest>
         </div>
       </div>
       <style jsx>{`
@@ -123,10 +70,47 @@ export default function MakeupPage({ products }) {
           width: 1180px;
           margin: 0 auto;
         }
+        .makeup-upper {
+          display: flex;
+          justify-content: flex-end;
+          padding: 30px;
+        }
+        .makeup-searchbox {
+          width: 200px;
+          margin-right: 10px;
+          padding: 5px;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid #777;
+        }
+        .makeup-searchbox:focus {
+          background-color: #efefef;
+        }
+        .list-type-btn {
+          display: flex;
+          align-items: center;
+          margin-bottom: 5px;
+        }
+        .list-type-btn label {
+          font: 400 12px/1 'roboto';
+          margin-left: 10px;
+        }
+        .makeup-title {
+          padding-left: 80px;
+          font: 500 24px 'fredoka';
+        }
         // 반응형
         @media screen and (max-width: 1180px) {
           .inner {
             width: 100%;
+          }
+        }
+        @media screen and (max-width: 768px) {
+          .list-type-btns {
+            display: none;
+          }
+          .makeup-searchbox {
+            margin-top: 20px;
           }
         }
       `}</style>

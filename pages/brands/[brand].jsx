@@ -48,10 +48,32 @@ export default function BrandPage() {
   // const handleClick2 = () => {
   //   setProducts([...products].sort((a, b) => b.price - a.price));
   // };
+  // <button>버튼</button>
+  // <select onChange={handleSelectChange}>
+  //   <option value='0'>선택</option>
+  //   <option value='1'>낮은가격순</option>
+  //   <option value='2'>높은가격순</option>
+  //   <option value='3'>이름순</option>
+  //   <option value='4'>25불 이상</option>
+  // </select>
   //
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
+  // const sortedData = useMemo(() => {
+  //   const newArray = [...bestItems];
+  //   if (value === '1') {
+  //     newArray.sort((a, b) => a.price - b.price);
+  //   } else if (value === '2') {
+  //     newArray.sort((a, b) => b.price - a.price);
+  //   } else if (value === '3') {
+  //     let love = newArray.filter((a) => a.price < 20);
+  //     return love;
+  //   } else if (value === '4') {
+  //     newArray.sort((a, b) => b.price - a.price);
+  //   }
+  //   return newArray;
+  // }, [value]);
+  // const handleChange = (e) => {
+  //   setValue(e.target.value);
+  // };
 
   // useEffect(() => {
   //   if (value === '0')
@@ -83,14 +105,6 @@ export default function BrandPage() {
   return (
     <>
       <Seo title='Brands'></Seo>
-      <select onChange={handleChange}>
-        <option value='0'>0</option>
-        <option value='1'>일번</option>
-        <option value='2'>일번</option>
-      </select>
-      {/* <button onClick={handleClick}>버튼</button>
-      <button onClick={handleClick2}>버튼</button> */}
-
       <div className='brands'>
         <div className='inner'>
           <div className='sidebar'>

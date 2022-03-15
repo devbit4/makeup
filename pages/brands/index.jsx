@@ -14,6 +14,7 @@ export default function BrandsPage() {
     'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
 
   const getData = () => {
+    setLoading(true);
     setProducts();
     fetch(url)
       .then((data) => data.json())
@@ -24,7 +25,6 @@ export default function BrandsPage() {
   };
 
   useEffect(() => {
-    setLoading(true);
     getData();
   }, []);
 

@@ -53,7 +53,7 @@ export default function SearchBox() {
           ></input>
           <datalist id='item-options'>
             {options.map((option) => (
-              <option value={option.keyword}></option>
+              <option value={option.keyword} key={option.keyword}></option>
             ))}
           </datalist>
           <button className='search-box-button' onClick={handleClick}>

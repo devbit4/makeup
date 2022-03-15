@@ -60,7 +60,7 @@ export default function List({ products }) {
           transform: scale(1.05);
         }
         .item:hover .item-name,
-        .item-type {
+        .item:hover .item-type {
           color: #fff;
         }
         .item-img {
