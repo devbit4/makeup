@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Seo from '../components/common/Seo';
 import Members from '../components/sub/Members';
 
-export default function About() {
+export default function AboutPage() {
   return (
     <>
       <Seo title='About' />

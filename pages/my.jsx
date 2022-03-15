@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-export default function Admin() {
+export default function MyPage() {
   const router = useRouter();
   const [isLogin, setIsLogin] = useState(false);
   const checkLogin = () => {

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Seo from '../../components/common/Seo';
 import ListTest from '../../components/sub/ListTest';
 
-export default function Makeup({ products }) {
+export default function MakeupPage({ products }) {
   const bestItems = products.slice(0, 9);
   const newItems = products.slice(10, 20);
   const [viewtype, setViewtype] = useState('two');

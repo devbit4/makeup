@@ -4,7 +4,7 @@ import Loading from '../../components/sub/Loading';
 import clsx from 'clsx';
 import TabContent from '../../components/sub/TabContent';
 
-export default function Detail() {
+export default function DetailPage() {
   const router = useRouter();
   const id = router.query.id;
   const [item, setItem] = useState();

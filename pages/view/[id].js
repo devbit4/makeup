@@ -4,7 +4,7 @@ import Loading from '../../components/sub/Loading';
 import clsx from 'clsx';
 import TabContent from '../../components/sub/TabContent';
 
-export default function Detail({ item }) {
+export default function ViewPage({ item }) {
   const router = useRouter();
   const [tab, setTab] = useState('0');
 

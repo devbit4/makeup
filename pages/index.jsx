@@ -2,7 +2,7 @@ import Seo from '../components/common/Seo';
 import Reviews from '../components/sub/Reviews';
 import { HOMEPICS } from '../constatns';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Seo title='Home' />

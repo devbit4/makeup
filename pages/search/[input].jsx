@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import List from '../../components/sub/List';
 
-export default function Search({ products }) {
+export default function SearchPage({ products }) {
   const router = useRouter();
   console.log(products);
   if (products.length === 0) return <h1>조회된 결과가 없습니다</h1>;

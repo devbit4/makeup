@@ -17,14 +17,14 @@ export const MENUS = [
   },
   {
     name: 'COMMUNITY',
-    link: '/community/form',
+    link: '/community/contact',
     pathname: '/community/info/[section]',
-    pathname2: '/community/form',
+    pathname2: '/community/contact',
   },
   {
-    name: 'ADMIN',
-    link: '/admin',
-    pathname: '/admin',
+    name: 'MY',
+    link: '/my',
+    pathname: '/my',
     pathname2: '/login',
   },
 ];
@@ -41,7 +41,7 @@ export const BRANDS_PAGE = [
 export const COMMUNITY_PAGE = [
   {
     name: 'form',
-    path: '/community/form',
+    path: '/community/contact',
   },
   {
     name: 'info',
