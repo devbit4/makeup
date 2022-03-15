@@ -5,6 +5,7 @@ export default function Sidebar({ menus }) {
   const router = useRouter();
 
   const handleClick = (menu) => {
+    if (menu.children !== undefined) return;
     router.push(menu.path);
   };
 
@@ -30,7 +31,7 @@ export default function Sidebar({ menus }) {
                           <Link href={child.path}>
                             <a>
                               <li key={child.path} className='depth2-item'>
-                                <span>> {child.name}</span>
+                                <span> {child.name}</span>
                               </li>
                             </a>
                           </Link>

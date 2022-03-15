@@ -4,7 +4,7 @@ import Sidebar from '../../components/common/Sidebar';
 import Contact from '../../components/sub/Contact';
 import { COMMUNITY_PAGE } from '../../constatns';
 
-export default function Form() {
+export default function ContactPage() {
   // const comminity = ['faq', 'qna', 'form'];
   const [isPopup, setIsPopup] = useState(false);
 
@@ -19,7 +19,7 @@ export default function Form() {
         <div className='inner'>
           <div className='sidebar'>
             <h1 className='sidebar-title'>All sections</h1>
-            <Sidebar menus={COMMUNITY_PAGE} title={'community'}></Sidebar>
+            <Sidebar menus={COMMUNITY_PAGE}></Sidebar>
           </div>
           <div className='main'>
             <h1 className='main-title'>contact</h1>

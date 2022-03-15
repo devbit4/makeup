@@ -8,7 +8,7 @@ import Seo from '../../components/common/Seo';
 import Loading from '../../components/sub/Loading';
 import Link from 'next/link';
 
-export default function Brands() {
+export default function BrandPage() {
   const router = useRouter();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);

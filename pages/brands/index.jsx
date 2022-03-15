@@ -7,7 +7,7 @@ import Seo from '../../components/common/Seo';
 import Loading from '../../components/sub/Loading';
 import Link from 'next/link';
 
-export default function Brands() {
+export default function BrandsPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const url =

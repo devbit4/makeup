@@ -7,7 +7,7 @@ import Seo from '../../../components/common/Seo';
 import Pagination from '../../../components/sub/Pagination';
 import Sidebar from '../../../components/common/Sidebar';
 
-export default function Faq() {
+export default function InfoPage() {
   const router = useRouter();
   const section = router.query.section;
   const [problems, setProblems] = useState([]);
