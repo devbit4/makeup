@@ -51,12 +51,3 @@ export const COMMUNITY_PAGE = [
     ],
   },
 ];
-
-export const HOMEPICS = [
-  {
-    src: '/img/main2.jpg',
-    name: 'SKIN CARE',
-  },
-  { src: '/img/main3.jpg', name: 'BODY CARE' },
-  { src: '/img/main4.jpg', name: 'HAIR CARE' },
-];

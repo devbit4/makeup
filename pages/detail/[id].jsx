@@ -1,22 +1,25 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Loading from '../../components/sub/Loading';
 import clsx from 'clsx';
 import TabContent from '../../components/sub/TabContent';
+import Seo from '../../components/common/Seo';
+import axios from 'axios';
 
 export default function DetailPage() {
   const router = useRouter();
   const id = router.query.id;
   const [item, setItem] = useState();
-  const [tab, setTab] = useState('0');
+  const [tabIndex, setTabIndex] = useState(0);
   const [alarm, setAlarm] = useState(true);
   const url = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json?`;
 
-  const getData = () => {
-    fetch(url)
-      .then((data) => data.json())
-      .then((json) => setItem(json));
-  };
+  const getData = useCallback(() => {
+    axios
+      .get(url)
+      .then((res) => setItem(res.data))
+      .catch((err) => console.log(err));
+  }, [id]);
 
   useEffect(() => {
     id && getData();
@@ -33,6 +36,7 @@ export default function DetailPage() {
 
   return (
     <>
+      <Seo title='상세페이지' />
       {item ? (
         <div className='detail'>
           <div className='inner'>
@@ -51,37 +55,43 @@ export default function DetailPage() {
                   {item.category || 'all'} / {item.product_type}
                 </span>
                 <strong className='detail-price'>${item.price}</strong>
-                <div className='btns'>
-                  <button className='put-button btn'>장바구니</button>
-                  <button className='buy-button btn'>구매하기</button>
+                <div className='detail-btns'>
+                  <button className='detail-btn'>장바구니</button>
+                  <button className='detail-btn'>구매하기</button>
                 </div>
               </div>
             </div>
             <div className='detail-lower'>
               <ul className='detail-tab-btns'>
                 <li
-                  className={clsx('detail-tab-btn', tab === '0' && 'active')}
-                  onClick={() => {
-                    setTab('0');
-                  }}
+                  className={clsx('detail-tab-btn', tabIndex === 0 && 'active')}
+                  onClick={() => setTabIndex(0)}
                 >
                   <span>상세페이지</span>
                 </li>
                 <li
-                  className={clsx('detail-tab-btn', tab === '1' && 'active')}
-                  onClick={() => setTab('1')}
+                  className={clsx('detail-tab-btn', tabIndex === 1 && 'active')}
+                  onClick={() => setTabIndex(1)}
                 >
                   <span>주문 및 배송</span>
                 </li>
               </ul>
-              <TabContent tab={tab} description={item.description}></TabContent>
+              <TabContent
+                tabIndex={tabIndex}
+                description={item.description}
+              ></TabContent>
             </div>
           </div>
         </div>
       ) : (
-        <Loading></Loading>
+        <div className='loading'>
+          <Loading></Loading>
+        </div>
       )}
       <style jsx>{`
+        .loading {
+          min-height: 300px;
+        }
         .detail {
           width: 100%;
         }
@@ -129,7 +139,7 @@ export default function DetailPage() {
           font: 400 24px/1 'roboto';
           color: red;
         }
-        .btn {
+        .detail-btn {
           width: 200px;
           display: inline-block;
           border: none;
@@ -139,7 +149,7 @@ export default function DetailPage() {
           cursor: pointer;
           font: 400 16px/1 'roboto';
         }
-        .btn:hover {
+        .detail-btn:hover {
           background: #333;
           color: #fff;
         }

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Seo from '../components/common/Seo';
 import Members from '../components/sub/Members';
 

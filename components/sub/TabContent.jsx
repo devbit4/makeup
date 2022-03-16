@@ -1,5 +1,5 @@
-export default function TabContent({ tab, description }) {
-  if (tab === '0')
+export default function TabContent({ tabIndex, description }) {
+  if (tabIndex === 0)
     return (
       <>
         <div className='tab-content1'>
@@ -18,7 +18,7 @@ export default function TabContent({ tab, description }) {
         </div>
       </>
     );
-  else if (tab === '1')
+  else if (tabIndex === 1)
     return (
       <>
         <div className='tab-content2'>

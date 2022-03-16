@@ -1,8 +1,15 @@
 import Seo from '../components/common/Seo';
 import Reviews from '../components/sub/Reviews';
-import { HOMEPICS } from '../constants';
 
 export default function HomePage() {
+  const homePics = [
+    {
+      src: '/img/main2.jpg',
+      name: 'SKIN CARE',
+    },
+    { src: '/img/main3.jpg', name: 'BODY CARE' },
+    { src: '/img/main4.jpg', name: 'HAIR CARE' },
+  ];
   return (
     <>
       <Seo title='Home' />
@@ -35,7 +42,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className='home-info-pics'>
-              {HOMEPICS.map((pic, index) => {
+              {homePics.map((pic, index) => {
                 return (
                   <article className='home-info-pic' key={index}>
                     <div className='img-wrapper'>

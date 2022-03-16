@@ -1,19 +1,28 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Loading from '../../components/sub/Loading';
 import clsx from 'clsx';
 import TabContent from '../../components/sub/TabContent';
+import Head from 'next/head';
 
 export default function ViewPage({ item }) {
   const router = useRouter();
-  const [tab, setTab] = useState('0');
+  const [tabIndex, setTabIndex] = useState(0);
 
   if (router.isFallback) {
-    return <Loading></Loading>;
+    return (
+      <div className='loading'>
+        <Loading></Loading>
+      </div>
+    );
   }
 
   return (
     <>
+      <Head>
+        <title>{item.name}</title>
+        <meta name='description' content={item.description}></meta>
+      </Head>
       {item && (
         <div className='detail'>
           <div className='inner'>
@@ -27,37 +36,42 @@ export default function ViewPage({ item }) {
                   {item.category || 'all'} / {item.product_type}
                 </span>
                 <strong className='detail-price'>${item.price}</strong>
-                <div className='btns'>
-                  <button className='put-button btn'>장바구니</button>
-                  <button className='buy-button btn'>구매하기</button>
+                <div className='detail-btns'>
+                  <button className='detail-btn'>장바구니</button>
+                  <button className='detail-btn'>구매하기</button>
                 </div>
               </div>
             </div>
             <div className='detail-lower'>
               <ul className='detail-tab-btns'>
                 <li
-                  className={clsx('detail-tab-btn', tab === '0' && 'active')}
-                  onClick={() => {
-                    setTab('0');
-                  }}
+                  className={clsx('detail-tab-btn', tabIndex === 0 && 'active')}
+                  onClick={() => setTabIndex(0)}
                 >
                   <span>상세페이지</span>
                 </li>
                 <li
-                  className={clsx('detail-tab-btn', tab === '1' && 'active')}
-                  onClick={() => setTab('1')}
+                  className={clsx('detail-tab-btn', tabIndex === 1 && 'active')}
+                  onClick={() => setTabIndex(1)}
                 >
                   <span>주문 및 배송</span>
                 </li>
               </ul>
-              <TabContent tab={tab} description={item.description}></TabContent>
+              <TabContent
+                tabIndex={tabIndex}
+                description={item.description}
+              ></TabContent>
             </div>
           </div>
         </div>
       )}
       <style jsx>{`
+        .loading {
+          min-height: 300px;
+        }
         .detail {
           width: 100%;
+          min-height: 300px;
         }
         .inner {
           width: 1180px;
@@ -103,7 +117,7 @@ export default function ViewPage({ item }) {
           font: 400 24px/1 'roboto';
           color: red;
         }
-        .btn {
+        .detail-btn {
           width: 200px;
           display: inline-block;
           border: none;
@@ -113,7 +127,7 @@ export default function ViewPage({ item }) {
           cursor: pointer;
           font: 400 16px/1 'roboto';
         }
-        .btn:hover {
+        .detail-btn:hover {
           background: #333;
           color: #fff;
         }
