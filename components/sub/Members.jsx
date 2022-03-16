@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
+import axios from 'axios';
 
 export default function Members() {
   const [members, setMembers] = useState();
 
   useEffect(() => {
-    fetch('/dbs/members.json')
-      .then((data) => data.json())
-      .then((json) => setMembers(json.data));
+    axios
+      .get('/dbs/members.json')
+      .then((res) => setMembers(res.data.data))
+      .catch((error) => console.log(error));
   }, []);
 
   return (

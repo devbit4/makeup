@@ -8,10 +8,14 @@ import clsx from 'clsx';
 
 export default function Header() {
   const router = useRouter();
-  const [folded, setFolded] = useState(true);
+  const [foldedGnb, setFoldedGnb] = useState(true);
+  const parentPathName = router.asPath.split('/').slice(0, 2).join('/');
 
-  const handleClick = () => {
-    setFolded(!folded);
+  const parentMenuName = (menu) => {
+    return menu.path.split('/').slice(0, 2).join('/');
+  };
+  const handleBtnClick = () => {
+    setFoldedGnb(!foldedGnb);
   };
 
   return (
@@ -26,15 +30,14 @@ export default function Header() {
               </div>
             </a>
           </Link>
-          <nav className={clsx('header-menu', folded && 'invisible')}>
-            {MENUS.map((menu, index) => {
+          <nav className={clsx('header-menu', foldedGnb && 'invisible')}>
+            {MENUS.map((menu) => {
               return (
-                <Link href={menu.link} key={index}>
+                <Link href={menu.path} key={menu.path}>
                   <a
                     className={clsx(
                       'header-menu-item',
-                      (router.pathname === menu.pathname && 'active') ||
-                        (router.pathname === menu.pathname2 && 'active')
+                      parentPathName === parentMenuName(menu) && 'active'
                     )}
                   >
                     {menu.name}
@@ -43,7 +46,7 @@ export default function Header() {
               );
             })}
           </nav>
-          <div className='header-toggle-button' onClick={handleClick}>
+          <div className='header-toggle-button' onClick={handleBtnClick}>
             <FontAwesomeIcon icon={faBars} />
           </div>
         </div>

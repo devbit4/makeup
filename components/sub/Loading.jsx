@@ -1,9 +1,11 @@
 export default function Loading() {
   return (
     <>
-      <img src='/img/loading.png' alt='loading' className='loading'></img>
+      <div className='loading'>
+        <img src='/img/loading.png' alt='loading' className='loading-img'></img>
+      </div>
       <style jsx>{`
-        .loading {
+        .loading-img {
           position: fixed;
           top: 50%;
           left: 50%;

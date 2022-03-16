@@ -25,7 +25,7 @@ export default function ContactForm({ onClick }) {
   };
   return (
     <>
-      <div className='form'>
+      <div className='contact-form'>
         <div className='form-container'>
           <form ref={form} onSubmit={sendEmail} className='form-content'>
             <label htmlFor='name'>Name</label>
@@ -62,7 +62,7 @@ export default function ContactForm({ onClick }) {
         </span>
       </div>
       <style jsx>{`
-        .form {
+        .contact-form {
           width: 100%;
           height: 100vh;
           position: fixed;

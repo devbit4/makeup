@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { useRef } from 'react';
+import clsx from 'clsx';
 
 export default function Pagination({
   totalProblems,

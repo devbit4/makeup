@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BRANDS_PAGE } from '../../constatns';
-import Breadcrumbs from '../../components/sub/Breadcrumbs';
+// import Breadcrumbs from '../../components/sub/Breadcrumbs';
 import List from '../../components/sub/List';
 import Sidebar from '../../components/common/Sidebar';
 import Seo from '../../components/common/Seo';
@@ -43,7 +43,7 @@ export default function BrandsPage() {
           </div>
           <div className='main'>
             <h1 className='main-title'>All Brands Items</h1>
-            <Breadcrumbs></Breadcrumbs>
+            {/* <Breadcrumbs></Breadcrumbs> */}
             {loading ? <Loading></Loading> : <List products={products}></List>}
           </div>
         </div>

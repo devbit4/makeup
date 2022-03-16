@@ -2,35 +2,39 @@ import { useEffect, useRef } from 'react';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function ArrowBtn() {
-  const arrowBtn = useRef();
+export default function ArrowUpBtn() {
+  const arrowUpBtn = useRef();
   const scrollHeight = 400;
 
-  const handleClick = () => {
+  const handleBtnClick = () => {
     document.documentElement.scrollTop = 0;
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      const btn = arrowBtn.current;
-      if (
-        document.documentElement.scrollTop ||
-        window.pageYOffset > scrollHeight
-      ) {
+    const showArrowUpBtn = window.addEventListener('scroll', () => {
+      const btn = arrowUpBtn.current;
+      if ((btn && document.documentElement.scrollTop) > scrollHeight) {
         btn.classList.add('active');
       } else {
         btn.classList.remove('active');
       }
     });
+    return () => {
+      window.removeEventListener('scroll', showArrowUpBtn);
+    };
   }, []);
 
   return (
     <>
-      <button ref={arrowBtn} className='arrow-up' onClick={handleClick}>
+      <button
+        ref={arrowUpBtn}
+        className='arrow-up-btn'
+        onClick={handleBtnClick}
+      >
         <FontAwesomeIcon icon={faArrowUp} size={'xl'} />
       </button>
       <style jsx>{`
-        .arrow-up {
+        .arrow-up-btn {
           width: 40px;
           height: 40px;
           position: fixed;
@@ -46,7 +50,7 @@ export default function ArrowBtn() {
           pointer-events: none;
           z-index: 2;
         }
-        .arrow-up.active {
+        .arrow-up-btn.active {
           opacity: 1;
           pointer-events: auto;
         }

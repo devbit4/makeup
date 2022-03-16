@@ -4,11 +4,8 @@ import Link from 'next/link';
 
 export default function Breadcrumbs() {
   const router = useRouter();
-  const [breadcrumbs, setBreadcrumbs] = useState(null);
+  const [breadcrumbs, setBreadcrumbs] = useState([]);
 
-  if (!breadcrumbs) {
-    return null;
-  }
   useEffect(() => {
     const pathNames = router.asPath.split('/');
     pathNames.shift();
@@ -42,8 +39,9 @@ export default function Breadcrumbs() {
       <style jsx>{`
         .breadcrumb-inner {
           width: 1180px;
-          margin: 0 auto;
           display: flex;
+          margin: 0 auto;
+          padding-left: 20px;
         }
         li:last-child a {
           color: #333;

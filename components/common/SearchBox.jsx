@@ -26,7 +26,9 @@ export default function SearchBox() {
   ];
 
   const searchInput = () => {
-    if (input.current.value === '') return;
+    if (input.current.value === '') {
+      return alert('검색어를 입력하세요');
+    }
     router.push(`/search/${input.current.value}`);
     input.current.value = '';
   };
@@ -49,9 +51,9 @@ export default function SearchBox() {
             className='search-box-input'
             placeholder='화장품을 입력하세요'
             onKeyPress={handleKeyPress}
-            list='item-options'
+            list='auto-complete'
           ></input>
-          <datalist id='item-options'>
+          <datalist id='auto-complete'>
             {options.map((option) => (
               <option value={option.keyword} key={option.keyword}></option>
             ))}

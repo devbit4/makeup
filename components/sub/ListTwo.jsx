@@ -1,7 +1,7 @@
-import clsx from 'clsx';
 import { useRouter } from 'next/router';
+import clsx from 'clsx';
 
-export default function ListTest({ products, viewtype }) {
+export default function ListTwo({ products, viewtype }) {
   const router = useRouter();
 
   const handleItemClick = (id) => {
@@ -10,7 +10,7 @@ export default function ListTest({ products, viewtype }) {
 
   return (
     <>
-      <ul className={clsx('items', viewtype === 'one' && 'one')}>
+      <ul className={clsx('list', viewtype === 'one' && 'one')}>
         {products &&
           products.map((product) => {
             return (
@@ -37,13 +37,14 @@ export default function ListTest({ products, viewtype }) {
             );
           })}
         <style jsx>{`
-          .items {
+          .list {
             padding: 40px 80px;
             display: flex;
             flex-wrap: wrap;
+            justify-content:space-between;
           }
           .item {
-            width: 50%;
+            width: 49%;
             display: flex;
             align-items: center;
             margin-bottom: 20px;

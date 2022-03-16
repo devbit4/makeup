@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Seo from '../../components/common/Seo';
-import ListTest from '../../components/sub/ListTest';
+import ListTwo from '../../components/sub/ListTwo';
 
 export default function MakeupPage({ products }) {
   const bestItems = products.slice(0, 15);
-  const [viewtype, setViewtype] = useState('two');
+  const [viewType, setViewType] = useState('two');
   const [data, setData] = useState(bestItems);
 
   const handleInputChange = useCallback((e) => {
@@ -36,7 +36,7 @@ export default function MakeupPage({ products }) {
               <li className='list-type-btn'>
                 <input
                   onClick={(e) => {
-                    setViewtype('one');
+                    setViewType('one');
                   }}
                   type='radio'
                   name='gen'
@@ -46,7 +46,7 @@ export default function MakeupPage({ products }) {
               </li>
               <li className='list-type-btn'>
                 <input
-                  onClick={() => setViewtype('two')}
+                  onClick={() => setViewType('two')}
                   name='gen'
                   type='radio'
                   id='two'
@@ -58,7 +58,7 @@ export default function MakeupPage({ products }) {
           </div>
           <div className='makeup-lower'>
             <h2 className='makeup-title'>Best Items</h2>
-            <ListTest products={data} viewtype={viewtype}></ListTest>
+            <ListTwo products={data} viewtype={viewType}></ListTwo>
           </div>
         </div>
       </div>

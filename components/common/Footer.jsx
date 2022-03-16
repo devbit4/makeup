@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { FOOTERDETAIL, MENUS } from '../../constatns';
+import { MENUS } from '../../constatns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFan } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
@@ -7,6 +7,38 @@ import clsx from 'clsx';
 
 export default function Footer() {
   const router = useRouter();
+  const footerDetail = [
+    {
+      title: 'Working Time',
+      sub1: 'Monday-Saturday',
+      sub3: '09:00-18:00',
+      sub4: '09:00-11:00',
+    },
+    {
+      title: 'Address',
+      sub1: '198 West 21th street Suite',
+      sub3: 'New York,NY 10010',
+      sub4: 'Canada,CA 12210',
+    },
+    {
+      title: 'Website Policies',
+      sub1: 'Terms&Conditions',
+      sub3: 'Privacy policy',
+      sub4: 'Accessibility',
+    },
+    {
+      title: 'Social',
+      sub1: 'Instagram',
+      sub3: 'Pinterest',
+      sub4: 'Twitter',
+    },
+  ];
+  const parentPathName = router.asPath.split('/').slice(0, 2).join('/');
+
+  const parentMenuName = (menu) => {
+    return menu.path.split('/').slice(0, 2).join('/');
+  };
+
   return (
     <>
       <footer className='footer'>
@@ -21,14 +53,13 @@ export default function Footer() {
               </Link>
             </div>
             <div className='footer-menu'>
-              {MENUS.map((menu, index) => {
+              {MENUS.map((menu) => {
                 return (
-                  <Link href={menu.link} key={index}>
+                  <Link href={menu.path} key={menu.path}>
                     <a
                       className={clsx(
                         'footer-menu-item',
-                        (router.pathname === menu.pathname && 'active') ||
-                          (router.pathname === menu.pathname2 && 'active')
+                        parentPathName === parentMenuName(menu) && 'active'
                       )}
                     >
                       {menu.name}
@@ -40,7 +71,7 @@ export default function Footer() {
           </div>
           <div className='footer-lower'>
             <ul className='footer-details'>
-              {FOOTERDETAIL.map((detail, index) => {
+              {footerDetail.map((detail, index) => {
                 return (
                   <li className='footer-detail' key={index}>
                     <span>{detail.title}</span>

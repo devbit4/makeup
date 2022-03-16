@@ -4,18 +4,19 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import axios from 'axios';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 export default function Reviews() {
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState();
 
   useEffect(() => {
-    fetch('/dbs/reviews.json')
-      .then((data) => data.json())
-      .then((json) => setReviews(json.data));
+    axios
+      .get('/dbs/reviews.json')
+      .then((res) => setReviews(res.data.data))
+      .catch((error) => console.log(error));
   }, []);
-  // 서버사이드렌더링으로 고치시오.
 
   return (
     <>
@@ -27,30 +28,31 @@ export default function Reviews() {
         pagination={true}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
       >
-        {[reviews.slice(0, 4), reviews.slice(4, 8)].map((slide, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <div className='reviews'>
-                {slide.map((review, index) => {
-                  return (
-                    <div className='review' key={index}>
-                      <p>{review.review}</p>
-                      <div className='review-writer'>
-                        <div className='review-writer-pic'>
-                          <img src={review.src} alt='person' />
-                        </div>
-                        <div className='review-writer-name'>
-                          <strong>{review.writer}</strong>
-                          <span>{review.job}</span>
+        {reviews &&
+          [reviews.slice(0, 4), reviews.slice(4, 8)].map((slide, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <div className='reviews'>
+                  {slide.map((review, index) => {
+                    return (
+                      <div className='review' key={index}>
+                        <p>{review.review}</p>
+                        <div className='review-writer'>
+                          <div className='review-writer-pic'>
+                            <img src={review.src} alt='person' />
+                          </div>
+                          <div className='review-writer-name'>
+                            <strong>{review.writer}</strong>
+                            <span>{review.job}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </SwiperSlide>
-          );
-        })}
+                    );
+                  })}
+                </div>
+              </SwiperSlide>
+            );
+          })}
       </Swiper>
       <style jsx>{`
         .reviews {

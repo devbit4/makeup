@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import clsx from 'clsx';
 
 export default function Sidebar({ menus }) {
   const router = useRouter();
-  const parentPathname = router.asPath.split('/').slice(0, 3).join('/');
+  const parentPathName = router.asPath.split('/').slice(0, 3).join('/');
 
   const parentMenuName = (menu) => {
     return menu.path.split('/').slice(0, 3).join('/');
@@ -24,8 +23,8 @@ export default function Sidebar({ menus }) {
                   key={menu.path}
                   className={clsx(
                     'depth1-item',
-                    parentPathname === menu.path ||
-                      parentPathname === parentMenuName(menu)
+                    parentPathName === menu.path ||
+                      parentPathName === parentMenuName(menu)
                       ? 'active'
                       : ''
                   )}
@@ -34,7 +33,7 @@ export default function Sidebar({ menus }) {
                   }}
                 >
                   <strong>{menu.name}</strong>
-                  {parentPathname === parentMenuName(menu) && menu.children && (
+                  {parentPathName === parentMenuName(menu) && menu.children && (
                     <ul className='depth2'>
                       {menu.children.map((child) => {
                         return (
@@ -74,10 +73,10 @@ export default function Sidebar({ menus }) {
           font: 400 18px/1 'roboto';
           transition: all 0.3s;
         }
-        .depth1-item:hover strong {
+        .depth1-item.active strong {
           color: #fff;
         }
-        .depth1-item.active strong {
+        .depth1-item:hover strong {
           color: #fff;
         }
         .depth2-item {

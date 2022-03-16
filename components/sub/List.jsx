@@ -6,7 +6,7 @@ export default function List({ products }) {
   const handleItemClick = (id) => {
     router.push(`/detail/${id}`);
   };
-  const handlError = (e) => {
+  const handleImgError = (e) => {
     e.target.src = '/img/main1.jpg';
     e.target.onerror = null;
   };
@@ -15,6 +15,7 @@ export default function List({ products }) {
     <>
       <ul className='list'>
         {products &&
+          // 임시로 10개만 리스트화
           products.slice(0, 10).map((product) => {
             return (
               <li
@@ -25,11 +26,11 @@ export default function List({ products }) {
                 <img
                   src={product.image_link}
                   className='item-img'
-                  onError={handlError}
+                  onError={handleImgError}
                 ></img>
                 <strong className='item-name'>{product.name}</strong>
                 <span className='item-type'>
-                  {product.product_type} / {product.category || 'all'}
+                  {product.product_type || 'all'} / {product.category || 'all'}
                 </span>
                 <strong className='item-price'>${product.price}</strong>
               </li>
