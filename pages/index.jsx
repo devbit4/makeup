@@ -2,7 +2,7 @@ import Seo from '../components/common/Seo';
 import Reviews from '../components/sub/Reviews';
 import { HOMEPICS } from '../constants';
 
-export default function HomePage({ reviews }) {
+export default function HomePage() {
   return (
     <>
       <Seo title='Home' />
@@ -87,7 +87,7 @@ export default function HomePage({ reviews }) {
           <div className='inner'>
             <div className='home-reviews-box'>
               <h2 className='home-reviews-title'>Reviews</h2>
-              <Reviews reviews={reviews.data}></Reviews>
+              <Reviews></Reviews>
             </div>
           </div>
         </section>
@@ -249,12 +249,12 @@ export default function HomePage({ reviews }) {
   );
 }
 
-export async function getStaticProps() {
-  const res = await fetch('http://localhost:3000/dbs/reviews.json');
-  const reviews = await res.json();
-  return {
-    props: {
-      reviews,
-    },
-  };
-}
+// export async function getStaticProps() {
+//   const res = await fetch('http://localhost:3000/dbs/reviews.json');
+//   const reviews = await res.json();
+//   return {
+//     props: {
+//       reviews,
+//     },
+//   };
+// }
