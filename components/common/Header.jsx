@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFan, faBars } from '@fortawesome/free-solid-svg-icons';
-import { MENUS } from '../../constatns';
+import { MENUS } from '../../constants';
 import Link from 'next/link';
 import clsx from 'clsx';
 

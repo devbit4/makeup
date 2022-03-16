@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BRANDS_PAGE } from '../../constatns';
+import { BRANDS_PAGE } from '../../constants';
 // import Breadcrumbs from '../../components/sub/Breadcrumbs';
 import List from '../../components/sub/List';
 import Sidebar from '../../components/common/Sidebar';

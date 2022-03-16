@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { MENUS } from '../../constatns';
+import { MENUS } from '../../constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFan } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';

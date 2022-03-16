@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Seo from '../../components/common/Seo';
 import Sidebar from '../../components/common/Sidebar';
 import ContactForm from '../../components/sub/ContactForm';
-import { COMMUNITY_PAGE } from '../../constatns';
+import { COMMUNITY_PAGE } from '../../constants';
 
 export default function ContactPage() {
   const [isPopup, setIsPopup] = useState(false);

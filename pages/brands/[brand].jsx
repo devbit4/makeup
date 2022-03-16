@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { BRANDS_PAGE } from '../../constatns';
+import { BRANDS_PAGE } from '../../constants';
 import List from '../../components/sub/List';
 import Sidebar from '../../components/common/Sidebar';
 import Seo from '../../components/common/Seo';

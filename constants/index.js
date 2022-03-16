@@ -25,29 +25,27 @@ export const MENUS = [
 ];
 
 export const BRANDS_PAGE = [
-  { name: 'clinique', path: '/brands/clinique' },
+  { name: 'Clinique', path: '/brands/clinique' },
   { name: 'benefit', path: '/brands/benefit' },
   { name: 'misa', path: '/brands/misa' },
   { name: 'stila', path: '/brands/stila' },
-
-  ,
 ];
 
 export const COMMUNITY_PAGE = [
   {
-    name: 'contact',
+    name: 'Contact',
     path: '/community/contact',
   },
   {
-    name: 'info',
+    name: 'Info',
     path: '/community/info/',
     children: [
       {
-        name: 'faq',
+        name: 'Faq',
         path: '/community/info/faq',
       },
       {
-        name: 'qna',
+        name: 'Qna',
         path: '/community/info/qna',
       },
     ],

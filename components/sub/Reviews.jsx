@@ -4,20 +4,10 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import axios from 'axios';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
-export default function Reviews() {
-  const [reviews, setReviews] = useState();
-
-  useEffect(() => {
-    axios
-      .get('/dbs/reviews.json')
-      .then((res) => setReviews(res.data.data))
-      .catch((error) => console.log(error));
-  }, []);
-
+export default function Reviews({ reviews }) {
   return (
     <>
       <Swiper

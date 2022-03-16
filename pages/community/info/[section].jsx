@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { COMMUNITY_PAGE } from '../../../constatns';
+import { COMMUNITY_PAGE } from '../../../constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faCircle } from '@fortawesome/free-solid-svg-icons';
 import Seo from '../../../components/common/Seo';
