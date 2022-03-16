@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { BRANDS_PAGE } from '../../constatns';
-import Breadcrumbs from '../../components/sub/Breadcrumbs';
 import List from '../../components/sub/List';
 import Sidebar from '../../components/common/Sidebar';
 import Seo from '../../components/common/Seo';
@@ -117,7 +116,6 @@ export default function BrandPage() {
           </div>
           <div className='main'>
             <h1 className='main-title'>{brand}</h1>
-            <Breadcrumbs></Breadcrumbs>
             {products && (
               <p className='products-num'>
                 총 {products.length}개의 상품이 준비되어 있습니다.

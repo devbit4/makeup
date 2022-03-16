@@ -72,7 +72,7 @@ export default function MakeupPage({ products }) {
         }
         .makeup-upper {
           display: flex;
-          justify-content: flex-end;
+          justify-content: center;
           padding: 30px;
         }
         .makeup-searchbox {

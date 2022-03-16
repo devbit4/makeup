@@ -4,13 +4,13 @@ import clsx from 'clsx';
 
 export default function Sidebar({ menus }) {
   const router = useRouter();
-  const parentPathname = router.pathname.split('/').slice(0, 3).join('/');
-  console.log(router.pathname);
+  const parentPathname = router.asPath.split('/').slice(0, 3).join('/');
 
+  const parentMenuName = (menu) => {
+    return menu.path.split('/').slice(0, 3).join('/');
+  };
   const handleClick = (menu) => {
-    if (menu.children !== undefined) return;
     router.push(menu.path);
-    console.log(menu.path);
   };
 
   return (
@@ -22,31 +22,39 @@ export default function Sidebar({ menus }) {
               return (
                 <li
                   key={menu.path}
-                  className={clsx('depth1-item')}
+                  className={clsx(
+                    'depth1-item',
+                    parentPathname === menu.path ||
+                      parentPathname === parentMenuName(menu)
+                      ? 'active'
+                      : ''
+                  )}
                   onClick={() => {
                     handleClick(menu);
                   }}
                 >
                   <strong>{menu.name}</strong>
-                  <ul className='depth2'>
-                    {menu.children &&
-                      menu.children.map((child) => {
+                  {parentPathname === parentMenuName(menu) && menu.children && (
+                    <ul className='depth2'>
+                      {menu.children.map((child) => {
                         return (
-                          <Link href={child.path} key={child.path}>
-                            <a>
-                              <li
-                                className={clsx(
-                                  'depth2-item'
-                                  // router.pathname === menu.path ? 'active' : ''
-                                )}
-                              >
-                                <span> - {child.name}</span>
-                              </li>
-                            </a>
-                          </Link>
+                          <li
+                            key={child.path}
+                            className={clsx(
+                              'depth2-item',
+                              router.asPath === child.path && 'active'
+                            )}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleClick(child);
+                            }}
+                          >
+                            <span> - {child.name}</span>
+                          </li>
                         );
                       })}
-                  </ul>
+                    </ul>
+                  )}
                 </li>
               );
             })}
@@ -70,14 +78,14 @@ export default function Sidebar({ menus }) {
           color: #fff;
         }
         .depth1-item.active strong {
-          color: red;
+          color: #fff;
         }
         .depth2-item {
           margin: 20px;
           cursor: pointer;
         }
         .depth2-item.active span {
-          color: red;
+          color: #fff;
         }
         .depth2-item span {
           font: 400 16px/1 'roboto';

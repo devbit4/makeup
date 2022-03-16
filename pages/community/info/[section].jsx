@@ -49,7 +49,7 @@ export default function InfoPage() {
                 return (
                   <article key={index} className='problem'>
                     <div className='question' onClick={handleClick}>
-                      <div className='question-front'>
+                      <div className='question-content'>
                         <FontAwesomeIcon icon={faCircle} />
                         <h2>{problem.question}</h2>
                       </div>
@@ -112,7 +112,7 @@ export default function InfoPage() {
             justify-content: space-between;
             align-items: center;
           }
-          .question-front {
+          .question-content {
             display: flex;
             align-items: center;
             padding: 10px;
@@ -122,7 +122,7 @@ export default function InfoPage() {
             transform: rotate(180deg);
             transition: all 0.5s;
           }
-          .question-front h2 {
+          .question-content h2 {
             font: 700 16px/1 'roboto';
             margin-left: 10px;
           }

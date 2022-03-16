@@ -45,7 +45,7 @@ export const COMMUNITY_PAGE = [
   },
   {
     name: 'info',
-    path: '/community/info/faq',
+    path: '/community/info/',
     children: [
       {
         name: 'faq',

@@ -5,19 +5,18 @@ import Link from 'next/link';
 export default function Breadcrumbs() {
   const router = useRouter();
   const [breadcrumbs, setBreadcrumbs] = useState(null);
+  console.log(router);
 
   useEffect(() => {
-    if (router) {
-      const linkPath = router.asPath.split('/');
-      linkPath.shift();
-      const pathArray = linkPath.map((path, index) => {
-        return {
-          breadcrumb: path,
-          href: '/' + linkPath.slice(0, index + 1).join('/'),
-        };
-      });
-      setBreadcrumbs(pathArray);
-    }
+    const pathNames = router.asPath.split('/');
+    pathNames.shift();
+    const array = pathNames.map((path, index) => {
+      return {
+        href: '/' + pathNames.slice(0, index + 1).join('/'),
+        pathName: path,
+      };
+    });
+    setBreadcrumbs(array);
   }, [router]);
 
   if (!breadcrumbs) {
@@ -26,30 +25,47 @@ export default function Breadcrumbs() {
 
   return (
     <>
-      <ol className='breadcrumb'>
+      <ul className='breadcrumb-inner'>
+        <li className='breadcrumb-home'>
+          <Link href={'/'}>
+            <a>Home</a>
+          </Link>
+        </li>
         {breadcrumbs.map((breadcrumb) => {
           return (
-            <li key={breadcrumb.href} className='breadscrumb-text'>
+            <li key={breadcrumb.href} className='breadscrumb-route'>
               <Link href={breadcrumb.href}>
-                <a>{breadcrumb.breadcrumb}</a>
+                <a>{breadcrumb.pathName}</a>
               </Link>
             </li>
           );
         })}
-      </ol>
+      </ul>
       <style jsx>{`
-        .breadcrumb {
+        .breadcrumb-inner {
+          width: 1180px;
+          margin: 0 auto;
           display: flex;
         }
-        .breadscrumb-text {
-          margin-right: 5px;
-          margin-bottom: 10px;
+        li:last-child a {
+          color: #333;
+        }
+        a {
+          display: block;
+          margin: 5px 0;
           font: 400 16px/1 'roboto';
           color: #aaa;
         }
-        .breadscrumb-text::after {
+        li:not(:last-child) a::after {
           margin-right: 5px;
           content: ' >';
+        }
+
+        // 반응형 구간
+        @media screen and (max-width: 1180px) {
+          .breadcrumb-inner {
+            width: 100%;
+          }
         }
       `}</style>
     </>
