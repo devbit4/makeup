@@ -24,12 +24,12 @@ export default function ListTest({ products, viewtype }) {
                 </div>
                 <div className='item-text'>
                   <strong className='item-name'>
-                    {product.name.slice(0, 50)}
+                    {product.name.substr(0, 50)}
                   </strong>
                   <span className='item-type'>{product.product_type}</span>
                   <strong className='item-price'>${product.price}</strong>
                   <p className='item-description'>
-                    {product.description.slice(0, 100)}...
+                    {product.description.substr(0, 100)}...
                   </p>
                   <button className='item-btn'>상품 더 보기</button>
                 </div>

@@ -5,8 +5,10 @@ import Link from 'next/link';
 export default function Breadcrumbs() {
   const router = useRouter();
   const [breadcrumbs, setBreadcrumbs] = useState(null);
-  console.log(router);
 
+  if (!breadcrumbs) {
+    return null;
+  }
   useEffect(() => {
     const pathNames = router.asPath.split('/');
     pathNames.shift();
@@ -18,10 +20,6 @@ export default function Breadcrumbs() {
     });
     setBreadcrumbs(array);
   }, [router]);
-
-  if (!breadcrumbs) {
-    return null;
-  }
 
   return (
     <>

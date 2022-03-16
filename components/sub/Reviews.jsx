@@ -15,6 +15,7 @@ export default function Reviews() {
       .then((data) => data.json())
       .then((json) => setReviews(json.data));
   }, []);
+  // 서버사이드렌더링으로 고치시오.
 
   return (
     <>
