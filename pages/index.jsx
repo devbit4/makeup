@@ -1,3 +1,4 @@
+import Fade from 'react-reveal/Fade';
 import Seo from '../components/common/Seo';
 import Reviews from '../components/sub/Reviews';
 
@@ -16,17 +17,21 @@ export default function HomePage() {
       <div className='home'>
         <section className='home-visual'>
           <div className='inner'>
-            <p className='home-visual-text1'>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam,
-              veritatis ea corrupti voluptatibus ad ut vitae suscipit assumenda?
-              Quaerat, incidunt.
-            </p>
-            <p className='home-visual-text2'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cupiditate natus pariatur aperiam!<br></br>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cupiditate natus pariatur aperiam!
-            </p>
+            <Fade top delay={300}>
+              <p className='home-visual-text1'>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Numquam, veritatis ea corrupti voluptatibus ad ut vitae suscipit
+                assumenda? Quaerat, incidunt.
+              </p>
+            </Fade>
+            <Fade top delay={800}>
+              <p className='home-visual-text2'>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Cupiditate natus pariatur aperiam!<br></br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Cupiditate natus pariatur aperiam!
+              </p>
+            </Fade>
           </div>
         </section>
         <section className='home-info'>
@@ -110,6 +115,7 @@ export default function HomePage() {
           background-repeat: no-repeat;
           background-position: center;
           background-size: cover;
+          background-attachment: fixed;
           opacity: 0.9;
         }
         .inner {
