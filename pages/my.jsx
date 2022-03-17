@@ -35,7 +35,7 @@ export default function MyPage() {
             Logout
           </button>
         )}
-        <h1 className='mypage-title'>MYpage</h1>
+        <h1 className='mypage-title'>mypage</h1>
         <div className='mypage-content'>준비중입니다.</div>
         <style jsx>{`
           .mypage-inner {
@@ -64,7 +64,7 @@ export default function MyPage() {
           }
           .mypage-title {
             margin: 40px 10px;
-            font: 700 24px/1 'roboto';
+            font: 500 32px 'fredoka';
           }
           .mypage-content {
             width: 100%;

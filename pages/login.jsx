@@ -17,7 +17,7 @@ export default function LoginPage() {
     <>
       <div className='login-inner'>
         <form className='login-form'>
-          <h1>LOGIN</h1>
+          <h1>Login</h1>
           <input type='id' placeholder='id를 입력하세요'></input>
           <input type='password' placeholder='비밀번호를 입력하세요'></input>
           <input

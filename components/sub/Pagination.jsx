@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import clsx from 'clsx';
 
 export default function Pagination({
@@ -19,6 +19,7 @@ export default function Pagination({
     }
     e.target.classList.add('active');
   };
+
   return (
     <>
       <ul className='page-nums' ref={pageBoxNumbers}>

@@ -124,6 +124,7 @@ export default function ViewPage({ item }) {
           border-radius: 4px;
           padding: 10px;
           margin-right: 10px;
+          margin-top: 10px;
           cursor: pointer;
           font: 400 16px/1 'roboto';
         }
@@ -169,7 +170,7 @@ export async function getStaticPaths() {
   );
   const data = await res.json();
   return {
-    paths: data.slice(0, 9).map((item) => ({
+    paths: data.slice(0, 10).map((item) => ({
       params: {
         id: item.id.toString(),
       },

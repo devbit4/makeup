@@ -1,34 +1,31 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import clsx from 'clsx';
 
 export default function ArrowUpBtn() {
-  const arrowUpBtn = useRef();
   const scrollHeight = 400;
+  const [btnActive, setBtnActive] = useState(false);
 
-  const handleBtnClick = () => {
+  const handleBtnClick = useCallback(() => {
     document.documentElement.scrollTop = 0;
-  };
+  }, []);
 
   useEffect(() => {
     const showArrowUpBtn = window.addEventListener('scroll', () => {
-      const btn = arrowUpBtn.current;
-      if ((btn && document.documentElement.scrollTop) > scrollHeight) {
-        btn.classList.add('active');
+      if (document.documentElement.scrollTop > scrollHeight) {
+        setBtnActive(true);
       } else {
-        btn.classList.remove('active');
+        setBtnActive(false);
       }
     });
-    return () => {
-      window.removeEventListener('scroll', showArrowUpBtn);
-    };
+    return () => window.removeEventListener('scroll', showArrowUpBtn);
   }, []);
 
   return (
     <>
       <button
-        ref={arrowUpBtn}
-        className='arrow-up-btn'
+        className={clsx('arrow-up-btn', btnActive && 'active')}
         onClick={handleBtnClick}
       >
         <FontAwesomeIcon icon={faArrowUp} size={'xl'} />

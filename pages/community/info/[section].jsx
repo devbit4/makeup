@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { COMMUNITY_PAGE } from '../../../constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,32 +6,31 @@ import { faChevronDown, faCircle } from '@fortawesome/free-solid-svg-icons';
 import Seo from '../../../components/common/Seo';
 import Pagination from '../../../components/sub/Pagination';
 import Sidebar from '../../../components/common/Sidebar';
+import axios from 'axios';
 
 export default function InfoPage() {
   const router = useRouter();
   const section = router.query.section;
   const [problems, setProblems] = useState([]);
   // 페이지네이션
+  const problemsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(1);
-  const [problemsPerPage] = useState(4);
   const indexOfLastPage = currentPage * problemsPerPage;
   const indexOfFisrtPage = indexOfLastPage - problemsPerPage;
   const currentProblems = problems.slice(indexOfFisrtPage, indexOfLastPage);
-  const paginate = (pagenum) => setCurrentPage(pagenum);
+  const paginate = (pageNum) => setCurrentPage(pageNum);
 
-  const handleClick = (e) => {
+  const handleClick = useCallback((e) => {
     e.target.closest('article').classList.toggle('off');
-  };
-
-  const getData = () => {
-    fetch(`/dbs/${section}.json`)
-      .then((data) => data.json())
-      .then((json) => setProblems(json.data));
-  };
+  }, []);
 
   useEffect(() => {
-    section && getData();
-  }, [section]);
+    section &&
+      axios
+        .get(`/dbs/${section}.json`)
+        .then((res) => setProblems(res.data.data))
+        .catch((err) => console.log(err));
+  }, [router]);
 
   return (
     <>

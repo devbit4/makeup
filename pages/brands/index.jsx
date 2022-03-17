@@ -1,32 +1,52 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { BRANDS_PAGE } from '../../constants';
-// import Breadcrumbs from '../../components/sub/Breadcrumbs';
 import List from '../../components/sub/List';
 import Sidebar from '../../components/common/Sidebar';
 import Seo from '../../components/common/Seo';
 import Loading from '../../components/sub/Loading';
 import Link from 'next/link';
+import axios from 'axios';
 
 export default function BrandsPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const url =
     'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
 
-  const getData = () => {
+  useEffect(() => {
     setLoading(true);
-    setProducts();
-    fetch(url)
-      .then((data) => data.json())
-      .then((json) => {
+    axios
+      .get(url)
+      .then((res) => {
         setLoading(false);
-        setProducts(json);
-      });
+        setProducts(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const handleChange = (e) => {
+    setSelectedIndex(e.target.value);
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  const sortedItems = useMemo(() => {
+    const newArray = [...products];
+    if (selectedIndex === '1')
+      return newArray.sort((a, b) => a.price - b.price);
+    else if (selectedIndex === '2')
+      return newArray.sort((a, b) => b.price - a.price);
+    else if (selectedIndex === '3')
+      return newArray.sort((a, b) => {
+        if (a.name < b.name === true) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+    else if (selectedIndex === '4')
+      return newArray.filter((a, b) => a.price < 14);
+    return newArray;
+  });
 
   return (
     <>
@@ -42,9 +62,19 @@ export default function BrandsPage() {
             <Sidebar menus={BRANDS_PAGE} title={'brands'}></Sidebar>
           </div>
           <div className='main'>
-            <h1 className='main-title'>All Brands Items</h1>
-            {/* <Breadcrumbs></Breadcrumbs> */}
-            {loading ? <Loading></Loading> : <List products={products}></List>}
+            <h1 className='main-title'>all brands items</h1>
+            <select onChange={handleChange}>
+              <option value='0'>선택</option>
+              <option value='1'>가격낮은순</option>
+              <option value='2'>가격높은순</option>
+              <option value='3'>abc순</option>
+              <option value='4'>3만원 이하</option>
+            </select>
+            {loading ? (
+              <Loading></Loading>
+            ) : (
+              <List products={sortedItems}></List>
+            )}
           </div>
         </div>
         <style jsx>

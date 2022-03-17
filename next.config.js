@@ -18,6 +18,21 @@ module.exports = {
         destination: '/community/info/faq',
         permanent: true,
       },
+      {
+        source: '/search',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/view',
+        destination: '/makeup',
+        permanent: true,
+      },
+      {
+        source: '/detail',
+        destination: '/brands',
+        permanent: true,
+      },
     ];
   },
 };

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Loading from '../../components/sub/Loading';
 import clsx from 'clsx';
 import TabContent from '../../components/sub/TabContent';
@@ -14,15 +14,11 @@ export default function DetailPage() {
   const [alarm, setAlarm] = useState(true);
   const url = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json?`;
 
-  const getData = useCallback(() => {
+  useEffect(() => {
     axios
       .get(url)
       .then((res) => setItem(res.data))
       .catch((err) => console.log(err));
-  }, [id]);
-
-  useEffect(() => {
-    id && getData();
   }, [id]);
 
   useEffect(() => {
@@ -146,6 +142,7 @@ export default function DetailPage() {
           border-radius: 4px;
           padding: 10px;
           margin-right: 10px;
+          margin-top: 10px;
           cursor: pointer;
           font: 400 16px/1 'roboto';
         }

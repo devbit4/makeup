@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
+import { useEffect } from 'react';
 
 export default function ListTwo({ products, viewtype }) {
   const router = useRouter();

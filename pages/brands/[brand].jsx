@@ -6,15 +6,14 @@ import Sidebar from '../../components/common/Sidebar';
 import Seo from '../../components/common/Seo';
 import Loading from '../../components/sub/Loading';
 import Link from 'next/link';
+import axios from 'axios';
 
 export default function BrandPage() {
   const router = useRouter();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
   const brand = router.query.brand;
   const url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;
-  console.log(router);
 
   // const handleChange = React.useCallback((e) => {
   //   setInput(e.target.value);
@@ -83,23 +82,16 @@ export default function BrandPage() {
   //     setProducts([...products].filter((a) => a.price < 20));
   // }, [value]);
 
-  const getData = () => {
-    setLoading(true);
-    fetch(url)
-      .then((data) => data.json())
-      .then((json) => {
-        setProducts(json);
-      })
-      .catch(() => {})
-      .finally(() => {
-        setLoading(false);
-      });
-  };
   useEffect(() => {
-    if (brand) {
-      getData();
-    }
-  }, [brand]);
+    setLoading(true);
+    axios
+      .get(url)
+      .then((res) => {
+        setLoading(false);
+        setProducts(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, [router]);
 
   return (
     <>
