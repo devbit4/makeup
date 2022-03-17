@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { BRANDS_PAGE } from '../../constants';
 import List from '../../components/sub/List';
 import Sidebar from '../../components/common/Sidebar';
@@ -10,77 +10,34 @@ import axios from 'axios';
 
 export default function BrandPage() {
   const router = useRouter();
+  const brand = router.query.brand;
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const brand = router.query.brand;
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;
 
-  // const handleChange = React.useCallback((e) => {
-  //   setInput(e.target.value);
-  // }, []);
+  const handleChange = (e) => {
+    setSelectedIndex(e.target.value);
+  };
 
-  // const filteredList = React.useMemo(() => {
-  //   if (!isFilter) {
-  //     return products;
-  //   }
-
-  //   return products.filter((item) => item.price < 20);
-  // }, [products, isFilter]);
-
-  // const sortedList = React.useMemo(() => {
-  //   if (sortType === '') {
-  //     return filteredList;
-  //   }
-
-  //   if (sortType === 'asc') {
-  //     return [...filteredList].sort((a, b) => a.price - b.price);
-  //   } else {
-  //     return [...filteredList].sort((b, a) => a.price - b.price);
-  //   }
-  // }, [filteredList, sortType]);
-
-  // const [value, setValue] = useState();
-  // const handleClick = () => {
-  //   setProducts([...products].sort((a, b) => a.price - b.price));
-  // };
-  // const handleClick2 = () => {
-  //   setProducts([...products].sort((a, b) => b.price - a.price));
-  // };
-  // <button>버튼</button>
-  // <select onChange={handleSelectChange}>
-  //   <option value='0'>선택</option>
-  //   <option value='1'>낮은가격순</option>
-  //   <option value='2'>높은가격순</option>
-  //   <option value='3'>이름순</option>
-  //   <option value='4'>25불 이상</option>
-  // </select>
-  //
-  // const sortedData = useMemo(() => {
-  //   const newArray = [...bestItems];
-  //   if (value === '1') {
-  //     newArray.sort((a, b) => a.price - b.price);
-  //   } else if (value === '2') {
-  //     newArray.sort((a, b) => b.price - a.price);
-  //   } else if (value === '3') {
-  //     let love = newArray.filter((a) => a.price < 20);
-  //     return love;
-  //   } else if (value === '4') {
-  //     newArray.sort((a, b) => b.price - a.price);
-  //   }
-  //   return newArray;
-  // }, [value]);
-  // const handleChange = (e) => {
-  //   setValue(e.target.value);
-  // };
-
-  // useEffect(() => {
-  //   if (value === '0')
-  //     setProducts([...products].sort((a, b) => a.price - b.price));
-  //   else if (value === '1')
-  //     setProducts([...products].sort((a, b) => b.price - a.price));
-  //   else if (value === '2')
-  //     setProducts([...products].filter((a) => a.price < 20));
-  // }, [value]);
+  const sortedItems = useMemo(() => {
+    const newArray = [...products];
+    if (selectedIndex === '1')
+      return newArray.sort((a, b) => a.price - b.price);
+    else if (selectedIndex === '2')
+      return newArray.sort((a, b) => b.price - a.price);
+    else if (selectedIndex === '3')
+      return newArray.sort((a, b) => {
+        if (a.name < b.name === true) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+    else if (selectedIndex === '4')
+      return newArray.filter((a, b) => a.price < 14);
+    return newArray;
+  });
 
   useEffect(() => {
     setLoading(true);
@@ -109,11 +66,24 @@ export default function BrandPage() {
           <div className='main'>
             <h1 className='main-title'>{brand}</h1>
             {products && (
-              <p className='products-num'>
-                총 {products.length}개의 상품이 준비되어 있습니다.
-              </p>
+              <div className='list-info'>
+                <p className='products-num'>
+                  총 {sortedItems.length}개의 상품이 준비되어 있습니다.
+                </p>
+                <select onChange={handleChange} className='list-select-box'>
+                  <option value='0'>선택</option>
+                  <option value='1'>가격낮은순</option>
+                  <option value='2'>가격높은순</option>
+                  <option value='3'>abc순</option>
+                  <option value='4'>$12이하</option>
+                </select>
+              </div>
             )}
-            {loading ? <Loading></Loading> : <List products={products}></List>}
+            {loading ? (
+              <Loading></Loading>
+            ) : (
+              <List products={sortedItems}></List>
+            )}
           </div>
         </div>
         <style jsx>
@@ -143,9 +113,17 @@ export default function BrandPage() {
               padding-bottom: 10px;
               border-bottom: 1px solid #333;
             }
-            .products-num {
-              font: 400 16px/1 'roboto';
+            .list-info {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
               margin-bottom: 20px;
+            }
+            .list-select-box {
+              text-align: center;
+            }
+            .products-num {
+              font: 400 12px/1 'roboto';
             }
             // <tablet 구간>
             @media screen and (max-width: 1180px) {

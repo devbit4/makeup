@@ -11,13 +11,14 @@ export default function BrandsPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const url =
+  const url = 'https://makeup-api.herokuapp.com/api/v1/products.json';
+  const url2 =
     'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
-
+  // url 전체 데이터 대신 url2로 대체, 실전에서는 url로
   useEffect(() => {
     setLoading(true);
     axios
-      .get(url)
+      .get(url2)
       .then((res) => {
         setLoading(false);
         setProducts(res.data);
@@ -63,13 +64,16 @@ export default function BrandsPage() {
           </div>
           <div className='main'>
             <h1 className='main-title'>all brands items</h1>
-            <select onChange={handleChange}>
-              <option value='0'>선택</option>
-              <option value='1'>가격낮은순</option>
-              <option value='2'>가격높은순</option>
-              <option value='3'>abc순</option>
-              <option value='4'>3만원 이하</option>
-            </select>
+            <div className='list-info'>
+              <p>임시로 10개 데이터만 화면에 slice함*</p>
+              <select onChange={handleChange} className='list-select-box'>
+                <option value='0'>선택</option>
+                <option value='1'>가격낮은순</option>
+                <option value='2'>가격높은순</option>
+                <option value='3'>abc순</option>
+                <option value='4'>$12이하</option>
+              </select>
+            </div>
             {loading ? (
               <Loading></Loading>
             ) : (
@@ -103,6 +107,19 @@ export default function BrandsPage() {
               margin-bottom: 50px;
               padding-bottom: 10px;
               border-bottom: 1px solid #333;
+            }
+            .main p {
+              font: 12px/1 'roboto';
+              color: red;
+            }
+            .list-info {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 10px;
+            }
+            .list-select-box {
+              text-align: center;
             }
             // <tablet 구간>
             @media screen and (max-width: 1180px) {

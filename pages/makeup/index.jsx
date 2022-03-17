@@ -5,19 +5,19 @@ import ListTwo from '../../components/sub/ListTwo';
 export default function MakeupPage({ products }) {
   const bestItems = products.slice(0, 15);
   const [viewType, setViewType] = useState('two');
-  const [data, setData] = useState(bestItems);
+  const [items, setItems] = useState(bestItems);
 
   const handleInputChange = useCallback((e) => {
-    let data = [];
+    let items = [];
     bestItems.forEach((item) => {
       if (
         item.name.toUpperCase().indexOf(e.target.value.toUpperCase()) === -1
       ) {
         return;
       }
-      data.push(item);
+      items.push(item);
     });
-    setData(data);
+    setItems(items);
   }, []);
 
   return (
@@ -35,9 +35,7 @@ export default function MakeupPage({ products }) {
             <ul className='list-type-btns'>
               <li className='list-type-btn'>
                 <input
-                  onClick={(e) => {
-                    setViewType('one');
-                  }}
+                  onClick={(e) => setViewType('one')}
                   type='radio'
                   name='gen'
                   id='one'
@@ -58,7 +56,7 @@ export default function MakeupPage({ products }) {
           </div>
           <div className='makeup-lower'>
             <h2 className='makeup-title'>Best Items</h2>
-            <ListTwo products={data} viewtype={viewType}></ListTwo>
+            <ListTwo products={items} viewType={viewType}></ListTwo>
           </div>
         </div>
       </div>

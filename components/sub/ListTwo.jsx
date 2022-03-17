@@ -2,16 +2,15 @@ import { useRouter } from 'next/router';
 import clsx from 'clsx';
 import { useEffect } from 'react';
 
-export default function ListTwo({ products, viewtype }) {
+export default function ListTwo({ products, viewType }) {
   const router = useRouter();
-
   const handleItemClick = (id) => {
     router.push(`/view/${id}`);
   };
 
   return (
     <>
-      <ul className={clsx('list', viewtype === 'one' && 'one')}>
+      <ul className={clsx('list', viewType === 'one' && 'one')}>
         {products &&
           products.map((product) => {
             return (
@@ -57,7 +56,7 @@ export default function ListTwo({ products, viewtype }) {
             background-color:#efefef;
             transform:scale(1.05);
           }
-          .items.one .item {
+          .list.one .item {
             width: 100%;
           }
           .item-pic {
