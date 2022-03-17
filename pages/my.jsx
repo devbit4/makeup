@@ -8,7 +8,7 @@ import axios from 'axios';
 export default function MyPage() {
   const router = useRouter();
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
+  const shopping = useSelector((state) => state);
   const [isLogin, setIsLogin] = useState(false);
 
   const checkLogin = () => {
@@ -44,8 +44,9 @@ export default function MyPage() {
         )}
         <h1 className='mypage-title'>mypage</h1>
         <div className='mypage-content'>
-          <div className='cart'>
-            <table>
+          <div className='shopping-cart'>
+            <h1 className='shopping-cart-title'>User shooping cart</h1>
+            <table className='shopping-cart-table'>
               <thead>
                 <tr>
                   <th>id</th>
@@ -55,7 +56,7 @@ export default function MyPage() {
                 </tr>
               </thead>
               <tbody>
-                {state.map((item, i) => {
+                {shopping.map((item, i) => {
                   return (
                     <tr key={item.id}>
                       <td>{item.id}</td>
@@ -65,7 +66,7 @@ export default function MyPage() {
                         <button
                           onClick={() => {
                             dispatch({
-                              type: '수량증가',
+                              type: 'plus',
                               payload: { id: item.id },
                             });
                           }}
@@ -75,7 +76,7 @@ export default function MyPage() {
                         <button
                           onClick={() => {
                             dispatch({
-                              type: '수량감소',
+                              type: 'minus',
                               payload: { id: item.id },
                             });
                           }}
@@ -91,17 +92,6 @@ export default function MyPage() {
           </div>
         </div>
         <style jsx>{`
-          table {
-            width: 100%;
-            border: 1px solid #333;
-            border-collapse: collapse;
-          }
-          th,
-          td {
-            border: 1px solid #333;
-            padding: 10px;
-          }
-
           .mypage-inner {
             width: 1180px;
             min-height: 500px;
@@ -132,9 +122,30 @@ export default function MyPage() {
           }
           .mypage-content {
             width: 100%;
-            height: 300px;
+            min-height: 300px;
             background-color: #efefef;
             padding: 20px;
+          }
+          table {
+            width: 100%;
+            border: 1px solid #333;
+            border-collapse: collapse;
+            text-align: center;
+          }
+          th,
+          td {
+            border: 1px solid #333;
+            padding: 10px;
+          }
+          table button {
+            padding: 5px;
+            margin: 2px;
+            cursor: pointer;
+            font: 400 12px/1 'roboto';
+          }
+          .shopping-cart-title {
+            font: 400 18px/1 'roboto';
+            margin-bottom: 20px;
           }
 
           @media screen and (max-width: 1180px) {

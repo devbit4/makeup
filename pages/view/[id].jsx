@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Loading from '../../components/sub/Loading';
 import clsx from 'clsx';
 import TabContent from '../../components/sub/TabContent';
@@ -8,6 +9,7 @@ import Head from 'next/head';
 export default function ViewPage({ item }) {
   const router = useRouter();
   const [tabIndex, setTabIndex] = useState(0);
+  const dispatch = useDispatch();
 
   if (router.isFallback) {
     return (
@@ -37,7 +39,18 @@ export default function ViewPage({ item }) {
                 </span>
                 <strong className='detail-price'>${item.price}</strong>
                 <div className='detail-btns'>
-                  <button className='detail-btn'>장바구니</button>
+                  <button
+                    className='detail-btn'
+                    onClick={() => {
+                      dispatch({
+                        type: 'add',
+                        payload: { id: item.id, name: item.name, quan: 1 },
+                      });
+                      router.push('/my');
+                    }}
+                  >
+                    장바구니
+                  </button>
                   <button className='detail-btn'>구매하기</button>
                 </div>
               </div>

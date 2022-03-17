@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 import Loading from '../../components/sub/Loading';
 import clsx from 'clsx';
 import TabContent from '../../components/sub/TabContent';
@@ -17,7 +16,6 @@ export default function DetailPage(props) {
   const url = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json?`;
 
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
 
   useEffect(() => {
     axios
@@ -61,7 +59,7 @@ export default function DetailPage(props) {
                     className='detail-btn'
                     onClick={() => {
                       dispatch({
-                        type: '항목추가',
+                        type: 'add',
                         payload: { id: item.id, name: item.name, quan: 1 },
                       });
                       router.push('/my');
