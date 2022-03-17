@@ -16,14 +16,18 @@ export default function BrandsPage() {
     'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
   // url 전체 데이터 대신 url2로 대체, 실전에서는 url로
   useEffect(() => {
+    let mounted = true;
     setLoading(true);
     axios
       .get(url2)
       .then((res) => {
-        setLoading(false);
-        setProducts(res.data);
+        if (mounted) {
+          setLoading(false);
+          setProducts(res.data);
+        }
       })
       .catch((err) => console.log(err));
+    return () => (mounted = false);
   }, []);
 
   const handleChange = (e) => {
@@ -31,22 +35,26 @@ export default function BrandsPage() {
   };
 
   const sortedItems = useMemo(() => {
-    const newArray = [...products];
-    if (selectedIndex === '1')
-      return newArray.sort((a, b) => a.price - b.price);
-    else if (selectedIndex === '2')
-      return newArray.sort((a, b) => b.price - a.price);
-    else if (selectedIndex === '3')
-      return newArray.sort((a, b) => {
-        if (a.name < b.name === true) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-    else if (selectedIndex === '4')
-      return newArray.filter((a, b) => a.price < 14);
-    return newArray;
+    const itemArray = [...products];
+    switch (selectedIndex) {
+      case '1':
+        return itemArray.sort((a, b) => a.price - b.price);
+      case '2':
+        return itemArray.sort((a, b) => b.price - a.price);
+      case '3':
+        return itemArray.sort((a, b) => {
+          if (a.name < b.name === true) {
+            return -1;
+          } else {
+            return 1;
+          }
+        });
+      // case '4':
+      //   return newArray.filter((a, b) => a.price < 14);
+      // 연습삼아 필터링
+      default:
+        return itemArray;
+    }
   });
 
   return (
@@ -71,7 +79,7 @@ export default function BrandsPage() {
                 <option value='1'>가격낮은순</option>
                 <option value='2'>가격높은순</option>
                 <option value='3'>abc순</option>
-                <option value='4'>$12이하</option>
+                {/* <option value='4'>$12이하</option> */}
               </select>
             </div>
             {loading ? (

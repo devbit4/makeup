@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
-import { useEffect } from 'react';
 
 export default function ListTwo({ products, viewType }) {
   const router = useRouter();
+
   const handleItemClick = (id) => {
     router.push(`/view/${id}`);
   };
@@ -26,7 +26,9 @@ export default function ListTwo({ products, viewType }) {
                   <strong className='item-name'>
                     {product.name.substr(0, 50)}
                   </strong>
-                  <span className='item-type'>{product.product_type}</span>
+                  <span className='item-type'>
+                    {product.product_type || 'all'}
+                  </span>
                   <strong className='item-price'>${product.price}</strong>
                   <p className='item-description'>
                     {product.description.substr(0, 100)}...

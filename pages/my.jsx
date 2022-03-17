@@ -16,13 +16,14 @@ export default function MyPage() {
     });
   };
 
-  function logout() {
+  const logout = () => {
     axios.get('/api/logout').then((res) => {
       if (res.status === 200) {
         router.push('/');
       }
     });
-  }
+  };
+
   useEffect(() => {
     checkLogin();
   }, []);

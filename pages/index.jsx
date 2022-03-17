@@ -64,7 +64,7 @@ export default function HomePage() {
         </section>
         <section className='home-news'>
           <div className='inner'>
-            <h2 className='home-news-title'>THE LATEST</h2>
+            <h2 className='home-news-title'>THE NEWS</h2>
             <span className='home-news-subtitle'>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Voluptatum, unde?

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Seo from '../../components/common/Seo';
 import ListTwo from '../../components/sub/ListTwo';
 
@@ -8,16 +8,16 @@ export default function MakeupPage({ products }) {
   const [items, setItems] = useState(bestItems);
 
   const handleInputChange = useCallback((e) => {
-    let items = [];
+    let searchedItems = [];
     bestItems.forEach((item) => {
       if (
         item.name.toUpperCase().indexOf(e.target.value.toUpperCase()) === -1
       ) {
         return;
       }
-      items.push(item);
+      searchedItems.push(item);
     });
-    setItems(items);
+    setItems(searchedItems);
   }, []);
 
   return (

@@ -1,5 +1,5 @@
 import { COMMUNITY_PAGE } from '../../constants';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Seo from '../../components/common/Seo';
 import Sidebar from '../../components/common/Sidebar';
 import ContactForm from '../../components/sub/ContactForm';

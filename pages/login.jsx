@@ -4,7 +4,7 @@ import axios from 'axios';
 export default function LoginPage() {
   const router = useRouter();
 
-  function login(e) {
+  const login = (e) => {
     e.preventDefault();
     axios.post('/api/login').then((res) => {
       if (res.status === 200) {
@@ -12,7 +12,7 @@ export default function LoginPage() {
       }
     });
     console.log('ok');
-  }
+  };
   return (
     <>
       <div className='login-inner'>

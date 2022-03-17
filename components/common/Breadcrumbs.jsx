@@ -9,13 +9,13 @@ export default function Breadcrumbs() {
   useEffect(() => {
     const pathNames = router.asPath.split('/');
     pathNames.shift();
-    const array = pathNames.map((path, index) => {
+    const pathNameArray = pathNames.map((path, index) => {
       return {
         href: '/' + pathNames.slice(0, index + 1).join('/'),
         pathName: path,
       };
     });
-    setBreadcrumbs(array);
+    setBreadcrumbs(pathNameArray);
   }, [router]);
 
   return (

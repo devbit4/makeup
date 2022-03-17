@@ -26,9 +26,9 @@ export const MENUS = [
 
 export const BRANDS_PAGE = [
   { name: 'Clinique', path: '/brands/clinique' },
-  { name: 'benefit', path: '/brands/benefit' },
-  { name: 'misa', path: '/brands/misa' },
-  { name: 'stila', path: '/brands/stila' },
+  { name: 'Benefit', path: '/brands/benefit' },
+  { name: 'Misa', path: '/brands/misa' },
+  { name: 'Stila', path: '/brands/stila' },
 ];
 
 export const COMMUNITY_PAGE = [
