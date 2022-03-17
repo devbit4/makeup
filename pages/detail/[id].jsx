@@ -1,18 +1,23 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Loading from '../../components/sub/Loading';
 import clsx from 'clsx';
 import TabContent from '../../components/sub/TabContent';
 import Seo from '../../components/common/Seo';
 import axios from 'axios';
 
-export default function DetailPage() {
+export default function DetailPage(props) {
   const router = useRouter();
   const id = router.query.id;
   const [item, setItem] = useState();
   const [tabIndex, setTabIndex] = useState(0);
   const [alarm, setAlarm] = useState(true);
   const url = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json?`;
+
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
 
   useEffect(() => {
     axios
@@ -52,7 +57,18 @@ export default function DetailPage() {
                 </span>
                 <strong className='detail-price'>${item.price}</strong>
                 <div className='detail-btns'>
-                  <button className='detail-btn'>장바구니</button>
+                  <button
+                    className='detail-btn'
+                    onClick={() => {
+                      dispatch({
+                        type: '항목추가',
+                        payload: { id: item.id, name: item.name, quan: 1 },
+                      });
+                      router.push('/my');
+                    }}
+                  >
+                    장바구니
+                  </button>
                   <button className='detail-btn'>구매하기</button>
                 </div>
               </div>

@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Seo from '../components/common/Seo';
 import axios from 'axios';
 
 export default function LoginPage() {
@@ -15,6 +16,7 @@ export default function LoginPage() {
   };
   return (
     <>
+      <Seo title='Login' />
       <div className='login-inner'>
         <form className='login-form'>
           <h1>Login</h1>
