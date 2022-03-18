@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
 
-export default function ListTwo({ products, viewType }) {
+export default function ViewTypeList({ products, viewType }) {
   const router = useRouter();
 
   const handleItemClick = (id) => {

@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import Seo from '../../components/common/Seo';
-import ListTwo from '../../components/sub/ListTwo';
+import ViewTypeList from '../../components/sub/makeup/ViewTypeList';
+import ViewType from '../../components/sub/makeup/ViewType';
+import SearchFilter from '../../components/sub/makeup/SearchFilter';
 
 export default function MakeupPage({ products }) {
   const bestItems = products.slice(0, 15);
@@ -26,37 +28,12 @@ export default function MakeupPage({ products }) {
       <div className='makeup'>
         <div className='inner'>
           <div className='makeup-upper'>
-            <input
-              type='text'
-              placeholder='베스트상품명을 입력하세요'
-              onChange={handleInputChange}
-              className='makeup-searchbox'
-            ></input>
-            <ul className='list-type-btns'>
-              <li className='list-type-btn'>
-                <input
-                  onClick={(e) => setViewType('one')}
-                  type='radio'
-                  name='gen'
-                  id='one'
-                />
-                <label htmlFor='one'>한줄보기</label>
-              </li>
-              <li className='list-type-btn'>
-                <input
-                  onClick={() => setViewType('two')}
-                  name='gen'
-                  type='radio'
-                  id='two'
-                  defaultChecked
-                />
-                <label htmlFor='two'>두줄보기</label>
-              </li>
-            </ul>
+            <SearchFilter onChange={handleInputChange}></SearchFilter>
+            <ViewType setViewType={setViewType}></ViewType>
           </div>
           <div className='makeup-lower'>
             <h2 className='makeup-title'>Best Items</h2>
-            <ListTwo products={items} viewType={viewType}></ListTwo>
+            <ViewTypeList products={items} viewType={viewType}></ViewTypeList>
           </div>
         </div>
       </div>
@@ -73,25 +50,8 @@ export default function MakeupPage({ products }) {
           justify-content: center;
           padding: 30px;
         }
-        .makeup-searchbox {
-          width: 200px;
-          margin-right: 10px;
-          padding: 5px;
-          outline: none;
-          border: none;
-          border-bottom: 1px solid #777;
-        }
         .makeup-searchbox:focus {
           background-color: #efefef;
-        }
-        .list-type-btn {
-          display: flex;
-          align-items: center;
-          margin-bottom: 5px;
-        }
-        .list-type-btn label {
-          font: 400 12px/1 'roboto';
-          margin-left: 10px;
         }
         .makeup-title {
           padding-left: 80px;
@@ -101,14 +61,6 @@ export default function MakeupPage({ products }) {
         @media screen and (max-width: 1180px) {
           .inner {
             width: 100%;
-          }
-        }
-        @media screen and (max-width: 768px) {
-          .list-type-btns {
-            display: none;
-          }
-          .makeup-searchbox {
-            margin-top: 20px;
           }
         }
       `}</style>

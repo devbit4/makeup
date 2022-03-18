@@ -3,43 +3,48 @@ import clsx from 'clsx';
 export default function Members({ members }) {
   return (
     <>
-      <div className='members-intro'>
-        <div className='members-intro-title'>
-          <h2>The Sephora</h2>
+      <section className='about-members'>
+        <div className='members-intro'>
+          <div className='members-intro-title'>
+            <h2>The Sephora</h2>
+          </div>
+          <div className='members-intro-description'>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
+              voluptatibus magnam culpa voluptas soluta, accusamus at vel illum
+              corporis accusantium.
+            </p>
+          </div>
         </div>
-        <div className='members-intro-description'>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
-            voluptatibus magnam culpa voluptas soluta, accusamus at vel illum
-            corporis accusantium.
-          </p>
-        </div>
-      </div>
-      <ul className='members'>
-        {members &&
-          members.map((member) => {
-            return (
-              <li
-                className={clsx(
-                  'member',
-                  parseInt(member.id) / 2 === 1 && 'reverse'
-                )}
-                key={member.id}
-              >
-                <div className='member-pic'>
-                  <img src={member.pic}></img>
-                </div>
-                <div className='member-text'>
-                  <h3>{member.name}</h3>
-                  <strong>{member.job}</strong>
-                  <span>{member.email}</span>
-                  <p>{member.say}</p>
-                </div>
-              </li>
-            );
-          })}
-      </ul>
+        <ul className='members'>
+          {members &&
+            members.map((member) => {
+              return (
+                <li
+                  className={clsx(
+                    'member',
+                    parseInt(member.id) / 2 === 1 && 'reverse'
+                  )}
+                  key={member.id}
+                >
+                  <div className='member-pic'>
+                    <img src={member.pic}></img>
+                  </div>
+                  <div className='member-text'>
+                    <h3>{member.name}</h3>
+                    <strong>{member.job}</strong>
+                    <span>{member.email}</span>
+                    <p>{member.say}</p>
+                  </div>
+                </li>
+              );
+            })}
+        </ul>
+      </section>
       <style jsx>{`
+        .about-members {
+          width: 100%;
+        }
         .members-intro {
           width: 100%;
           display: flex;

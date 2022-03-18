@@ -1,7 +1,7 @@
 export default function Ceo() {
   return (
     <>
-      <div className='about-ceo'>
+      <section className='about-ceo'>
         <div className='about-ceo-text'>
           <h2>WE ARE SEPHORA</h2>
           <span>
@@ -30,7 +30,7 @@ export default function Ceo() {
             className='about-ceo-pic-img'
           ></img>
         </div>
-      </div>
+      </section>
       <style jsx>{`
         .about-ceo {
           display: flex;
