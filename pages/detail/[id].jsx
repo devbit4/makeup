@@ -41,7 +41,7 @@ export default function DetailPage(props) {
           <div className='inner'>
             {alarm && (
               <span className='detail-alarm'>
-                구매 수량이 얼마 남지 않았습니다.
+                구매 수량이 얼마 남지 않았습니다..
               </span>
             )}
             <div className='detail-upper'>
