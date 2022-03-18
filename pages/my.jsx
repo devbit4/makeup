@@ -137,6 +137,9 @@ export default function MyPage() {
             border: 1px solid #333;
             padding: 10px;
           }
+          th {
+            background-color: #ccc;
+          }
           table button {
             padding: 5px;
             margin: 2px;
