@@ -2,10 +2,10 @@ import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState } from 'react';
 import { BRANDS_PAGE } from '../../constants';
 import ListSelector from '../../components/sub/brands/ListSelector';
-import List from '../../components/sub/brands/List';
-import Sidebar from '../../components/common/Sidebar';
+import List from '../../components/common/List';
+import Sidebar from '../../layout/components/Sidebar';
 import Seo from '../../components/common/Seo';
-import Loading from '../../components/sub/Loading';
+import Loading from '../../components/common/Loading';
 import Link from 'next/link';
 import axios from 'axios';
 

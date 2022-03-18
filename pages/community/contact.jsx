@@ -1,8 +1,9 @@
 import { COMMUNITY_PAGE } from '../../constants';
 import React, { useState, useRef } from 'react';
 import Seo from '../../components/common/Seo';
-import Sidebar from '../../components/common/Sidebar';
-import ContactForm from '../../components/sub/ContactForm';
+import Sidebar from '../../layout/components/Sidebar';
+import ContactForm from '../../components/sub/community/ContactForm';
+import ContactBtn from '../../components/sub/community/ContactBtn';
 
 export default function ContactPage() {
   const [isPopup, setIsPopup] = useState(false);
@@ -20,6 +21,10 @@ export default function ContactPage() {
   const month = ('0' + (today.getMonth() + 1)).slice(-2);
   const day = ('0' + today.getDate()).slice(-2);
   const dateString = year + '-' + month + '-' + day;
+
+  const handleClick = () => {
+    setIsPopup(!isPopup);
+  };
 
   const addPost = () => {
     if (!writer.current.value || !request.current.value) {
@@ -76,10 +81,6 @@ export default function ContactPage() {
     );
   };
 
-  const handleClick = () => {
-    setIsPopup(!isPopup);
-  };
-
   return (
     <>
       <Seo title='Community'></Seo>
@@ -91,15 +92,7 @@ export default function ContactPage() {
           </div>
           <div className='main'>
             <h1 className='main-title'>contact</h1>
-            <button
-              className='community-contact-btn'
-              onClick={() => {
-                handleClick();
-                document.body.style.overflow = 'hidden';
-              }}
-            >
-              고객센터에 메일보내기 +
-            </button>
+            <ContactBtn onClick={handleClick}></ContactBtn>
             {isPopup && <ContactForm onClick={handleClick}></ContactForm>}
             <div className='help'>
               <h1 className='help-title'>help</h1>
@@ -211,20 +204,6 @@ export default function ContactPage() {
           padding-bottom: 10px;
           border-bottom: 1px solid #333;
           font: 500 24px 'fredoka';
-        }
-        .community-contact-btn {
-          width: 200px;
-          height: 40px;
-          outline: none;
-          border: none;
-          border-radius: 10px;
-          cursor: pointer;
-          background-color: #efefef;
-          font: 400 16px/1 'roboto';
-        }
-        .community-contact-btn:hover {
-          background-color: #333;
-          color: #fff;
         }
         .help-title {
           font: 500 24px 'fredoka';
