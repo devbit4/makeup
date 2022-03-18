@@ -6,34 +6,17 @@ import ContactForm from '../../components/sub/ContactForm';
 
 export default function ContactPage() {
   const [isPopup, setIsPopup] = useState(false);
+  const [helps, setHelps] = useState([]);
   const writer = useRef(null);
   const type = useRef(null);
   const request = useRef(null);
   const updateWriter = useRef(null);
   const updateType = useRef(null);
   const updateRequest = useRef(null);
-  const basic = [
-    {
-      writer: 'lena',
-      type: 'type2',
-      request: 'here comes requests',
-    },
-    {
-      writer: 'lena2',
-      type: 'type2',
-      request: 'here comes requests',
-    },
-    {
-      writer: 'lena3',
-      type: 'type2',
-      request: 'here comes requests',
-    },
-  ];
-  const [helps, setHelps] = useState(basic);
 
   const addPost = () => {
     if (!writer.current.value || !request.current.value) {
-      alert('Please Type Your Request');
+      alert('이름과 문의사항을 입력해주세요');
       return;
     }
     setHelps([
@@ -45,9 +28,10 @@ export default function ContactPage() {
       ...helps,
     ]);
     writer.current.value = '';
-    type.current.value = 'Type 1';
+    type.current.value = '문의사항1';
     request.current.value = '';
   };
+
   const deletePost = (deletedIndex) => {
     setHelps(helps.filter((post, postIndex) => postIndex !== deletedIndex));
   };
@@ -83,9 +67,11 @@ export default function ContactPage() {
       })
     );
   };
+
   const handleClick = () => {
     setIsPopup(!isPopup);
   };
+
   return (
     <>
       <Seo title='Community'></Seo>
@@ -113,16 +99,16 @@ export default function ContactPage() {
                 <div className='help-request'>
                   <input
                     type='text'
-                    placeholder='Your Name Here'
+                    placeholder='이름을 입력해주세요'
                     ref={writer}
                   ></input>
-                  <select ref={type}>
-                    <option value='type1'>type1</option>
-                    <option value='type2'>type2</option>
-                    <option value='type3'>type3</option>
+                  <select ref={type} defaultValue='문의사항1'>
+                    <option value='문의사항1'>문의사항1</option>
+                    <option value='문의사항2'>문의사항2</option>
+                    <option value='문의사항3'>문의사항3</option>
                   </select>
                   <textarea
-                    placeholder='your request here'
+                    placeholder='문의사항을 입력해주세요'
                     cols='30'
                     rows='10'
                     ref={request}
@@ -135,14 +121,14 @@ export default function ContactPage() {
                 <div className='help-show-box'>
                   {helps.map((post, index) => {
                     return (
-                      <article>
+                      <article key={post.request}>
                         {post.enableUpdate ? (
                           <>
                             <div className='post'>
                               <select defaultValue={post.type} ref={updateType}>
-                                <option value='type1'>type1</option>
-                                <option value='type2'>type2</option>
-                                <option value='type3'>type3</option>
+                                <option value='문의사항1'>문의사항1</option>
+                                <option value='문의사항2'>문의사항2</option>
+                                <option value='문의사항3'>문의사항3</option>
                               </select>
                               <input
                                 type='text'
@@ -154,7 +140,7 @@ export default function ContactPage() {
                                 ref={updateWriter}
                               ></input>
                             </div>
-                            <div className='btns'>
+                            <div className='post-btns'>
                               <button onClick={() => updatePost(index)}>
                                 수정완료
                               </button>
@@ -170,12 +156,12 @@ export default function ContactPage() {
                               <p>{post.request}</p>
                               <soan>{post.writer}</soan>
                             </div>
-                            <div className='btns'>
+                            <div className='post-btns'>
                               <button onClick={() => enableUpdate(index)}>
-                                edit
+                                수정하기
                               </button>
                               <button onClick={() => deletePost(index)}>
-                                delete
+                                삭제하기
                               </button>
                             </div>
                           </>
@@ -231,6 +217,79 @@ export default function ContactPage() {
           background-color: #333;
           color: #fff;
         }
+        .help-title {
+          font: 500 24px 'fredoka';
+          margin: 40px 0;
+          padding-top: 40px;
+          border-top: 1px solid #333;
+        }
+        .help-request {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 40px;
+        }
+        .help-request input,
+        .help-request select,
+        .help-request textarea {
+          margin-bottom: 20px;
+          padding: 5px;
+        }
+        .help-request-btns button {
+          width: 200px;
+          margin-right: 10px;
+          padding: 10px;
+          cursor: pointer;
+          border: none;
+          border-radius: 10px;
+        }
+        .help-request-btns button:hover {
+          background-color: #333;
+          color: #fff;
+        }
+        .help-show-box {
+          border-top: 1px dashed #333;
+          padding-top: 20px;
+        }
+        .post {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          border: 1px solid #333;
+          padding: 20px;
+          background-color: #efefef;
+        }
+        .post input,
+        .post select {
+          margin-bottom: 20px;
+          padding: 10px 5px;
+        }
+        .post input {
+          padding-bottom: 40px;
+        }
+        .post strong,
+        .post span,
+        .post p {
+          padding-bottom: 30px;
+          margin-bottom: 40px;
+          border-bottom: 1px solid #333;
+        }
+
+        .post-btns {
+          display: flex;
+          justify-content: end;
+          margin: 20px 0;
+        }
+        .post-btns button {
+          width: 200px;
+          border: 1px solid #777;
+          background-color: #fff;
+          border-radius: 10px;
+          margin-right: 10px;
+          padding: 5px;
+          cursor: pointer;
+        }
+
         // 반응형 구간
         @media screen and (max-width: 1180px) {
           .inner {
