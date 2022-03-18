@@ -326,6 +326,9 @@ export default function ContactPage() {
             border-left: 1px solid #999;
             border-right: 1px solid #999;
           }
+          .help-request-btns button {
+            margin-bottom: 5px;
+          }
         }
       `}</style>
     </>

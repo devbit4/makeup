@@ -1,24 +1,25 @@
-import { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import axios from 'axios';
 
-export default function Members() {
-  const [members, setMembers] = useState();
-
-  useEffect(() => {
-    axios
-      .get('/dbs/members.json')
-      .then((res) => setMembers(res.data.data))
-      .catch((error) => console.log(error));
-  }, []);
-
+export default function Members({ members }) {
   return (
     <>
+      <div className='members-intro'>
+        <div className='members-intro-title'>
+          <h2>The Sephora</h2>
+        </div>
+        <div className='members-intro-description'>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
+            voluptatibus magnam culpa voluptas soluta, accusamus at vel illum
+            corporis accusantium.
+          </p>
+        </div>
+      </div>
       <ul className='members'>
         {members &&
           members.map((member) => {
             return (
-              <div
+              <li
                 className={clsx(
                   'member',
                   parseInt(member.id) / 2 === 1 && 'reverse'
@@ -34,11 +35,31 @@ export default function Members() {
                   <span>{member.email}</span>
                   <p>{member.say}</p>
                 </div>
-              </div>
+              </li>
             );
           })}
       </ul>
       <style jsx>{`
+        .members-intro {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          padding: 40px;
+          border-bottom: 1px solid #333;
+        }
+        .members-intro-title {
+          width: 30%;
+          text-align: center;
+        }
+        .members-intro-title h2 {
+          font: 700 24px/1 'roboto';
+        }
+        .members-intro-description {
+          width: 70%;
+        }
+        .members-intro-description p {
+          font: 400 16px/1.4 'questrial';
+        }
         .members {
           width: 90%;
           margin: 0 auto;
@@ -84,6 +105,12 @@ export default function Members() {
         .member-text h2 {
         }
         // 반응형
+        @media screen and (max-width: 768px) {
+          .members-intro-title {
+            text-align: left;
+            margin-right: 10px;
+          }
+        }
         @media screen and (max-width: 650px) {
           .member {
             flex-direction: column;
