@@ -14,6 +14,13 @@ export default function ContactPage() {
   const updateType = useRef(null);
   const updateRequest = useRef(null);
 
+  // 날짜
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = ('0' + (today.getMonth() + 1)).slice(-2);
+  const day = ('0' + today.getDate()).slice(-2);
+  const dateString = year + '-' + month + '-' + day;
+
   const addPost = () => {
     if (!writer.current.value || !request.current.value) {
       alert('이름과 문의사항을 입력해주세요');
@@ -24,6 +31,7 @@ export default function ContactPage() {
         writer: writer.current.value,
         type: type.current.value,
         request: request.current.value,
+        date: dateString,
       },
       ...helps,
     ]);
@@ -154,7 +162,8 @@ export default function ContactPage() {
                             <div className='post'>
                               <strong>{post.type}</strong>
                               <p>{post.request}</p>
-                              <soan>{post.writer}</soan>
+                              <span>{post.writer}</span>
+                              <span className='date'>{post.date}</span>
                             </div>
                             <div className='post-btns'>
                               <button onClick={() => enableUpdate(index)}>
@@ -273,6 +282,14 @@ export default function ContactPage() {
           padding-bottom: 30px;
           margin-bottom: 40px;
           border-bottom: 1px solid #333;
+        }
+        .post .date {
+          padding: 0;
+          margin: 0;
+          border: none;
+          text-align: right;
+          font: 400 14px/1 'roboto';
+          color: red;
         }
 
         .post-btns {
