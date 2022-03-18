@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState } from 'react';
 import { BRANDS_PAGE } from '../../constants';
-import List from '../../components/sub/List';
+import ListSelector from '../../components/sub/brands/ListSelector';
+import List from '../../components/sub/brands/List';
 import Sidebar from '../../components/common/Sidebar';
 import Seo from '../../components/common/Seo';
 import Loading from '../../components/sub/Loading';
@@ -78,13 +79,7 @@ export default function BrandPage() {
                 <p className='products-num'>
                   총 {sortedItems.length}개의 상품이 준비되어 있습니다.
                 </p>
-                <select onChange={handleChange} className='list-select-box'>
-                  <option value='0'>선택</option>
-                  <option value='1'>가격낮은순</option>
-                  <option value='2'>가격높은순</option>
-                  <option value='3'>abc순</option>
-                  {/* <option value='4'>$12이하</option> */}
-                </select>
+                <ListSelector onChange={handleChange}></ListSelector>
               </div>
             )}
             {loading ? (
@@ -126,9 +121,6 @@ export default function BrandPage() {
               justify-content: space-between;
               align-items: center;
               margin-bottom: 20px;
-            }
-            .list-select-box {
-              text-align: center;
             }
             .products-num {
               font: 400 12px/1 'roboto';

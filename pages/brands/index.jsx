@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { BRANDS_PAGE } from '../../constants';
-import List from '../../components/sub/List';
+import List from '../../components/sub/brands/List';
 import Sidebar from '../../components/common/Sidebar';
 import Seo from '../../components/common/Seo';
 import Loading from '../../components/sub/Loading';
 import Link from 'next/link';
 import axios from 'axios';
+import ListSelector from '../../components/sub/brands/ListSelector';
 
 export default function BrandsPage() {
   const [products, setProducts] = useState([]);
@@ -74,13 +75,7 @@ export default function BrandsPage() {
             <h1 className='main-title'>all brands items</h1>
             <div className='list-info'>
               <p>임시로 10개 데이터만 화면에 slice함*</p>
-              <select onChange={handleChange} className='list-select-box'>
-                <option value='0'>선택</option>
-                <option value='1'>가격낮은순</option>
-                <option value='2'>가격높은순</option>
-                <option value='3'>abc순</option>
-                {/* <option value='4'>$12이하</option> */}
-              </select>
+              <ListSelector onChange={handleChange}></ListSelector>
             </div>
             {loading ? (
               <Loading></Loading>
