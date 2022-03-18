@@ -18,7 +18,7 @@
 ```
 1. Clone this project locally
 2. yarn in your bash/command line
-3. yarn run start in your bash/command line
+3. yarn run dev in your bash/command line
 ```
 
 ### 1. 과제 타이틀
@@ -241,3 +241,4 @@ Next.js 를 활용한 화장품 브랜드 및 타입별 소개 웹앱 반응형 
 - 넥스트 js 이미지 처리방식
 - 로그인 유효성 검사 및 회원가입
 - 애니메이션 효과
+- 컴포넌트 폴더 및 constants 정리
