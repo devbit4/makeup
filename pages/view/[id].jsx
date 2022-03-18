@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Loading from '../../components/sub/Loading';
-import TabContent from '../../components/sub/TabContent';
+import Loading from '../../components/common/Loading';
+import TabContent from '../../components/sub/detail/TabContent';
 import Head from 'next/head';
 import Item from '../../components/sub/detail/Item';
 import TabIndex from '../../components/sub/detail/TabIndex';

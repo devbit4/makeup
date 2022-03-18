@@ -1,15 +1,15 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import TabContent from '../../components/sub/TabContent';
 import Seo from '../../components/common/Seo';
 import axios from 'axios';
 import Item from '../../components/sub/detail/Item';
 import TabIndex from '../../components/sub/detail/TabIndex';
-import Loading from '../../components/sub/Loading';
+import TabContent from '../../components/sub/detail/TabContent';
+import Loading from '../../components/common/Loading';
 import Alarm from '../../components/sub/detail/Alarm';
 
-export default function DetailPage(props) {
+export default function DetailPage() {
   const router = useRouter();
   const id = router.query.id;
   const [item, setItem] = useState();

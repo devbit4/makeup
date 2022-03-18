@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { COMMUNITY_PAGE } from '../../../constants';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faCircle } from '@fortawesome/free-solid-svg-icons';
 import Seo from '../../../components/common/Seo';
-import Pagination from '../../../components/sub/Pagination';
-import Sidebar from '../../../components/common/Sidebar';
+import Pagination from '../../../components/sub/community/Pagination';
+import Sidebar from '../../../layout/components/Sidebar';
 import axios from 'axios';
+import ProblemList from '../../../components/sub/community/ProblemList';
 
 export default function InfoPage() {
   const router = useRouter();
@@ -43,26 +42,10 @@ export default function InfoPage() {
           </div>
           <div className='main'>
             <h1 className='main-title'>{section}</h1>
-            <div className='problems'>
-              {currentProblems.map((problem, index) => {
-                return (
-                  <article key={index} className='problem'>
-                    <div className='question' onClick={handleClick}>
-                      <div className='question-content'>
-                        <FontAwesomeIcon icon={faCircle} />
-                        <h2>{problem.question}</h2>
-                      </div>
-                      <div className='question-underbar'>
-                        <FontAwesomeIcon icon={faChevronDown} />
-                      </div>
-                    </div>
-                    <div className='answer'>
-                      <p>{problem.answer}</p>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
+            <ProblemList
+              currentProblems={currentProblems}
+              onClick={handleClick}
+            ></ProblemList>
             <Pagination
               paginate={paginate}
               problemsPerPage={problemsPerPage}
@@ -97,45 +80,6 @@ export default function InfoPage() {
             padding-bottom: 10px;
             border-bottom: 1px solid #333;
             font: 500 24px 'fredoka';
-          }
-          .problems {
-            min-height: 450px;
-          }
-          .problem {
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #ccc;
-          }
-          .question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          }
-          .question-content {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-          }
-          .question-underbar {
-            cursor: pointer;
-            transform: rotate(180deg);
-            transition: all 0.5s;
-          }
-          .question-content h2 {
-            font: 700 16px/1 'roboto';
-            margin-left: 10px;
-          }
-          .answer {
-            padding: 20px 0px 0px 20px;
-          }
-          .answer p {
-            font: 400 12px/1.4 'roboto';
-          }
-          .problem.off .answer {
-            display: none;
-          }
-          .problem.off .question-underbar {
-            transform: rotate(0deg);
           }
           // 반응형 구간
           @media screen and (max-width: 1180px) {
