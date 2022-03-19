@@ -3,15 +3,15 @@ import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import Seo from '../components/common/Seo';
-import axios from 'axios';
-import ShoppingList from '../components/sub/my/ShoppingList';
 import LogoutBtn from '../components/sub/my/LogoutBtn';
+import ShoppingList from '../components/sub/my/ShoppingList';
+import axios from 'axios';
 
 export default function MyPage() {
   const router = useRouter();
   const dispatch = useDispatch();
-  const shoppingItems = useSelector((state) => state);
   const [isLogin, setIsLogin] = useState(false);
+  const shoppingItems = useSelector((state) => state);
 
   const checkLogin = () => {
     axios.get('/api/isLogin').then((res) => {

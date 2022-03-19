@@ -1,12 +1,12 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { BRANDS_PAGE } from '../../constants';
-import List from '../../components/common/List';
+import Link from 'next/link';
 import Sidebar from '../../components/layout/Sidebar';
 import Seo from '../../components/common/Seo';
 import Loading from '../../components/common/Loading';
-import Link from 'next/link';
+import ListSelector from '../../components/common/ListSelector';
+import List from '../../components/common/List';
 import axios from 'axios';
-import ListSelector from '../../components/sub/brands/ListSelector';
 
 export default function BrandsPage() {
   const [products, setProducts] = useState([]);

@@ -1,12 +1,12 @@
-import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/router';
 import { BRANDS_PAGE } from '../../constants';
-import ListSelector from '../../components/sub/brands/ListSelector';
-import List from '../../components/common/List';
+import Link from 'next/link';
 import Sidebar from '../../components/layout/Sidebar';
 import Seo from '../../components/common/Seo';
 import Loading from '../../components/common/Loading';
-import Link from 'next/link';
+import ListSelector from '../../components/common/ListSelector';
+import List from '../../components/common/List';
 import axios from 'axios';
 
 export default function BrandPage() {

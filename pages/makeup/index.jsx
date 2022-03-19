@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import Seo from '../../components/common/Seo';
-import ViewTypeList from '../../components/sub/makeup/ViewTypeList';
-import ViewType from '../../components/sub/makeup/ViewType';
 import SearchFilter from '../../components/sub/makeup/SearchFilter';
+import ViewType from '../../components/sub/makeup/ViewType';
+import ViewTypeList from '../../components/sub/makeup/ViewTypeList';
 
 export default function MakeupPage({ products }) {
   const bestItems = products.slice(0, 15);
