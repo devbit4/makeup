@@ -1,10 +1,14 @@
 export default function SearchFilter({ onChange }) {
+  const handleChange = (e) => {
+    onChange(e);
+  };
+
   return (
     <>
       <input
         type='text'
         placeholder='베스트상품명을 입력하세요'
-        onChange={onChange}
+        onChange={handleChange}
         className='makeup-searchbox'
       ></input>
       <style jsx>{`

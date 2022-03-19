@@ -1,4 +1,4 @@
-export default function Item({ item, dispatch, router }) {
+export default function ItemDetail({ item, dispatch, router }) {
   return (
     <>
       <div className='detail-item'>
@@ -39,10 +39,12 @@ export default function Item({ item, dispatch, router }) {
         }
         .detail-pic {
           width: 200px;
+          height: 200px;
           padding-right: 20px;
         }
         .detail-img {
           width: 100%;
+          height: 100%;
         }
         .detail-text {
           display: flex;

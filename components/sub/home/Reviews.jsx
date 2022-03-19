@@ -10,7 +10,7 @@ export default function Reviews({ reviews }) {
   return (
     <>
       <section className='home-reviews'>
-        <div className='inner'>
+        <div className='home-review-inner'>
           <div className='home-reviews-box'>
             <h2 className='home-reviews-title'>Reviews</h2>
             <Swiper
@@ -53,7 +53,7 @@ export default function Reviews({ reviews }) {
         </div>
       </section>
       <style jsx>{`
-        .inner {
+        .home-review-inner {
           width: 1180px;
           height: 100%;
           margin: 0 auto;
@@ -114,7 +114,7 @@ export default function Reviews({ reviews }) {
         }
         // 반응형 구간
         @media screen and (max-width: 1180px) {
-          .inner {
+          .home-review-inner {
             width: 100%;
           }
         }

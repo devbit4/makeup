@@ -4,7 +4,7 @@ export default function Visual() {
   return (
     <>
       <section className='home-visual'>
-        <div className='inner'>
+        <div className='home-visual-inner'>
           <Fade top delay={300}>
             <p className='home-visual-text1'>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam,
@@ -23,12 +23,6 @@ export default function Visual() {
         </div>
       </section>
       <style jsx>{`
-        .inner {
-          width: 1180px;
-          height: 100%;
-          margin: 0 auto;
-          position: relative;
-        }
         .home-visual {
           width: 100%;
           height: 600px;
@@ -38,6 +32,12 @@ export default function Visual() {
           background-size: cover;
           background-attachment: fixed;
           opacity: 0.9;
+        }
+        .home-visual-inner {
+          width: 1180px;
+          height: 100%;
+          margin: 0 auto;
+          position: relative;
         }
         .home-visual-text1 {
           width: 30%;
@@ -61,7 +61,7 @@ export default function Visual() {
         }
         // 반응형
         @media screen and (max-width: 1180px) {
-          .inner {
+          .home-visual-inner {
             width: 100%;
           }
         }

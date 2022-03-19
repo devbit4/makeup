@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import Seo from '../../components/common/Seo';
-import Item from '../../components/common/Item';
+import ItemDetail from '../../components/common/ItemDetail';
 import TabIndex from '../../components/common/TabIndex';
 import TabContent from '../../components/common/TabContent';
 import Loading from '../../components/common/Loading';
@@ -39,20 +39,19 @@ export default function DetailPage() {
     <>
       <Seo title='상세페이지' />
       {item ? (
-        <div className='detail'>
-          <div className='inner'>
-            {alarm && <Alarm></Alarm>}
-            <Item item={item} dispatch={dispatch} router={router}></Item>
-            <div className='detail-tab'>
-              <TabIndex
-                tabIndex={tabIndex}
-                setTabIndex={setTabIndex}
-              ></TabIndex>
-              <TabContent
-                tabIndex={tabIndex}
-                description={item.description}
-              ></TabContent>
-            </div>
+        <div className='detail-inner'>
+          {alarm && <Alarm></Alarm>}
+          <ItemDetail
+            item={item}
+            dispatch={dispatch}
+            router={router}
+          ></ItemDetail>
+          <div className='detail-tab'>
+            <TabIndex tabIndex={tabIndex} setTabIndex={setTabIndex}></TabIndex>
+            <TabContent
+              tabIndex={tabIndex}
+              description={item.description}
+            ></TabContent>
           </div>
         </div>
       ) : (
@@ -64,16 +63,14 @@ export default function DetailPage() {
         .loading {
           min-height: 300px;
         }
-        .detail {
-          width: 100%;
-        }
-        .inner {
+        .detail-inner {
           width: 1180px;
+          min-height: 300px;
           margin: 0 auto;
         }
         // 빈응형
         @media screen and (max-width: 1180px) {
-          .inner {
+          .detail-inner {
             width: 100%;
           }
         }

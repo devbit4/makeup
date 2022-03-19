@@ -2,7 +2,7 @@ export default function Info({ homePics }) {
   return (
     <>
       <section className='home-info'>
-        <div className='inner'>
+        <div className='home-info-inner'>
           <div className='home-info-intro'>
             <span className='home-info-intro-title'>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -13,10 +13,10 @@ export default function Info({ homePics }) {
               veniam, voluptate sit tempore! Doloremque, odio.
             </p>
           </div>
-          <div className='home-info-pics'>
+          <ul className='home-info-pics'>
             {homePics.map((pic, index) => {
               return (
-                <article className='home-info-pic' key={index}>
+                <li className='home-info-pic' key={index}>
                   <div className='img-wrapper'>
                     <img
                       src={pic.src}
@@ -28,23 +28,23 @@ export default function Info({ homePics }) {
                     <strong>00{index + 1}</strong>
                     <span>{pic.name}</span>
                   </div>
-                </article>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </section>
       <style jsx>{`
-        .inner {
-          width: 1180px;
-          height: 100%;
-          margin: 0 auto;
-          position: relative;
-        }
         .home-info {
           width: 100%;
           background-color: #e5e0e0;
           padding: 100px 0;
+        }
+        .home-info-inner {
+          width: 1180px;
+          height: 100%;
+          margin: 0 auto;
+          position: relative;
         }
         .home-info-intro {
           width: 90%;
@@ -99,7 +99,7 @@ export default function Info({ homePics }) {
         }
         // 반응형
         @media screen and (max-width: 1180px) {
-          .inner {
+          .home-info-inner {
             width: 100%;
           }
         }
