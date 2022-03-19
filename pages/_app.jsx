@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import store from '../store/store';
 
-import Layout from '../layout/components/Layout';
+import Layout from '../components/layout/Layout';
 import Router from 'next/router';
 
 import NProgress from 'nprogress';

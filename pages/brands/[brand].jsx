@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { BRANDS_PAGE } from '../../constants';
 import ListSelector from '../../components/sub/brands/ListSelector';
 import List from '../../components/common/List';
-import Sidebar from '../../layout/components/Sidebar';
+import Sidebar from '../../components/layout/Sidebar';
 import Seo from '../../components/common/Seo';
 import Loading from '../../components/common/Loading';
 import Link from 'next/link';
