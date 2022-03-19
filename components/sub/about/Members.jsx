@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-export default function Members() {
+export default function Members({ members }) {
   return (
     <>
       <section className='about-members'>
