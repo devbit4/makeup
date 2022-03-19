@@ -4,15 +4,15 @@ import News from '../components/sub/home/News';
 import Visual from '../components/sub/home/Visual';
 import Reviews from '../components/sub/home/Reviews';
 
-export default function HomePage({ home }) {
+export default function HomePage({ homeData }) {
   return (
     <>
       <Seo title='Home' />
       <div className='home-inner'>
         <Visual></Visual>
-        <Info homePics={home.homePics}></Info>
+        <Info homePics={homeData.homePics}></Info>
         <News></News>
-        <Reviews reviews={home.reviews}></Reviews>
+        <Reviews reviews={homeData.reviews}></Reviews>
       </div>
     </>
   );
@@ -25,10 +25,10 @@ export async function getStaticProps() {
       : 'https://makeup-sigma.vercel.app';
 
   const res = await fetch(`${url}/dbs/home.json`);
-  const home = await res.json();
+  const homeData = await res.json();
   return {
     props: {
-      home,
+      homeData,
     },
   };
 }
