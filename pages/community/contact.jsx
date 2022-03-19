@@ -1,7 +1,7 @@
 import { COMMUNITY_PAGE } from '../../constants';
 import React, { useState, useRef } from 'react';
 import Seo from '../../components/common/Seo';
-import Sidebar from '../../layout/components/Sidebar';
+import Sidebar from '../../components/layout/Sidebar';
 import ContactForm from '../../components/sub/community/ContactForm';
 import ContactBtn from '../../components/sub/community/ContactBtn';
 

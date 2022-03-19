@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { COMMUNITY_PAGE } from '../../../constants';
 import Seo from '../../../components/common/Seo';
 import Pagination from '../../../components/sub/community/Pagination';
-import Sidebar from '../../../layout/components/Sidebar';
+import Sidebar from '../../../components/layout/Sidebar';
 import axios from 'axios';
 import ProblemList from '../../../components/sub/community/ProblemList';
 
