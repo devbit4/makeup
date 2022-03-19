@@ -17,6 +17,7 @@ export default function InfoPage() {
   const indexOfLastPage = currentPage * problemsPerPage;
   const indexOfFisrtPage = indexOfLastPage - problemsPerPage;
   const currentProblems = problems.slice(indexOfFisrtPage, indexOfLastPage);
+
   const paginate = (pageNum) => setCurrentPage(pageNum);
 
   const handleClick = useCallback((e) => {
@@ -34,29 +35,27 @@ export default function InfoPage() {
   return (
     <>
       <Seo title='Community'></Seo>
-      <section className='community'>
-        <div className='inner'>
-          <div className='sidebar'>
-            <h1 className='sidebar-title'>Community</h1>
-            <Sidebar menus={COMMUNITY_PAGE}></Sidebar>
-          </div>
-          <div className='main'>
-            <h1 className='main-title'>{section}</h1>
-            <ProblemList
-              currentProblems={currentProblems}
-              onClick={handleClick}
-            ></ProblemList>
-            <Pagination
-              paginate={paginate}
-              problemsPerPage={problemsPerPage}
-              totalProblems={problems.length}
-            ></Pagination>
-          </div>
+      <div className='community-inner'>
+        <div className='sidebar'>
+          <h1 className='sidebar-title'>Community</h1>
+          <Sidebar menus={COMMUNITY_PAGE}></Sidebar>
         </div>
-      </section>
+        <div className='main'>
+          <h1 className='main-title'>{section}</h1>
+          <ProblemList
+            currentProblems={currentProblems}
+            onClick={handleClick}
+          ></ProblemList>
+          <Pagination
+            paginate={paginate}
+            problemsPerPage={problemsPerPage}
+            totalProblems={problems.length}
+          ></Pagination>
+        </div>
+      </div>
       <style jsx>
         {`
-          .inner {
+          .community-inner {
             width: 1180px;
             margin: 0 auto;
             display: flex;
@@ -83,12 +82,12 @@ export default function InfoPage() {
           }
           // 반응형 구간
           @media screen and (max-width: 1180px) {
-            .inner {
+            .community-inner {
               width: 100%;
             }
           }
           @media screen and (max-width: 768px) {
-            .inner {
+            .community-inner {
               flex-direction: column;
             }
             .sidebar {

@@ -25,23 +25,18 @@ export default function MakeupPage({ products }) {
   return (
     <>
       <Seo title='Makeup'></Seo>
-      <div className='makeup'>
-        <div className='inner'>
-          <div className='makeup-upper'>
-            <SearchFilter onChange={handleInputChange}></SearchFilter>
-            <ViewType setViewType={setViewType}></ViewType>
-          </div>
-          <div className='makeup-lower'>
-            <h2 className='makeup-title'>Best Items</h2>
-            <ViewTypeList products={items} viewType={viewType}></ViewTypeList>
-          </div>
+      <div className='makeup-inner'>
+        <div className='makeup-upper'>
+          <SearchFilter onChange={handleInputChange}></SearchFilter>
+          <ViewType setViewType={setViewType}></ViewType>
+        </div>
+        <div className='makeup-lower'>
+          <h2 className='makeup-title'>Best Items</h2>
+          <ViewTypeList products={items} viewType={viewType}></ViewTypeList>
         </div>
       </div>
       <style jsx>{`
-        .makeup {
-          width: 100%;
-        }
-        .inner {
+        .makeup-inner {
           width: 1180px;
           margin: 0 auto;
         }
@@ -59,7 +54,7 @@ export default function MakeupPage({ products }) {
         }
         // 반응형
         @media screen and (max-width: 1180px) {
-          .inner {
+          .makeup-inner {
             width: 100%;
           }
         }

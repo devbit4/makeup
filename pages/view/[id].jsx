@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Loading from '../../components/common/Loading';
-import Item from '../../components/common/Item';
+import ItemDetail from '../../components/common/ItemDetail';
 import TabIndex from '../../components/common/TabIndex';
 import TabContent from '../../components/common/TabContent';
 
@@ -27,19 +27,18 @@ export default function ViewPage({ item }) {
         <meta name='description' content={item.description}></meta>
       </Head>
       {item && (
-        <div className='detail'>
-          <div className='inner'>
-            <Item item={item} dispatch={dispatch} router={router}></Item>
-            <div className='detail-tab'>
-              <TabIndex
-                tabIndex={tabIndex}
-                setTabIndex={setTabIndex}
-              ></TabIndex>
-              <TabContent
-                tabIndex={tabIndex}
-                description={item.description}
-              ></TabContent>
-            </div>
+        <div className='detail-inner'>
+          <ItemDetail
+            item={item}
+            dispatch={dispatch}
+            router={router}
+          ></ItemDetail>
+          <div className='detail-tab'>
+            <TabIndex tabIndex={tabIndex} setTabIndex={setTabIndex}></TabIndex>
+            <TabContent
+              tabIndex={tabIndex}
+              description={item.description}
+            ></TabContent>
           </div>
         </div>
       )}
@@ -47,17 +46,14 @@ export default function ViewPage({ item }) {
         .loading {
           min-height: 300px;
         }
-        .detail {
-          width: 100%;
-          min-height: 300px;
-        }
-        .inner {
+        .detail-inner {
           width: 1180px;
+          min-height: 300px;
           margin: 0 auto;
         }
         // 빈응형
         @media screen and (max-width: 1180px) {
-          .inner {
+          .detail-inner {
             width: 100%;
           }
         }

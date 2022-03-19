@@ -2,8 +2,8 @@ export default function News() {
   return (
     <>
       <section className='home-news'>
-        <div className='inner'>
-          <h2 className='home-news-title'>THE NEWS</h2>
+        <div className='home-news-inner'>
+          <h2 className='home-news-title'>THE News</h2>
           <span className='home-news-subtitle'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
             unde?
@@ -36,7 +36,7 @@ export default function News() {
           padding: 100px 0vw;
           color: #fff;
         }
-        .inner {
+        .home-news-inner {
           width: 1180px;
           height: 100%;
           margin: 0 auto;
@@ -66,10 +66,11 @@ export default function News() {
           width: 80%;
           margin: 0 auto;
           display: block;
+          cursor: pointer;
         }
         // 반응형
         @media screen and (max-width: 1180px) {
-          .inner {
+          .home-news-inner {
             width: 100%;
           }
         }

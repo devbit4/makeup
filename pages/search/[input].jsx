@@ -1,22 +1,53 @@
+import Seo from '../../components/common/Seo';
 import List from '../../components/common/List';
 
 export default function SearchPage({ products }) {
-  if (products.length === 0) return <h1>조회된 결과가 없습니다</h1>;
+  if (products.length === 0)
+    return (
+      <>
+        <div className='search-inner'>
+          <h1 className='searched-info'>조회된 결과가 없습니다</h1>
+        </div>
+        <style jsx>{`
+          .search-inner {
+            width: 1180px;
+            min-height: 300px;
+            margin: 20px auto;
+          }
+          .searched-info {
+            font: 400 16px/1 'roboto';
+            padding-left: 20px;
+          }
+
+          // 반응형 구간
+          @media screen and (max-width: 1180px) {
+            .search-inner {
+              width: 100%;
+            }
+          }
+        `}</style>
+      </>
+    );
+
   return (
     <>
-      <div className='searched-content'>
-        <div className='inner'>
-          <List products={products}></List>
-        </div>
+      <Seo title='Search' />
+      <div className='search-inner'>
+        <List products={products}></List>
       </div>
-      <style jsx>{`
-        .inner {
+      <style jsx global>{`
+        .search-inner {
           width: 1180px;
+          min-height: 300px;
           margin: 20px auto;
         }
+        .searched-info {
+          font: 12px/1 'roboto';
+        }
+
         // 반응형 구간
         @media screen and (max-width: 1180px) {
-          .inner {
+          .search-inner {
             width: 100%;
           }
         }

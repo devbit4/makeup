@@ -17,28 +17,18 @@ export default function AboutPage() {
   return (
     <>
       <Seo title='About' />
-      <div className='about'>
-        <div className='inner'>
-          <Ceo></Ceo>
-          <Members members={members}></Members>
-        </div>
+      <div className='about-inner'>
+        <Ceo></Ceo>
+        <Members members={members}></Members>
       </div>
       <style jsx>{`
-        .about {
-          width: 100%;
-        }
-        .inner {
+        .about-inner {
           width: 1180px;
           margin: 0 auto;
         }
         // 반응형 구간
         @media screen and (max-width: 1180px) {
-          .inner {
-            width: 100%;
-          }
-        }
-        @media screen and (max-width: 768px) {
-          .inner {
+          .about-inner {
             width: 100%;
           }
         }

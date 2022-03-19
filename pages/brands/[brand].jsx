@@ -36,9 +36,6 @@ export default function BrandPage() {
             return 1;
           }
         });
-      // case '4':
-      //   return newArray.filter((a, b) => a.price < 14);
-      // 연습삼아 필터링
       default:
         return itemArray;
     }
@@ -62,36 +59,30 @@ export default function BrandPage() {
   return (
     <>
       <Seo title='Brands'></Seo>
-      <div className='brands'>
-        <div className='inner'>
-          <div className='sidebar'>
-            <Link href={'/brands'}>
-              <a>
-                <h1 className='sidebar-title'>Brands</h1>
-              </a>
-            </Link>
-            <Sidebar menus={BRANDS_PAGE}></Sidebar>
-          </div>
-          <div className='main'>
-            <h1 className='main-title'>{brand}</h1>
-            {products && (
-              <div className='list-info'>
-                <p className='products-num'>
-                  총 {sortedItems.length}개의 상품이 준비되어 있습니다.
-                </p>
-                <ListSelector onChange={handleChange}></ListSelector>
-              </div>
-            )}
-            {loading ? (
-              <Loading></Loading>
-            ) : (
-              <List products={sortedItems}></List>
-            )}
-          </div>
+      <div className='brands-inner'>
+        <div className='sidebar'>
+          <Link href={'/brands'}>
+            <a>
+              <h1 className='sidebar-title'>Brands</h1>
+            </a>
+          </Link>
+          <Sidebar menus={BRANDS_PAGE}></Sidebar>
+        </div>
+        <div className='main'>
+          <h1 className='main-title'>{brand}</h1>
+          {products && (
+            <div className='list-info'>
+              <p className='products-num'>
+                총 {sortedItems.length}개의 상품이 준비되어 있습니다.
+              </p>
+              <ListSelector onChange={handleChange}></ListSelector>
+            </div>
+          )}
+          {loading ? <Loading></Loading> : <List products={sortedItems}></List>}
         </div>
         <style jsx>
           {`
-            .inner {
+            .brands-inner {
               width: 1180px;
               margin: 0 auto;
               display: flex;
@@ -127,12 +118,12 @@ export default function BrandPage() {
             }
             // <tablet 구간>
             @media screen and (max-width: 1180px) {
-              .inner {
+              .brands-inner {
                 width: 100%;
               }
             }
             @media screen and (max-width: 768px) {
-              .inner {
+              .brands-inner {
                 flex-direction: column;
               }
               .sidebar {

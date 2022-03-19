@@ -50,9 +50,6 @@ export default function BrandsPage() {
             return 1;
           }
         });
-      // case '4':
-      //   return newArray.filter((a, b) => a.price < 14);
-      // 연습삼아 필터링
       default:
         return itemArray;
     }
@@ -61,32 +58,26 @@ export default function BrandsPage() {
   return (
     <>
       <Seo title='Brands'></Seo>
-      <div className='brands'>
-        <div className='inner'>
-          <div className='sidebar'>
-            <Link href={'/brands'}>
-              <a>
-                <h1 className='sidebar-title'>Brands</h1>
-              </a>
-            </Link>
-            <Sidebar menus={BRANDS_PAGE} title={'brands'}></Sidebar>
+      <div className='brands-inner'>
+        <div className='sidebar'>
+          <Link href={'/brands'}>
+            <a>
+              <h1 className='sidebar-title'>Brands</h1>
+            </a>
+          </Link>
+          <Sidebar menus={BRANDS_PAGE} title={'brands'}></Sidebar>
+        </div>
+        <div className='main'>
+          <h1 className='main-title'>all brands items</h1>
+          <div className='list-info'>
+            <p>임시로 10개 데이터만 화면에 slice함*</p>
+            <ListSelector onChange={handleChange}></ListSelector>
           </div>
-          <div className='main'>
-            <h1 className='main-title'>all brands items</h1>
-            <div className='list-info'>
-              <p>임시로 10개 데이터만 화면에 slice함*</p>
-              <ListSelector onChange={handleChange}></ListSelector>
-            </div>
-            {loading ? (
-              <Loading></Loading>
-            ) : (
-              <List products={sortedItems}></List>
-            )}
-          </div>
+          {loading ? <Loading></Loading> : <List products={sortedItems}></List>}
         </div>
         <style jsx>
           {`
-            .inner {
+            .brands-inner {
               width: 1180px;
               margin: 0 auto;
               display: flex;
@@ -121,17 +112,14 @@ export default function BrandsPage() {
               align-items: center;
               margin-bottom: 10px;
             }
-            .list-select-box {
-              text-align: center;
-            }
             // <tablet 구간>
             @media screen and (max-width: 1180px) {
-              .inner {
+              .brands-inner {
                 width: 100%;
               }
             }
             @media screen and (max-width: 768px) {
-              .inner {
+              .brands-inner {
                 flex-direction: column;
               }
               .sidebar {

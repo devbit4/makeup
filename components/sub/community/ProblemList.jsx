@@ -2,13 +2,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default function ProblemList({ currentProblems, onClick }) {
+  const handleClick = (e) => {
+    onClick(e);
+  };
   return (
     <>
-      <ul className='problems'>
+      <div className='problems'>
         {currentProblems.map((problem, index) => {
           return (
-            <li key={index} className='problem'>
-              <div className='question' onClick={onClick}>
+            <article key={index} className='problem'>
+              <div className='question' onClick={handleClick}>
                 <div className='question-content'>
                   <FontAwesomeIcon icon={faCircle} />
                   <h2>{problem.question}</h2>
@@ -20,10 +23,10 @@ export default function ProblemList({ currentProblems, onClick }) {
               <div className='answer'>
                 <p>{problem.answer}</p>
               </div>
-            </li>
+            </article>
           );
         })}
-      </ul>
+      </div>
       <style jsx>{`
         .problems {
           min-height: 450px;
@@ -37,6 +40,7 @@ export default function ProblemList({ currentProblems, onClick }) {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          cursor: pointer;
         }
         .question-content {
           display: flex;
