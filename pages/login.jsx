@@ -25,7 +25,6 @@ export default function LoginPage() {
         .login-inner {
           width: 1180px;
           margin: 0 auto;
-          height: 500px;
         }
         @media screen and (max-width: 1180px) {
           .login-inner {

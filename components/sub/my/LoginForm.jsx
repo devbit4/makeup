@@ -15,7 +15,7 @@ export default function LoginForm({ login }) {
       <style jsx>{`
         .login-form {
           width: 100%;
-          height: 100%;
+          height: 500px;
           display: flex;
           flex-direction: column;
           justify-content: center;

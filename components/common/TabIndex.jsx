@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-export default function TabIndex({ tabIndex, setTabIndex }) {
+export default function TabIndex({ tabIndex, setTabIndex, text1, text2 }) {
   return (
     <>
       <ul className='detail-tab-btns'>
@@ -8,13 +8,13 @@ export default function TabIndex({ tabIndex, setTabIndex }) {
           className={clsx('detail-tab-btn', tabIndex === 0 && 'active')}
           onClick={() => setTabIndex(0)}
         >
-          <span>상세페이지</span>
+          <span>{text1 || '상세페이지'}</span>
         </li>
         <li
           className={clsx('detail-tab-btn', tabIndex === 1 && 'active')}
           onClick={() => setTabIndex(1)}
         >
-          <span>주문 및 배송</span>
+          <span>{text2 || '주문 및 배송'}</span>
         </li>
       </ul>
       <style jsx>{`

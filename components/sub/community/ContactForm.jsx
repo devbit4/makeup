@@ -23,6 +23,11 @@ export default function ContactForm({ onClick }) {
         }
       );
   };
+
+  const handleClick = () => {
+    onClick();
+    document.body.style.overflow = 'auto';
+  };
   return (
     <>
       <div className='contact-form'>
@@ -51,13 +56,7 @@ export default function ContactForm({ onClick }) {
             <input type='submit' value='Send' className='submit-btn' />
           </form>
         </div>
-        <span
-          onClick={() => {
-            onClick();
-            document.body.style.overflow = 'auto';
-          }}
-          className='close'
-        >
+        <span onClick={handleClick} className='close'>
           CLOSE
         </span>
       </div>

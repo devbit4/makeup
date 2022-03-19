@@ -14,9 +14,16 @@ export default function ViewPage({ item }) {
 
   if (router.isFallback) {
     return (
-      <div className='loading'>
-        <Loading></Loading>
-      </div>
+      <>
+        <div className='loading'>
+          <Loading></Loading>
+        </div>
+        <style jsx>{`
+          .loading {
+            min-height: 500px;
+          }
+        `}</style>
+      </>
     );
   }
 
@@ -43,12 +50,8 @@ export default function ViewPage({ item }) {
         </div>
       )}
       <style jsx>{`
-        .loading {
-          min-height: 300px;
-        }
         .detail-inner {
           width: 1180px;
-          min-height: 300px;
           margin: 0 auto;
         }
         // 빈응형

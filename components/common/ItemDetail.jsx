@@ -1,9 +1,17 @@
-export default function ItemDetail({ item, dispatch, router }) {
+export default function ItemDetail({ item, dispatch, router, text1, text2 }) {
+  const handleImgError = (e) => {
+    e.target.src = '/img/main1.jpg';
+  };
+
   return (
     <>
       <div className='detail-item'>
         <div className='detail-pic'>
-          <img src={item.image_link} className='detail-img'></img>
+          <img
+            src={item.image_link}
+            className='detail-img'
+            onError={handleImgError}
+          ></img>
         </div>
         <div className='detail-text'>
           <strong className='detail-name'>{item.name}</strong>
@@ -22,9 +30,9 @@ export default function ItemDetail({ item, dispatch, router }) {
                 router.push('/my');
               }}
             >
-              장바구니
+              {text1 || '장바구니'}
             </button>
-            <button className='detail-btn'>구매하기</button>
+            <button className='detail-btn'>{text2 || '구매하기'}</button>
           </div>
         </div>
       </div>

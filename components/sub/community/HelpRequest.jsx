@@ -1,4 +1,9 @@
 export default function HelpRequest({ writer, type, request, addPost }) {
+  const options = [
+    { name: '문의사항1' },
+    { name: '문의사항2' },
+    { name: '문의사항3' },
+  ];
   return (
     <>
       <div className='help-request'>
@@ -7,10 +12,14 @@ export default function HelpRequest({ writer, type, request, addPost }) {
           placeholder='이름을 입력해주세요'
           ref={writer}
         ></input>
-        <select ref={type} defaultValue='문의사항1'>
-          <option value='문의사항1'>문의사항1</option>
-          <option value='문의사항2'>문의사항2</option>
-          <option value='문의사항3'>문의사항3</option>
+        <select ref={type} defaultValue={options[0].name}>
+          {options.map((option, index) => {
+            return (
+              <option value={option.name} key={option.name}>
+                {option.name}
+              </option>
+            );
+          })}
         </select>
         <textarea
           placeholder='문의사항을 입력해주세요'

@@ -12,12 +12,11 @@ import axios from 'axios';
 export default function DetailPage() {
   const router = useRouter();
   const id = router.query.id;
+  const dispatch = useDispatch();
   const [alarm, setAlarm] = useState(true);
   const [item, setItem] = useState();
   const [tabIndex, setTabIndex] = useState(0);
   const url = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json?`;
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
@@ -61,11 +60,10 @@ export default function DetailPage() {
       )}
       <style jsx>{`
         .loading {
-          min-height: 300px;
+          min-height: 500px;
         }
         .detail-inner {
           width: 1180px;
-          min-height: 300px;
           margin: 0 auto;
         }
         // 빈응형

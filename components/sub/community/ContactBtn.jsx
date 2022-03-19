@@ -1,13 +1,12 @@
 export default function ContactBtn({ onClick }) {
+  const handleClick = () => {
+    onClick();
+    document.body.style.overflow = 'hidden';
+  };
+
   return (
     <>
-      <button
-        className='community-contact-btn'
-        onClick={() => {
-          onClick();
-          document.body.style.overflow = 'hidden';
-        }}
-      >
+      <button className='community-contact-btn' onClick={handleClick}>
         고객센터에 메일보내기 +
       </button>
       <style jsx>{`

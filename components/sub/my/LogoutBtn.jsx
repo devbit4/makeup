@@ -1,7 +1,10 @@
 export default function LogoutBtn({ onClick }) {
+  const handleClick = () => {
+    onClick();
+  };
   return (
     <>
-      <button onClick={onClick} className='logout-btn'>
+      <button onClick={handleClick} className='logout-btn'>
         Logout
       </button>
       <style jsx>{`

@@ -8,6 +8,11 @@ export default function HelpShowBox({
   disableUpdate,
   updatePost,
 }) {
+  const options = [
+    { name: '문의사항1' },
+    { name: '문의사항2' },
+    { name: '문의사항3' },
+  ];
   return (
     <>
       <div className='help-show-box'>
@@ -18,9 +23,13 @@ export default function HelpShowBox({
                 <>
                   <div className='post'>
                     <select defaultValue={post.type} ref={updateType}>
-                      <option value='문의사항1'>문의사항1</option>
-                      <option value='문의사항2'>문의사항2</option>
-                      <option value='문의사항3'>문의사항3</option>
+                      {options.map((option, index) => {
+                        return (
+                          <option value={option.name} key={option.name}>
+                            {option.name}
+                          </option>
+                        );
+                      })}
                     </select>
                     <input
                       type='text'

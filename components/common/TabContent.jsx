@@ -1,4 +1,4 @@
-export default function TabContent({ tabIndex, description }) {
+export default function TabContent({ tabIndex, description, description2 }) {
   if (tabIndex === 0)
     return (
       <>
@@ -22,7 +22,7 @@ export default function TabContent({ tabIndex, description }) {
     return (
       <>
         <div className='tab-content2'>
-          <p>주문 및 배송 안내입니다.</p>
+          <p>{description2 || '주문 배송 안내입니다'}</p>
           <style jsx>{`
             .tab-content2 {
               background-color: #efefef;

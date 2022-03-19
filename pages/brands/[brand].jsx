@@ -16,6 +16,20 @@ export default function BrandPage() {
   const [loading, setLoading] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;
+  const options = [
+    {
+      name: '선택',
+    },
+    {
+      name: '가격낮은순',
+    },
+    {
+      name: '가격높은순',
+    },
+    {
+      name: 'abc순',
+    },
+  ];
 
   const handleChange = (e) => {
     setSelectedIndex(e.target.value);
@@ -75,7 +89,10 @@ export default function BrandPage() {
               <p className='products-num'>
                 총 {sortedItems.length}개의 상품이 준비되어 있습니다.
               </p>
-              <ListSelector onChange={handleChange}></ListSelector>
+              <ListSelector
+                onChange={handleChange}
+                options={options}
+              ></ListSelector>
             </div>
           )}
           {loading ? <Loading></Loading> : <List products={sortedItems}></List>}

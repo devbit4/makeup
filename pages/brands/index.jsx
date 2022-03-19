@@ -16,6 +16,21 @@ export default function BrandsPage() {
   const url2 =
     'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
   // url 전체 데이터 대신 url2로 대체, 실전에서는 url로
+  const options = [
+    {
+      name: '선택',
+    },
+    {
+      name: '가격낮은순',
+    },
+    {
+      name: '가격높은순',
+    },
+    {
+      name: 'abc순',
+    },
+  ];
+
   useEffect(() => {
     let mounted = true;
     setLoading(true);
@@ -71,7 +86,10 @@ export default function BrandsPage() {
           <h1 className='main-title'>all brands items</h1>
           <div className='list-info'>
             <p>임시로 10개 데이터만 화면에 slice함*</p>
-            <ListSelector onChange={handleChange}></ListSelector>
+            <ListSelector
+              onChange={handleChange}
+              options={options}
+            ></ListSelector>
           </div>
           {loading ? <Loading></Loading> : <List products={sortedItems}></List>}
         </div>

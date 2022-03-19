@@ -20,23 +20,28 @@ export default function Breadcrumbs() {
 
   return (
     <>
-      <ul className='breadcrumb-inner'>
-        <li className='breadcrumb-home'>
-          <Link href={'/'}>
-            <a>Home</a>
-          </Link>
-        </li>
-        {breadcrumbs.map((breadcrumb) => {
-          return (
-            <li key={breadcrumb.href} className='breadscrumb-route'>
-              <Link href={breadcrumb.href}>
-                <a>{breadcrumb.pathName}</a>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <div className='breadcrumb'>
+        <ul className='breadcrumb-inner'>
+          <li className='breadcrumb-home'>
+            <Link href={'/'}>
+              <a>Home</a>
+            </Link>
+          </li>
+          {breadcrumbs.map((breadcrumb) => {
+            return (
+              <li key={breadcrumb.href} className='breadscrumb-route'>
+                <Link href={breadcrumb.href}>
+                  <a>{breadcrumb.pathName}</a>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
       <style jsx>{`
+        .breadcrumb {
+          width: 100%;
+        }
         .breadcrumb-inner {
           width: 1180px;
           display: flex;

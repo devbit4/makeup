@@ -22,7 +22,6 @@ export default function MyPage() {
       }
     });
   };
-
   const logout = () => {
     axios.get('/api/logout').then((res) => {
       if (res.status === 200) {

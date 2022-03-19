@@ -8,7 +8,6 @@ export default function List({ products }) {
   };
   const handleImgError = (e) => {
     e.target.src = '/img/main1.jpg';
-    e.target.onerror = null;
   };
 
   return (
