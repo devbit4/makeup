@@ -1,4 +1,13 @@
-export default function Info({ homePics }) {
+export default function Info() {
+  const homePics = [
+    {
+      src: '/img/main2.jpg',
+      name: 'SKIN CARE',
+    },
+    { src: '/img/main3.jpg', name: 'BODY CARE' },
+    { src: '/img/main4.jpg', name: 'HAIR CARE' },
+  ];
+
   return (
     <>
       <section className='home-info'>
