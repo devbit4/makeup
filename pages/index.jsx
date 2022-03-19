@@ -22,7 +22,7 @@ export async function getStaticProps() {
   const url =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
-      : 'https://makeup-sigma.vercel.app';
+      : process.env.VERCEL_URL;
 
   const res = await fetch(`${url}/dbs/home.json`);
   const homeData = await res.json();
