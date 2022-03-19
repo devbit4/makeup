@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Seo from '../components/common/Seo';
-import Ceo from '../components/sub/about/CEO';
+import Ceo from '../components/sub/about/Ceo';
 import Members from '../components/sub/about/Members';
 import axios from 'axios';
 

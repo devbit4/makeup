@@ -5,7 +5,7 @@ import Sidebar from '../../components/layout/Sidebar';
 import ContactForm from '../../components/sub/community/ContactForm';
 import ContactBtn from '../../components/sub/community/ContactBtn';
 import HelpRequest from '../../components/sub/community/HelpRequest';
-import HelpShowBox from '../../components/sub/community/helpShowBox';
+import HelpShowBox from '../../components/sub/community/HelpShowBox';
 
 export default function ContactPage() {
   const [isPopup, setIsPopup] = useState(false);
