@@ -18,7 +18,7 @@ export default function HomePage({ homeData }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const url =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
