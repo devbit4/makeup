@@ -1,4 +1,4 @@
-import List from '../../components/sub/brands/List';
+import List from '../../components/common/List';
 
 export default function SearchPage({ products }) {
   if (products.length === 0) return <h1>조회된 결과가 없습니다</h1>;

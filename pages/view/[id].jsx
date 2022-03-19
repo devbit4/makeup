@@ -1,16 +1,16 @@
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Loading from '../../components/common/Loading';
-import TabContent from '../../components/sub/detail/TabContent';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
-import Item from '../../components/sub/detail/Item';
-import TabIndex from '../../components/sub/detail/TabIndex';
+import Loading from '../../components/common/Loading';
+import Item from '../../components/common/Item';
+import TabIndex from '../../components/common/TabIndex';
+import TabContent from '../../components/common/TabContent';
 
 export default function ViewPage({ item }) {
   const router = useRouter();
-  const [tabIndex, setTabIndex] = useState(0);
   const dispatch = useDispatch();
+  const [tabIndex, setTabIndex] = useState(0);
 
   if (router.isFallback) {
     return (
