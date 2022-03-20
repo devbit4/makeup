@@ -11,7 +11,7 @@ export default function MyPage() {
   const router = useRouter();
   const dispatch = useDispatch();
   const [isLogin, setIsLogin] = useState(false);
-  const shoppingItems = useSelector((state) => state);
+  const shoppingItems = useSelector((state) => state.shoppingReducer);
 
   const checkLogin = () => {
     axios.get('/api/isLogin').then((res) => {

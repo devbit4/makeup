@@ -49,6 +49,7 @@ export default function ContactPage() {
   };
 
   const deletePost = (deletedIndex) => {
+    if (!window.confirm('해당 글을 지우시겠습니까?')) return;
     setHelps(helps.filter((post, postIndex) => postIndex !== deletedIndex));
   };
 

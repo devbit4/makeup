@@ -6,6 +6,7 @@ export default function ContactForm({ onClick }) {
 
   const sendEmail = (e) => {
     e.preventDefault();
+    if (!window.confirm('해당 글을 전송하시겠습니까?')) return;
     emailjs
       .sendForm(
         'service_r3glcwm',

@@ -1,11 +1,11 @@
-import { createStore } from 'redux';
+import { combineReducers } from 'redux';
 
-let shopping = [
+const shopping = [
   { id: 203, name: '립스틱', quan: 1 },
   { id: 12, name: '섀도우', quan: 1 },
 ];
 
-function shoppingReducer(state = shopping, action) {
+const shoppingReducer = (state = shopping, action) => {
   if (action.type === 'add') {
     let copy = [...state];
     let index = copy.findIndex((obj) => obj.id === action.payload.id);
@@ -33,8 +33,8 @@ function shoppingReducer(state = shopping, action) {
   } else {
     return state;
   }
-}
+};
 
-let store = createStore(shoppingReducer);
+const reducers = combineReducers({ shoppingReducer });
 
-export default store;
+export default reducers;

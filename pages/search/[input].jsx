@@ -12,7 +12,7 @@ export default function SearchPage({ products }) {
         <style jsx>{`
           .search-inner {
             width: 1180px;
-            min-height: 300px;
+            min-height: 500px;
             margin: 20px auto;
           }
           .searched-info {

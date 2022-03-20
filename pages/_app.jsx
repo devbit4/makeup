@@ -1,5 +1,6 @@
 import { Provider } from 'react-redux';
-import store from '../store/store';
+import { createStore } from 'redux';
+import reducers from '../store/reducers';
 
 import Layout from '../components/layout/Layout';
 import Router from 'next/router';
@@ -24,6 +25,8 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
 config.autoAddCss = false;
+
+const store = createStore(reducers);
 
 function MyApp({ Component, pageProps }) {
   return (
