@@ -28,7 +28,6 @@ export default function ContactPage() {
     setIsPopup(!isPopup);
   };
 
-  //crud
   const addPost = () => {
     if (!writer.current.value || !request.current.value) {
       alert('이름과 문의사항을 입력해주세요');

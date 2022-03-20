@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import Seo from '../../components/common/Seo';
 import ItemDetail from '../../components/common/ItemDetail';
 import TabIndex from '../../components/common/TabIndex';
 import TabContent from '../../components/common/TabContent';
@@ -36,7 +35,6 @@ export default function DetailPage() {
 
   return (
     <>
-      <Seo title='상세페이지' />
       {item ? (
         <div className='detail-inner'>
           {alarm && <Alarm></Alarm>}

@@ -1,3 +1,5 @@
+import Seo from './Seo';
+
 export default function ItemDetail({ item, dispatch, router, text1, text2 }) {
   const handleImgError = (e) => {
     e.target.src = '/img/main1.jpg';
@@ -5,6 +7,7 @@ export default function ItemDetail({ item, dispatch, router, text1, text2 }) {
 
   return (
     <>
+      <Seo title={item.name} />
       <div className='detail-item'>
         <div className='detail-pic'>
           <img
