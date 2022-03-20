@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { COMMUNITY_PAGE } from '../../constants';
 import Seo from '../../components/common/Seo';
 import Sidebar from '../../components/layout/Sidebar';
@@ -83,6 +83,23 @@ export default function ContactPage() {
       })
     );
   };
+
+  // 로컬스트리지
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      let data = localStorage.getItem('helps');
+      if (data) {
+        setHelps(JSON.parse(data));
+      } else {
+        return [];
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('helps', JSON.stringify(helps));
+  }, [helps]);
 
   return (
     <>

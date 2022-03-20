@@ -26,6 +26,10 @@ function shoppingReducer(state = shopping, action) {
     let index = copy.findIndex((obj) => obj.id === action.payload.id);
     copy[index].quan > 0 && copy[index].quan--;
     return copy;
+  } else if (action.type === 'delete') {
+    let copy = [...state];
+    let newArray = copy.filter((obj) => obj.id !== action.payload.id);
+    return newArray;
   } else {
     return state;
   }

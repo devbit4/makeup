@@ -1,5 +1,6 @@
 import Seo from '../../components/common/Seo';
 import List from '../../components/common/List';
+import Loading from '../../components/common/Loading';
 
 export default function SearchPage({ products }) {
   if (products.length === 0)
@@ -33,7 +34,7 @@ export default function SearchPage({ products }) {
     <>
       <Seo title='Search' />
       <div className='search-inner'>
-        <List products={products}></List>
+        {products ? <List products={products}></List> : <Loading></Loading>}
       </div>
       <style jsx global>{`
         .search-inner {

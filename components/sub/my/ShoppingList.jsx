@@ -28,7 +28,7 @@ export default function ShoppingList({ shoppingItems, dispatch }) {
                         });
                       }}
                     >
-                      +
+                      추가
                     </button>
                     <button
                       onClick={() => {
@@ -38,7 +38,17 @@ export default function ShoppingList({ shoppingItems, dispatch }) {
                         });
                       }}
                     >
-                      -
+                      감소
+                    </button>
+                    <button
+                      onClick={() => {
+                        dispatch({
+                          type: 'delete',
+                          payload: { id: item.id },
+                        });
+                      }}
+                    >
+                      삭제
                     </button>
                   </td>
                 </tr>

@@ -18,7 +18,7 @@ export default function HelpShowBox({
       <div className='help-show-box'>
         {helps.map((post, index) => {
           return (
-            <article key={post.request}>
+            <article key={post.request + index}>
               {post.enableUpdate ? (
                 <>
                   <div className='post'>
