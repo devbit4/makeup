@@ -84,7 +84,7 @@ export default function ContactPage() {
     );
   };
 
-  // 로컬스트리지
+  // 로컬스토리지
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
