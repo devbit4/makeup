@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useMemo } from 'react';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
+import { throttle } from 'lodash';
 
 export default function ArrowUpBtn() {
   const scrollHeight = 400;
@@ -11,16 +12,23 @@ export default function ArrowUpBtn() {
     document.documentElement.scrollTop = 0;
   }, []);
 
+  const throttledScroll = useMemo(
+    () =>
+      throttle(() => {
+        if (document.documentElement.scrollTop > scrollHeight) {
+          setBtnActive(true);
+          console.log('scroll');
+        } else {
+          setBtnActive(false);
+        }
+      }, 300),
+    [btnActive]
+  );
+
   useEffect(() => {
-    const showArrowUpBtn = window.addEventListener('scroll', () => {
-      if (document.documentElement.scrollTop > scrollHeight) {
-        setBtnActive(true);
-      } else {
-        setBtnActive(false);
-      }
-    });
-    return () => window.removeEventListener('scroll', showArrowUpBtn);
-  }, []);
+    window.addEventListener('scroll', throttledScroll);
+    return () => window.removeEventListener('scroll', throttledScroll);
+  }, [throttledScroll]);
 
   return (
     <>
