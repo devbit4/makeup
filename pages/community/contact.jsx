@@ -44,6 +44,7 @@ export default function ContactPage() {
         type: type.current.value,
         request: request.current.value,
         date: dateString,
+        comments: [],
       },
       ...helps,
     ]);

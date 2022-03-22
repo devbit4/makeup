@@ -1,5 +1,8 @@
+import Comments from './Comments';
+
 export default function HelpShowBox({
   helps,
+  setHelps,
   updateWriter,
   updateType,
   updateRequest,
@@ -51,6 +54,7 @@ export default function HelpShowBox({
                     <p>{post.request}</p>
                     <span>{post.writer}</span>
                     <span className='date'>{post.date}</span>
+                    <Comments></Comments>
                   </div>
                   <div className='post-btns'>
                     <button onClick={() => enableUpdate(index)}>
