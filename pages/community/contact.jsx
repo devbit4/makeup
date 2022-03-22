@@ -16,6 +16,11 @@ export default function ContactPage() {
   const updateWriter = useRef(null);
   const updateType = useRef(null);
   const updateRequest = useRef(null);
+  const options = [
+    { name: '문의사항1' },
+    { name: '문의사항2' },
+    { name: '문의사항3' },
+  ];
 
   // 날짜
   const today = new Date();
@@ -122,6 +127,7 @@ export default function ContactPage() {
                 writer={writer}
                 type={type}
                 request={request}
+                options={options}
                 addPost={addPost}
               ></HelpRequest>
               <HelpShowBox
@@ -130,6 +136,7 @@ export default function ContactPage() {
                 updateWriter={updateWriter}
                 updateType={updateType}
                 updateRequest={updateRequest}
+                options={options}
                 deletePost={deletePost}
                 enableUpdate={enableUpdate}
                 disableUpdate={disableUpdate}

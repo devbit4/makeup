@@ -1,9 +1,10 @@
-export default function HelpRequest({ writer, type, request, addPost }) {
-  const options = [
-    { name: '문의사항1' },
-    { name: '문의사항2' },
-    { name: '문의사항3' },
-  ];
+export default function HelpRequest({
+  writer,
+  type,
+  options,
+  request,
+  addPost,
+}) {
   return (
     <>
       <div className='help-request'>

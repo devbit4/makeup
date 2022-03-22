@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from 'react';
+import { debounce } from 'lodash';
+import React, { useCallback, useState, useMemo } from 'react';
 import Seo from '../../components/common/Seo';
 import SearchFilter from '../../components/sub/makeup/SearchFilter';
 import ViewType from '../../components/sub/makeup/ViewType';
@@ -9,18 +10,28 @@ export default function MakeupPage({ products }) {
   const [viewType, setViewType] = useState('two');
   const [items, setItems] = useState(bestItems);
 
-  const handleInputChange = useCallback((e) => {
-    let searchedItems = [];
-    bestItems.forEach((item) => {
-      if (
-        item.name.toUpperCase().indexOf(e.target.value.toUpperCase()) === -1
-      ) {
-        return;
-      }
-      searchedItems.push(item);
-    });
-    setItems(searchedItems);
-  }, []);
+  const debouncedSearch = useMemo(
+    () =>
+      debounce((val) => {
+        let searchedItems = [];
+        bestItems.forEach((item) => {
+          if (item.name.toUpperCase().indexOf(val.toUpperCase()) === -1) {
+            return;
+          }
+          searchedItems.push(item);
+        });
+        setItems(searchedItems);
+      }, 300),
+    []
+  );
+
+  const handleInputChange = useCallback(
+    (e) => {
+      debouncedSearch(e.target.value);
+      console.log('heelo');
+    },
+    [debouncedSearch]
+  );
 
   return (
     <>

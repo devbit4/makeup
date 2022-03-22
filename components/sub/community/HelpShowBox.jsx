@@ -3,16 +3,12 @@ export default function HelpShowBox({
   updateWriter,
   updateType,
   updateRequest,
+  options,
   deletePost,
   enableUpdate,
   disableUpdate,
   updatePost,
 }) {
-  const options = [
-    { name: '문의사항1' },
-    { name: '문의사항2' },
-    { name: '문의사항3' },
-  ];
   return (
     <>
       <div className='help-show-box'>

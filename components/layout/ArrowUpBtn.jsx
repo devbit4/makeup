@@ -17,7 +17,6 @@ export default function ArrowUpBtn() {
       throttle(() => {
         if (document.documentElement.scrollTop > scrollHeight) {
           setBtnActive(true);
-          console.log('scroll');
         } else {
           setBtnActive(false);
         }
