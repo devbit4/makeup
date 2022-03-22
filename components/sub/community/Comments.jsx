@@ -12,6 +12,15 @@ export default function Comments() {
     ]);
     input.current.value = '';
   };
+  const hadnleClick = () => {
+    addComment();
+  };
+  const handleKeyPress = (e) => {
+    if (e.code === 'Enter') {
+      addComment();
+    }
+  };
+
   const deleteComment = (deletedIndex) => {
     setComments(comments.filter((comment, index) => index !== deletedIndex));
   };
@@ -32,8 +41,8 @@ export default function Comments() {
           })}
       </ul>
       <div className='comment-input-box'>
-        <input type='text' ref={input} />
-        <button onClick={addComment}>댓글달기</button>
+        <input type='text' ref={input} onKeyPress={handleKeyPress} />
+        <button onClick={hadnleClick}>댓글달기</button>
       </div>
       <style jsx>{`
         .comment {
