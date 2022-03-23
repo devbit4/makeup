@@ -53,7 +53,7 @@ export default function BrandPage() {
       default:
         return itemArray;
     }
-  });
+  }, [products, selectedIndex]);
 
   useEffect(() => {
     let mounted = true;
@@ -68,7 +68,7 @@ export default function BrandPage() {
       })
       .catch((err) => console.log(err));
     return () => (mounted = false);
-  }, [router]);
+  }, [router, url]);
 
   return (
     <>

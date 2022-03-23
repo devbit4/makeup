@@ -12,17 +12,13 @@ export default function ArrowUpBtn() {
     document.documentElement.scrollTop = 0;
   }, []);
 
-  const throttledScroll = useMemo(
-    () =>
-      throttle(() => {
-        if (document.documentElement.scrollTop > scrollHeight) {
-          setBtnActive(true);
-        } else {
-          setBtnActive(false);
-        }
-      }, 300),
-    [btnActive]
-  );
+  const throttledScroll = throttle(() => {
+    if (document.documentElement.scrollTop > scrollHeight) {
+      setBtnActive(true);
+    } else {
+      setBtnActive(false);
+    }
+  }, 300);
 
   useEffect(() => {
     window.addEventListener('scroll', throttledScroll);

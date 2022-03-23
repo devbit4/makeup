@@ -8,6 +8,7 @@ export default function LoginPage() {
 
   const login = (e) => {
     e.preventDefault();
+
     axios.post('/api/login').then((res) => {
       if (res.status === 200) {
         router.push('/my');

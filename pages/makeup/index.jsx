@@ -21,14 +21,13 @@ export default function MakeupPage({ products }) {
           searchedItems.push(item);
         });
         setItems(searchedItems);
-      }, 300),
-    []
+      }, 500),
+    [bestItems]
   );
 
   const handleInputChange = useCallback(
     (e) => {
       debouncedSearch(e.target.value);
-      console.log('heelo');
     },
     [debouncedSearch]
   );

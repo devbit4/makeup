@@ -30,7 +30,7 @@ export default function InfoPage() {
         .get(`/dbs/${section}.json`)
         .then((res) => setProblems(res.data.data))
         .catch((err) => console.log(err));
-  }, [router]);
+  }, [section]);
 
   return (
     <>

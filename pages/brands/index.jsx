@@ -68,7 +68,7 @@ export default function BrandsPage() {
       default:
         return itemArray;
     }
-  });
+  }, [products, selectedIndex]);
 
   return (
     <>

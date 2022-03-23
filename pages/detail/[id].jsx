@@ -22,7 +22,7 @@ export default function DetailPage() {
       .get(url)
       .then((res) => setItem(res.data))
       .catch((err) => console.log(err));
-  }, [id]);
+  }, [id, url]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
