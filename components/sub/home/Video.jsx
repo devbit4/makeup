@@ -10,7 +10,9 @@ export default function Video() {
             poster={
               "https://dela4pam71omq.cloudfront.net/svc01/2023/03/15/e594addda71f4c9a8ac6e7f54d995876/197cbbaaedf0406b97c29b8235089cc1"
             }
-            src={"/img/video-player/demo.mp4"}
+            src={
+              "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+            }
             indexList={[
               {
                 title: "first",
