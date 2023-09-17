@@ -1,4 +1,4 @@
-## 🗺️ 과제 가이드북 🗺️
+## 🗺️ 가이드북 🗺️
 
 ![screenshot](https://user-images.githubusercontent.com/88700967/158895727-a78f0ff5-a90e-481e-934f-0487bcab018f.png)
 
