@@ -888,7 +888,7 @@ function VideoPlayer(prop) {
           right: 0;
           bottom: 0;
           left: 0;
-          z-index: 9;
+          // z-index: 9;
           border: 2px solid #16b294;
           content: "";
         }
