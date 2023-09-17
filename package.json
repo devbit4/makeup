@@ -2,6 +2,7 @@
   "name": "makeup",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3000",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,8 +15,10 @@
     "@fortawesome/free-solid-svg-icons": "^6.0.0",
     "@fortawesome/react-fontawesome": "^0.1.17",
     "axios": "^0.26.1",
-    "clsx": "^1.1.1",
+    "clsx": "^1.2.1",
+    "hls.js": "^1.4.1",
     "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "next": "12.1.0",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
@@ -24,7 +27,9 @@
     "react-reveal": "^1.2.2",
     "redux": "^4.1.2",
     "redux-persist": "^6.0.0",
-    "swiper": "^8.0.7"
+    "swiper": "^8.0.7",
+    "uuid": "^9.0.0",
+    "uuid4": "^2.0.3"
   },
   "devDependencies": {
     "eslint": "8.10.0",

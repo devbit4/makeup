@@ -1,41 +1,41 @@
-import Seo from './Seo';
+import Seo from "./Seo";
 
 export default function ItemDetail({ item, dispatch, router, text1, text2 }) {
   const handleImgError = (e) => {
-    e.target.src = '/img/main1.jpg';
+    e.target.src = "/img/main1.jpg";
   };
 
   return (
     <>
       <Seo title={item.name} />
-      <div className='detail-item'>
-        <div className='detail-pic'>
+      <div className="detail-item">
+        <div className="detail-pic">
           <img
             src={item.image_link}
-            className='detail-img'
+            className="detail-img"
             onError={handleImgError}
           ></img>
         </div>
-        <div className='detail-text'>
-          <strong className='detail-name'>{item.name}</strong>
-          <span className='detail-sub'>
-            {item.category || 'all'} / {item.product_type}
+        <div className="detail-text">
+          <strong className="detail-name">{item.name}</strong>
+          <span className="detail-sub">
+            {item.category || "all"} / {item.product_type}
           </span>
-          <strong className='detail-price'>${item.price}</strong>
-          <div className='detail-btns'>
+          <strong className="detail-price">${item.price}</strong>
+          <div className="detail-btns">
             <button
-              className='detail-btn'
+              className="detail-btn"
               onClick={() => {
                 dispatch({
-                  type: 'add',
+                  type: "add",
                   payload: { id: item.id, name: item.name, quan: 1 },
                 });
-                router.push('/my');
+                router.push("/my");
               }}
             >
-              {text1 || '장바구니'}
+              {text1 || "장바구니"}
             </button>
-            <button className='detail-btn'>{text2 || '구매하기'}</button>
+            <button className="detail-btn">{text2 || "구매하기"}</button>
           </div>
         </div>
       </div>
@@ -63,15 +63,15 @@ export default function ItemDetail({ item, dispatch, router, text1, text2 }) {
         }
         .detail-name {
           margin-bottom: 40px;
-          font: 700 16px/1 'roboto';
+          font: 700 16px/1 "roboto";
         }
         .detail-sub {
           margin-bottom: 20px;
-          font: 400 16px/1 'roboto';
+          font: 400 16px/1 "roboto";
         }
         .detail-price {
           margin-bottom: 40px;
-          font: 400 24px/1 'roboto';
+          font: 400 24px/1 "roboto";
           color: red;
         }
         .detail-btn {
@@ -83,7 +83,7 @@ export default function ItemDetail({ item, dispatch, router, text1, text2 }) {
           margin-right: 10px;
           margin-top: 10px;
           cursor: pointer;
-          font: 400 16px/1 'roboto';
+          font: 400 16px/1 "roboto";
         }
         .detail-btn:hover {
           background: #333;

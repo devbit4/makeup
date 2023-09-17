@@ -1,39 +1,39 @@
 export default function Info() {
   const homePics = [
     {
-      src: '/img/main2.jpg',
-      name: 'SKIN CARE',
+      src: "/img/main2.jpg",
+      name: "SKIN CARE",
     },
-    { src: '/img/main3.jpg', name: 'BODY CARE' },
-    { src: '/img/main4.jpg', name: 'HAIR CARE' },
+    { src: "/img/main3.jpg", name: "BODY CARE" },
+    { src: "/img/main4.jpg", name: "HAIR CARE" },
   ];
 
   return (
     <>
-      <section className='home-info'>
-        <div className='home-info-inner'>
-          <div className='home-info-intro'>
-            <span className='home-info-intro-title'>
+      <section className="home-info">
+        <div className="home-info-inner">
+          <div className="home-info-intro">
+            <span className="home-info-intro-title">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             </span>
-            <p className='home-info-intro-description'>
+            <p className="home-info-intro-description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
               laboriosam harum beatae cum explicabo quia saepe quae officia, sed
               veniam, voluptate sit tempore! Doloremque, odio.
             </p>
           </div>
-          <ul className='home-info-pics'>
+          <ul className="home-info-pics">
             {homePics.map((pic, index) => {
               return (
-                <li className='home-info-pic' key={index}>
-                  <div className='img-wrapper'>
+                <li className="home-info-pic" key={index}>
+                  <div className="img-wrapper">
                     <img
                       src={pic.src}
-                      alt='home-info-pic1'
-                      className='home-info-pic-img'
+                      alt="home-info-pic1"
+                      className="home-info-pic-img"
                     ></img>
                   </div>
-                  <div className='home-info-textbox'>
+                  <div className="home-info-textbox">
                     <strong>00{index + 1}</strong>
                     <span>{pic.name}</span>
                   </div>
@@ -65,11 +65,11 @@ export default function Info() {
         }
         .home-info-intro-title {
           margin: 0 30px;
-          font: 400 16px/1.4 'fredoka';
+          font: 400 16px/1.4 "fredoka";
           color: #b46927;
         }
         .home-info-intro-description {
-          font: 400 16px/1.2 'questrial';
+          font: 400 16px/1.2 "questrial";
         }
         .home-info-pics {
           width: 90%;
@@ -99,12 +99,12 @@ export default function Info() {
           cursor: pointer;
         }
         .home-info-textbox strong {
-          font: 400 16px/1 'fredoka';
+          font: 400 16px/1 "fredoka";
           color: #b46927;
         }
         .home-info-textbox span {
           margin-left: 10px;
-          font: 400 1px/1 'roboto';
+          font: 400 1px/1 "roboto";
         }
         // 반응형
         @media screen and (max-width: 1180px) {
